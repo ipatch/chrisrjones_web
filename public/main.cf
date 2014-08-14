@@ -1,0 +1,86 @@
+# See /usr/share/postfix/main.cf.dist for a commented, more complete version
+
+# Your hostname and domain name here
+myhostname = chrisrjones.com
+mydomain = chrisrjones.com
+myorigin = $mydomain
+
+# Virtual mailbox configuration (/var/email should have been created
+# through the previous commands)
+virtual_mailbox_base=/var/email
+virtual_mailbox_domains=hash:/etc/postfix/vmail_domains
+virtual_mailbox_maps=hash:/etc/postfix/vmail_mailbox
+virtual_alias_maps=hash:/etc/postfix/vmail_aliases
+virtual_minimum_uid=100
+virtual_uid_maps=static:7788
+virtual_gid_maps=static:7788
+virtual_transport=dovecot
+
+# Debian specific:  Specifying a file name will cause the first
+# line of that file to be used as the name.  The Debian default
+# is /etc/mailname.
+myorigin = /etc/mailname
+
+smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
+biff = no
+
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+
+# Uncomment the next line to generate "delayed mail" warnings
+#delay_warning_time = 4h
+
+readme_directory = no
+
+# SSL configuration 
+smtpd_tls_cert_file=/etc/ssl/certs/dovecot.pem
+smtpd_tls_key_file=/etc/ssl/private/dovecot.pem
+smtpd_tls_CAfile=/etc/ssl/certs/ca-certificates.crt
+smtp_tls_CAfile=/etc/ssl/certs/ca-certificate.crt
+smtp_use_tls=yes
+smtpd_use_tls=yes
+smtpd_tls_loglevel = 1
+smtpd_tls_received_header = yes
+tls_random_source=dev:/dev/urandom
+smtp_tls_note_starttls_offer=yes
+smtp_tls_session_cache_timeout=3600s
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+queue_directory = /var/spool/postfix
+
+# Authentication settings, making use of SASL
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/dovecot-auth 
+smtpd_sasl_auth_enable = yes
+broken_sasl_auth_clients = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_tls_security_options = $smtpd_sasl_security_options
+smtpd_sasl_local_domain = $myhostname
+smtpd_sasl_application_name = smtpd
+smptd_helo_required = yes
+smptd_helo_restrictions = reject_invalid_helo_hostname
+smtpd_recipient_restrictions = 
+   reject_unknown_recipient_domain,
+   reject_unauth_pipelining,
+   permit_mynetworks,
+   permit_sasl_authenticated,
+   reject_unauth_destination
+
+# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
+# information on enabling SSL in the smtp client.
+
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+mydestination = chrisrjones.com, localhost, localhost.localdomain 
+relayhost = 
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_command = procmail -a "$EXTENSION"
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+#logan = logan.chrisrjones.com
+relay_domains = chrisrjones.com
+
+# http://www.postfix.org/SOHO_README.html
+# smtp_generic_maps = hash:/etc/postfix/generic
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Bubbles Experiment</title>
+    <script type="text/javascript" src="http://chrisrjones.com/d3.v3.min.js"></script>
+    <style>
+
+    /* beer background color 222, 173, 26 */
+    /* homebrew.sh bg-color #f6e6cc */
+    /* SRM - english brown ale #5b342f */
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      padding: 0%;
+      margin: 0%;
+    }
+    #wrapper {
+      /*border: solid #333; */
+      height: 100%;
+      width: 100%;
+      /*background-color: rgb(222,173,26); */
+    }
+    #bubbles {
+      position: relative; 
+    }
+   footer {
+      position: fixed;
+      bottom:0px;
+      left: 0px;
+      right: 0px;
+   /*   border: solid 2px red; */
+   }
+
+    </style>
+</head>
+<body>
+   <audio autoplay>
+      <!-- <source src="bottle-open.ogg" type="audio/ogg"> -->
+         Your browser doesn't support the audio tag.
+   </audio>
+   <div id="wrapper">
+      <footer>I'm within the footer tag.
+         <div id="bubbles"></div>
+      </footer>
+   </div>
+
+    <script type="text/javascript">
+var bubblesDivWidth = window.innerWidth;
+var bubblesDivHeight = window.innerHeight;
+var bDH1 = window.innerHeight + 1;
+var bStartY = (bDH1 - bubblesDivHeight);
+
+circleRadius = [],
+
+i = 0
+
+for (i=0; i<50; i++){ // second value = # of circles
+   circleRadius.push(Math.round(Math.random()*100));
+}
+
+var svgContainer = d3.select("#bubbles").append("svg")
+.attr("width", bubblesDivWidth)
+.attr("height", bubblesDivHeight);
+
+var circles = svgContainer.selectAll("circle")
+   .data(circleRadius)
+   .enter()
+   .append("circle")
+
+var circleAttributes = circles
+.attr("cx", function(d, i){return i*80})
+.attr("cy", bubblesDivHeight)// starting point for bubbles
+.attr("r", Math.random() * 12 + 4) // works better than below line.
+//.attr("r", function(d, i){return i*Math.random()*2})
+.style("fill", "white")
+.style("fill-opacity", "0.2")
+.style("stroke", "white")
+.style("stroke-opacity", "0.4")
+    </script>
+
+     <script type="text/javascript">
+var beerBackground = d3.select("body").transition()
+   .duration(2000)
+   .style("background-color","#5b342f")
+   </script>
+   <script type="text/javascript">
+
+   // possibly animate circles in separate script
+
+  var circlesTransition = d3.selectAll("circle")
+   .transition()
+   .duration(5000)
+ //  
+   .attr("cy", "0");
+
+   </script>
+   <script type="text/javascript">
+//      var circlesWobble = d3.selectAll("circle")
+//.transition()
+//.duration(500)
+  // .attr("cx", Math.random()  );
+
+   </script>
+
+</body>
+</html>
