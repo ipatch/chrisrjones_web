@@ -10,7 +10,7 @@ development:
   database: crj_cms_dev
   pool: 5
   username: web_user
-  password: stateTropper
+  password: highWayP@tr0lmen
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -29,5 +29,5 @@ production:
   database: crj_cms
   pool: 5
   username: web_user
-  password: stateTropper
+  password: highWayP@tr0lmen
   socket: /var/run/mysqld/mysqld.sock
