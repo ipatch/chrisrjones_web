@@ -2,8 +2,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Added the below two lines of code for google analytics support
-  config.gem 'rack-google-analytics', :lib => 'rack/google-analytics'
-  config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-21754484-2'
+  # config.gem 'rack-google-analytics', :lib => 'rack/google-analytics'
+  # config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-21754484-2'
   
   # Code is not reloaded between requests.
   config.cache_classes = true
