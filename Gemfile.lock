@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/charliesome/better_errors.git
+  revision: 86169977c28a837a106d62b240ab520de3466145
+  specs:
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 95de3b0e288aede73d38a18cce30cde66e733558
   specs:
@@ -42,6 +50,7 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
+    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -119,6 +128,9 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
+    uglifier (2.5.1)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
 
 PLATFORMS
   ruby
@@ -126,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list (~> 0.4.0)
   bcrypt (~> 3.1.7)
+  better_errors!
   coffee-rails (~> 4.0.1)
   execjs
   jquery-rails
@@ -136,3 +149,4 @@ DEPENDENCIES
   sqlite3
   therubyracer
   twitter-bootstrap-rails!
+  uglifier (>= 1.0.3)

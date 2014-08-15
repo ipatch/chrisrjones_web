@@ -34,7 +34,7 @@ gem 'acts_as_list', '~> 0.4.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  # gem 'uglifier', '>= 1.0.3'
+gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 
@@ -68,4 +68,4 @@ gem 'less-rails'
 
 
 # Add gem to support more verbose rails error messages
-# gem 'better_errors', :git => 'git://github.com/charliesome/better_errors.git'
+gem 'better_errors', :git => 'git://github.com/charliesome/better_errors.git'
