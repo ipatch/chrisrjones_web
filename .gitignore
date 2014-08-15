@@ -60,3 +60,6 @@ scratchpad.txt
 
 # Ignore Trash files
 .Trash-1000
+
+# Ignore compiled assets
+/public/assets

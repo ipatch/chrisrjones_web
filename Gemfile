@@ -3,18 +3,18 @@ source 'https://rubygems.org'
 # Notes
 # don't ever edit the Gemfile.lock as bundler manages this file, edit this file instead.
 
-# the main bunlde needed to create a RoR application
-# gem 'rails', '3.2.15'
-
 # the "~>" denotes that bundler will install minor updates, but not major
 
 gem 'rails', '~> 4.1.1'
 
 # the default bundle for SQL / database connectivity, default SQLite
-gem 'sqlite3'
+# the below gem is not needed as I'm using MySQL DB
+# gem 'sqlite3'
 
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
 # Added to prevent errornous error messages
-gem 'execjs'
+# gem 'execjs'
 gem 'therubyracer'
 
 # Added to get mysql support
@@ -25,33 +25,26 @@ gem 'acts_as_list', '~> 0.4.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
-#group :assets do
-	gem 'sass-rails', '~> 4.0.3'
-  	# gem 'sass-rails',   '~> 3.2.3'
-  	gem 'coffee-rails', '~> 4.0.1'
-  	# gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails', '~> 4.0.3'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+gem 'coffee-rails', '~> 4.0.1'
 
-gem 'uglifier', '>= 1.0.3'
+# the below gem is used to compress assets
+gem 'uglifier', '>= 1.3.0'
 
+# add to test building of assets
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # in order to use encrypted passwords the following gem must be enabled
 # bcrypt-ruby became deprecated, new name is just "bcrypt"
 gem 'bcrypt', '~> 3.1.7'
 
-group :production do  
-	# the below gem will only work with rails v3.x ...maybe
-  	# gem 'rack-google-analytics', :require => 'rack/google-analytics'  
-end
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'jbuilder', '~> 2.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -63,8 +56,9 @@ end
 # gem 'debugger'
 
 # Add support for twitter bootstrap, https://github.com/seyhunak/twitter-bootstrap-rails
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'less-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 
 
 # Add gem to support more verbose rails error messages
