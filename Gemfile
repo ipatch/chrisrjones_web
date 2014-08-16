@@ -59,7 +59,5 @@ gem 'jbuilder', '~> 2.0'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-
-
 # Add gem to support more verbose rails error messages
 gem 'better_errors', :git => 'git://github.com/charliesome/better_errors.git'
