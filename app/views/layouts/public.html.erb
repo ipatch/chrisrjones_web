@@ -5,8 +5,33 @@
 		<title>chrisrjones.com<%= " | #{@page_title} " if @page_title %></title>
 		<%= stylesheet_link_tag('application', :media => 'all') %>
 		<%= javascript_include_tag('application') %>
+
 	</head>
 	<body>
+	<!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+		<div class="container">
+			
+  		<%= render 'layouts/nav' %>
+
+  		<%= yield %>
+			  
+		</div>  
+		<!-- need to figure out a way to insert a footer, i.e. one that sticks
+		to the bottom of the web page -->
+			<div id="push"></div>
+    	</div>
+		<div id="footer">
+      		<div class="container">
+        	<p class="muted credit">Yay, \o/ sticky footer. <id="copyright">&copy; chrisrjones.com / Chris Jones</p>
+      		</div>
+    	</div>
+
+	</div> <!-- wrap div -->
+	</body>
+
+
+<!-- 
 		<div id="header">
 			<h1>chrisrjones.com</h1>
 		</div>
@@ -15,12 +40,10 @@
 				<%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
 			</div>
 			<div id="content">
-				<%= yield %>
+				
 			</div>
 		</div>
-		<div id="footer">
-			<p id="copyright">&copy; chrisrjones.com / Chris Jones</p>
-		</div>
-		<%= render "shared/footer"%>
-	</body>
+		
+		<%= render "shared/footer"%> -->
+	
 </html>

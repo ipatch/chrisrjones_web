@@ -45,10 +45,12 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    acts_as_list (0.4.0)
+    acts_as_list (0.3.0)
       activerecord (>= 3.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -59,6 +61,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     commonjs (0.2.7)
+    debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.1.0)
     hike (1.2.3)
@@ -81,11 +84,16 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.3.4)
     multi_json (1.10.1)
     mysql2 (0.3.16)
     polyglot (0.3.5)
+    pry (0.10.0)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -112,6 +120,7 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -140,15 +149,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_list (~> 0.4.0)
+  acts_as_list (~> 0.3.0)
   bcrypt (~> 3.1.7)
   better_errors!
+  binding_of_caller
   coffee-rails (~> 4.0.1)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
   less-rails
   mysql2
+  pry
   rails (~> 4.1.1)
   sass-rails (~> 4.0.3)
   therubyracer

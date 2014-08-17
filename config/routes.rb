@@ -18,7 +18,17 @@ Rails.application.routes.draw do
   # Added below route for correct "resumé" spelling
   get 'resumé', :to =>"resume#index"
 
-  match ':controller(/:action(/:id))', :via => [:get, :post]
+  
+  resources :subjects
+  resources :pages
+  resources :sections
+  resources :admin_users
+  resources :access
+  get 'logout' => 'access#logout'
+  post 'login' => 'access#attempt_login'
+
+  match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
+  # match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -21,7 +21,7 @@ gem 'therubyracer'
 gem 'mysql2'
 
 # Added to sort objects for "Simple CMS"
-gem 'acts_as_list', '~> 0.4.0'
+# gem 'acts_as_list', '~> 0.4.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,6 +38,7 @@ gem 'jquery-ui-rails'
 
 # in order to use encrypted passwords the following gem must be enabled
 # bcrypt-ruby became deprecated, new name is just "bcrypt"
+# in order to use 'has_secure_password' the below gem must be installed
 gem 'bcrypt', '~> 3.1.7'
 
 # To use ActiveModel has_secure_password
@@ -61,3 +62,16 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 
 # Add gem to support more verbose rails error messages
 gem 'better_errors', :git => 'git://github.com/charliesome/better_errors.git'
+
+# add the following gem because Kevin uses it in his simple CMS
+# Added to sort objects for "Simple CMS"
+gem 'acts_as_list', '~> 0.3.0'
+
+# add gem to get interactive console in error message window
+gem 'binding_of_caller'
+
+# add gem to debug rails
+gem 'pry'
+
+# another debugging gem (-.o)
+# gem 'debugger'
