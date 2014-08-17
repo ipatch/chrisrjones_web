@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  # get 'contact/index'
+
+  # get 'about/index'
+
   # Don't need auto-generated routes
   # I'm using the default route.
   # get 'admin_users/index'
@@ -18,12 +22,17 @@ Rails.application.routes.draw do
   # Added below route for correct "resumé" spelling
   get 'resumé', :to =>"resume#index"
 
+  # get 'about#index'
+  get 'about' => 'about#index'
+  get 'contact' => 'contact#index'
+
   
   resources :subjects
   resources :pages
   resources :sections
   resources :admin_users
   resources :access
+  resources :about
   get 'logout' => 'access#logout'
   post 'login' => 'access#attempt_login'
 

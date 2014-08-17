@@ -11,34 +11,25 @@
 	  <%= favicon_link_tag 'favicon.ico' %>
 	</head>
 	<body>
-		<div class="container">
-		
+		<div id="wrap">
 
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="#">Some Store</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li><%= link_to "Browse Products", products_path %></li>
-          <li><%= link_to "Price List" %></li>
-          <li><%= link_to "Contact Us" %></li>
-          <li><%= link_to "Cart" %></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+			<div class="container">
+			
+  		<%= render 'layouts/nav' %>
 
+  		<%= yield %>
+			  
+		</div>  
+		<!-- need to figure out a way to insert a footer, i.e. one that sticks
+		to the bottom of the web page -->
+			<div id="push"></div>
+    	</div>
+		<div id="footer">
+      		<div class="container">
+        	<p class="muted credit"><id="copyright">&copy; chrisrjones.com / Chris Jones</p>
+      		</div>
+    	</div>
 
-		<!-- before yield -->
-		<%= yield %>
-		<!-- after yield -->
-	</div>
+	</div> <!-- wrap div -->
 	</body>
 </html>
