@@ -1,2 +1,34 @@
-<h1>Contact#index</h1>
-<p>Find me in app/views/contact/index.html.erb</p>
+<div id="contact_form">
+
+<h1>Contact Me :)</h1>
+
+<%= form_for Message.new, :url => contact_path do |f| %>
+
+<!-- name -->
+<div class="field">
+	<%= f.text_field :name, :class => 'input-xlarge', placeholder: 'name' %>
+</div>
+
+<!-- email -->
+<div class="field">
+  <%= f.text_field :email, :class => 'input-xlarge', placeholder: 'email' %>
+</div>
+
+<!-- subject -->
+<div class="field">
+	<%= f.text_field :subject, :class => 'input-xlarge', placeholder: 'Subject' %>
+</div>
+
+<!-- message -->
+<div class="field">
+	<%= f.text_area :body, :rows => 10, :cols => 50, placeholder: 'Enter a short synopsis'%>
+</div>
+
+<!-- submit -->
+<div class="actions"><%= f.submit "Send Message", :class => 'btn btn-xlarge btn-custom'%>
+</div>
+
+<% end %>
+
+
+</div>
