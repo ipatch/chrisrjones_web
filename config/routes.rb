@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   # get 'about#index'
   get 'about' => 'about#index'
-  get 'contact' => 'contact#index'
+  get 'contact' => 'contact#contact'
 
   
   resources :subjects
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :admin_users
   resources :access
   resources :about
+  resources :contact
   get 'logout' => 'access#logout'
   post 'login' => 'access#attempt_login'
 

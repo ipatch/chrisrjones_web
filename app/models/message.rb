@@ -1,4 +1,4 @@
-class Message < ActiveRecord::Base
+class Message #< ActiveRecord::Base
 
 	# include ActiveAttr::Model
 
