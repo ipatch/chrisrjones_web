@@ -52,7 +52,11 @@ a:hover {}*/
 /* Content */
 /*#content h2 { color: #4C2516; }*/
 
-
+#nav_100_width {
+	margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+}
 
 
 
