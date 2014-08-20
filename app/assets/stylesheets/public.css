@@ -157,9 +157,9 @@ padding-right: 20px;
 }*/
 
 
-@media only screen and (min-device-width: 560px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
-    /* iPhone 5 only */
-
+/* iPhone 5 Retina regardless of IOS version */
+@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+/*IPhone 5 only CSS here*/
     h1 {
 		font-size:5em;
 	}
