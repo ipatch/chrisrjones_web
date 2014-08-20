@@ -122,6 +122,9 @@ height: 60px;
 }
 #footer {
 background-color: #f5f5f5;
+/* figure out how to set text-size for footer */
+/* height: 2.5em; */ /* sets the height of the actual 'footer div' */
+font-size: 1.5em;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
@@ -141,3 +144,4 @@ padding-right: 20px;
 #contact_form_submit_btn_center {
 	text-align: center;
 }
+
