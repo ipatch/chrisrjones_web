@@ -1,36 +1,52 @@
 <div id="contact_form">
 
 	<h1>Contact Me :)</h1>
+	<hr />
 
-
+	
 	<%= form_for Message.new, :url => contact_path do |f| %>
 
+
+	<form class="form" role="form">
+	
+	<div class="form-group">
 	<!-- name -->
 	<div class="field">
+	
 	<%= f.text_field :name, :class => 'input-lg', placeholder: 'name' %>
+	
+	</div>
 	</div>
 
+	<div class="form-group">
 	<!-- email -->
 	<div class="field">
 	<%= f.text_field :email, :class => 'input-lg', placeholder: 'email' %>
 	</div>
+	</div>
 
-
+	<div class="form-group">
 	<!-- subject -->
 	<div class="field">
 	<%= f.text_field :subject, :class => 'input-lg', placeholder: 'Subject' %>
 	</div>
+	</div>
 
+	<div class="form-group">
 	<!-- message -->
 	<div class="field">
 	<%= f.text_area :body, :rows => 10, :cols => 50, placeholder: 'Enter a short synopsis'%>
 	</div>
+	</div>
 
+	<div class="form-group">
 	<!-- submit -->
 	<div class="text-center">
 		<%= f.submit "Send Message", :class => 'btn-lg' %>
 		</div>
 	</div>
+	</div
+	</form>
 
 
 	<%end%>
