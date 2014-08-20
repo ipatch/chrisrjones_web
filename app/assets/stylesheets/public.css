@@ -167,4 +167,8 @@ padding-right: 20px;
 	p {
 		font-size:2em;
 	}
+
+	body {
+		background-color: #FF0000
+	}
 }
