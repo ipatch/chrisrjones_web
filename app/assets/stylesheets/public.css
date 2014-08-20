@@ -1,5 +1,11 @@
 /* Public stylesheet */
 
+/* classes are denoted with class name */
+
+/* IDs are denoted with '#'
+	ie, #myDivID
+*/
+
 /* Colors
 red:		#993120
 green:		#94B26F
@@ -126,4 +132,12 @@ margin-right: -20px;
 padding-left: 20px;
 padding-right: 20px;
 }
+}
+
+#contact_form {
+	text-align: center;
+}
+
+#contact_form_submit_btn_center {
+	text-align: center;
 }
