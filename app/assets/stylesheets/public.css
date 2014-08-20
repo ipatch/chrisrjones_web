@@ -145,3 +145,11 @@ padding-right: 20px;
 	text-align: center;
 }
 
+
+/* the below media query affects the iphone 5 in portrait */
+@media(min-width:768px){
+
+	h1 {
+		font-size:5em;
+	}
+}
