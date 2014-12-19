@@ -11,19 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817235329) do
+ActiveRecord::Schema.define(version: 20141219025838) do
 
-  create_table "admin_users", force: true do |t|
-    t.string   "first_name",      limit: 25
-    t.string   "last_name",       limit: 50
-    t.string   "email",           limit: 100, default: "", null: false
-    t.string   "username",        limit: 25
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-  end
-
-  add_index "admin_users", ["username"], name: "index_admin_users_on_username", using: :btree
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "admin_users_pages", id: false, force: true do |t|
     t.integer "admin_user_id"
@@ -77,6 +69,13 @@ ActiveRecord::Schema.define(version: 20140817235329) do
     t.string   "name"
     t.integer  "position"
     t.boolean  "visible",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

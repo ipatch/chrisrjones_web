@@ -18,7 +18,10 @@ gem 'rails', '~> 4.1.1'
 gem 'therubyracer'
 
 # Added to get mysql support
-gem 'mysql2'
+# gem 'mysql2'
+
+# Add support for PostgreSQL
+gem 'pg'
 
 # Added to sort objects for "Simple CMS"
 # gem 'acts_as_list', '~> 0.4.0'
