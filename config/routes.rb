@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
   
+  resources :articles do
+    resources :comments
+  end
+
+  resources :posts
+
+  get 'main/index'
+
+  get 'main/list'
+
+  get 'main/category'
+
+  get 'main/archive'
+
+  get 'main/view_post'
+
   get 'signup' => 'users#new'
   get 'login' =>'sessions#new'
   get 'logout' => 'sessions#destroy'
