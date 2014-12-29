@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+#sign-up {
+	text-align: center;
+}
+
+.actions { 
+	width: 100%;
+	text-align: center;
+}
+
+.form-actions { 
+	width: 100%;
+	text-align: center;
+}
+
+/* the below centers the 'sign up' btn on the sign up page */
+div.actions { 
+	width: 100%;
+	text-align: center;
+}

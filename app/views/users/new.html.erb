@@ -1,3 +1,4 @@
+<div id="sign-up">
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
@@ -14,16 +15,16 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: 'email' %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: 'password' %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: 'password' %>
   </div>
-  <div class="actions"><%= f.submit "Sign Up" %></div>
+  <div class="actions"><%= f.submit "Sign Up", class: "btn btn-primary" %></div>
 <% end %>
-
+</div>
