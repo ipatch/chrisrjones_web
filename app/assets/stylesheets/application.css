@@ -44,8 +44,14 @@ div.actions {
     }
 
     h1 {
-    	color:#FF0000;
+    	color: #FF0000;
     }
+}
 
+@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iphone 5 */
 
+    h1 {
+    	color: #FF0000;
+    }
 }
