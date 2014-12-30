@@ -160,13 +160,13 @@ padding-right: 20px;
 /* iPhone 5 Retina regardless of IOS version */
 @media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
 /*IPhone 5 only CSS here*/
-    h1 {
+    /*h1 {
 		font-size:5em;
 	}
 
 	p {
 		font-size:2em;
-	}
+	}*/
 
 	/*body {
 		background-color: #FF0000*/
