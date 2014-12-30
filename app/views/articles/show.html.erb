@@ -1,11 +1,11 @@
 <p>
   <strong>Title:</strong>
-  <%= @article.title %>
+  <%= sanitize @article.title %>
 </p>
  
 <p>
   <strong>Text:</strong>
-  <%= @article.text %>
+  <%= sanitize @article.text %>
 </p>
 
 <h2>Comments</h2>
