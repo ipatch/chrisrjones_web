@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+  # resources :resume
+  get 'resume' => 'resume#index'
 
   get 'main/index'
 
