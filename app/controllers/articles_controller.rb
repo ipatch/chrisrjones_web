@@ -7,7 +7,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
-		@article = Article.find(params[:id])
+		@article = Article.find_by_slug(params[:id])
+		respond_to do |format|
+			format.html # show.html.erb
+			format.json { render json: @article }
+		end
 	end
 
 	def new
@@ -15,7 +19,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		@article = Article.find(params[:id])
+		@article = Article.find_by_slug(params[:id])
 	end
 
 	def create
@@ -29,7 +33,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		@article = Article.find(params[:id])
+		@article = Article.find_by_slug(params[:id])
 
 		if @article.update(article_params)
 			redirect_to @article
@@ -39,7 +43,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
-		@article = Article.find(params[:id])
+		@article = Article.find_by_slug(params[:id])
 		@article.destroy
 
 		redirect_to articles_path
@@ -47,6 +51,6 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			params.require(:article).permit(:title, :text)
+			params.require(:article).permit(:title, :text, :slug)
 		end
 end
