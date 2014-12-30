@@ -23,27 +23,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
-
-  # get 'sessions/new'
-
-  # resources :users
-
-  # get 'contact/index'
-
-  # get 'about/index'
-
-  # Don't need auto-generated routes
-  # I'm using the default route.
-  # get 'admin_users/index'
-  # get 'admin_users/new'
-  # get 'admin_users/edit'
-  # get 'admin_users/delete'
-  # get 'access/index'
-  # get 'blah/index'
-  # get 'public/index'
-  # get 'public/show'
-
-  root "public#index"
+  root "articles#index"
 
   get 'show/:permalink', :to => 'public#show'
   get 'admin', :to => "access#index"
