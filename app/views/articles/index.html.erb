@@ -7,7 +7,7 @@
     <th colspan="2"></th>
   </tr>
  
-  <% @articles.each do |article| %>
+  <% @articles.order(created_at: :desc).each do |article| %>
     <tr>
       <td><%= sanitize article.title %></td>
       <td><%= sanitize article.text %></td>
