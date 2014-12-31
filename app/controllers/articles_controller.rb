@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
 	before_filter :authorize, only: [:create, :edit, :update, :destroy]
 
+	skip_before_filter :verify_authenticity_token
+
 	def index
 		@articles = Article.all
 	end
