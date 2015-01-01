@@ -15,6 +15,10 @@ class Article < ActiveRecord::Base
 	# end
 	validates_presence_of :slug
 
+	# user singluar form of model when using 'belongs_to'
+	# see this SO thread, http://stackoverflow.com/questions/16257116
+	belongs_to :user
+
 	def to_param
 		slug
 	end

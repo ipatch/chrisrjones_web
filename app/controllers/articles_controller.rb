@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
 	before_filter :authorize, only: [:create, :edit, :update, :destroy]
 
+	# before_filter :require_authorization, only: [:delete]
+
 	skip_before_filter :verify_authenticity_token
 
 	def index
@@ -46,7 +48,9 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find_by_slug(params[:id])
-		@article.destroy
+		if current_user == @article.user
+			@article.destroy
+		end
 
 		redirect_to articles_path
 	end
@@ -55,4 +59,10 @@ class ArticlesController < ApplicationController
 		def article_params
 			params.require(:article).permit(:title, :text, :slug)
 		end
+
+		# def require_authorization
+		# 	redirect_to :root unless current_user.articles.find_by_slug(params[:id])
+		# 	# Use the find_by to avoid the ActiveRecord::RecordNotFound and get a nil
+		# 	# instead in case the question id doesn't belong to a question of the user
+		# end
 end

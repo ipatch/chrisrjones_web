@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 # the "~>" denotes that bundler will install minor updates, but not major
 
-gem 'rails', '~> 4.1.1'
+gem 'rails', '~> 4.2.0'
 
 # the default bundle for SQL / database connectivity, default SQLite
 # the below gem is not needed as I'm using MySQL DB
