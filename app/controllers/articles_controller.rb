@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		@article.user_id = current_user.id if current_user
 
 		if @article.save
 			redirect_to @article
@@ -47,6 +48,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
+
 		@article = Article.find_by_slug(params[:id])
 		if current_user == @article.user
 			@article.destroy

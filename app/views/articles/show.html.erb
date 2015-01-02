@@ -8,6 +8,13 @@
   <%= sanitize @article.text %>
 </p>
 
+<p>
+	<b>article.user_id =</b>
+	<%= @article.user_id.inspect %><br />
+	<b>current_user.id =</b>
+	<%= current_user.id.inspect %><br />
+</p>
+
 <h2>Comments</h2>
 <%= render @article.comments %>
 
