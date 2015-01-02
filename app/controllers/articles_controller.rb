@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		# set the user_id in the controller not the form.
 		@article.user_id = current_user.id if current_user
 
 		if @article.save
@@ -39,10 +40,11 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find_by_slug(params[:id])
-
-		if @article.update(article_params)
+		if @article.user_id == current_user.id
+			@article.update(article_params)
 			redirect_to @article
 		else
+			flash[:notice] = 'Not the author of the article!'
 			render 'edit'
 		end
 	end
