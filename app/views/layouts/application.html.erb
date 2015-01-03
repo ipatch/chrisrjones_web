@@ -2,6 +2,9 @@
 <html>
 	<head>
 	  <title>chrisrjones.com <%= yield(:title) %></title>
+	  <!-- expierment with dynamic meta description(s) -->
+	  <meta name="description" content="<%= yield(:meta_description) %>">
+
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= javascript_include_tag "public" %>

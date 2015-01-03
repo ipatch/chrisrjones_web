@@ -19,6 +19,9 @@ class Article < ActiveRecord::Base
 	# see this SO thread, http://stackoverflow.com/questions/16257116
 	belongs_to :user
 
+	# specify the relationship for the meta_description
+	# has_one :meta_description
+
 	def to_param
 		slug
 	end

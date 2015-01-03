@@ -1,4 +1,6 @@
 <% content_for :title, @article.title %>
+<% content_for :meta_description, @article.meta_description %>
+
 <p>
   <strong>Title:</strong>
   <%= sanitize @article.title %>
@@ -13,7 +15,11 @@
 	<b>article.user_id =</b>
 	<%= @article.user_id.inspect %><br />
 	<b>current_user.id =</b>
-	<%= current_user.id.inspect %><br />
+	<% if current_user %>
+		<%= current_user.id.inspect %><br />
+	<% end %>
+	<b>article.meta_description =</b>
+	<%= @article.meta_description.inspect %><br />
 </p>
 
 <h2>Comments</h2>

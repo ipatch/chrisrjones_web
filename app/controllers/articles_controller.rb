@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			params.require(:article).permit(:title, :text, :slug)
+			params.require(:article).permit(:title, :text, :slug, :meta_description)
 		end
 
 		# def require_authorization
