@@ -1,23 +1,18 @@
-<h1>Listing articles</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="2"></th>
-  </tr>
- 
-  <% @articles.order(created_at: :desc).each do |article| %>
-    <tr>
-      <td><%= sanitize article.title %></td>
-      <td><%= sanitize article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<h1>Articles</h1>
 
+<%= link_to 'New article', new_article_path %>
+
+  <% @articles.order(created_at: :desc).each do |article| %>
+ 
+
+    <h2><%= link_to article.title, article_path(article) %></h2>
+      <%= sanitize article.text %><br />
+      <%= link_to 'Edit', edit_article_path(article) %>
+      <%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+    
+  <% end %>
+
+<br />
 <%= link_to 'New article', new_article_path %>
