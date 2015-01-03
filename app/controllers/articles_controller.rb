@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find_by_slug(params[:id])
-		if @article.user_id == current_user.id
+		if @article.user_id == current_user.id || current_user.admin_user == true
 			@article.update(article_params)
 			redirect_to @article
 		else
@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
 	def destroy
 
 		@article = Article.find_by_slug(params[:id])
-		if current_user == @article.user
+		if current_user == @article.user || current_user.admin_user == true
 			@article.destroy
 		end
 
