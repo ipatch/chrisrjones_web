@@ -1,0 +1,37 @@
+<div id="edit_account">
+<h1>Edit Account</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit :class => "btn btn-primary" "Make Changes" %></div>
+<% end %>
+
+<!-- http://stackoverflow.com/questions/5607155/ -->
+
+<!-- http://railscasts.com/episodes/77-destroy-without-javascript-revised provides syntax for presenting a JS alert box in a link_to -->
+<div class="btn-delete">
+<%= link_to 'Delete your account!', current_user, :class => "btn btn-danger", method: :delete, data: {confirm: "Are you sure?\n This action can not be undone!"}%>
+</div>
+</div>
