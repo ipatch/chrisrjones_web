@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
 
 	validates_uniqueness_of :email
 
-	has_many :articles
+	has_many :articles, dependent: :destroy
 end
