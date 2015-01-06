@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	skip_before_filter :verify_authenticity_token
+
 	def index
 	end
 
@@ -41,12 +43,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		# presently the session / cookie is being left in the browser
-		# need to figure out how to reset cookie / session
-		session[:user_id] = nil
-    	@user = User.find(params[:id])
-    	@user.destroy
-    	redirect_to :controller=>'users', :action => 'new'
+    	@user = User.find(params[:id]).destroy
+    	flash[:success] = "User deleted"
+    	redirect_to root_url
 	end
 
 	private
