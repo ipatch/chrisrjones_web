@@ -41,7 +41,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		 session[:user_id] = nil
+		# presently the session / cookie is being left in the browser
+		# need to figure out how to reset cookie / session
+		session[:user_id] = nil
     	@user = User.find(params[:id])
     	@user.destroy
     	redirect_to :controller=>'users', :action => 'new'

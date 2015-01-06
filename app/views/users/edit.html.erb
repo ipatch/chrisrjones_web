@@ -32,6 +32,6 @@
 
 <!-- http://railscasts.com/episodes/77-destroy-without-javascript-revised provides syntax for presenting a JS alert box in a link_to -->
 <div class="btn-delete">
-<%= link_to 'Delete your account!', current_user, :class => "btn btn-danger", method: :delete, data: {confirm: "Are you sure?\n This action can not be undone!"}%>
+<%= link_to 'Delete your account!', current_user, :class => "btn btn-danger", method: :delete, data: {confirm: "Are you sure?\n This action can not be undone! And all articles created with this user account will be deleted!"}%>
 </div>
 </div>
