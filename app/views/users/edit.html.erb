@@ -28,6 +28,23 @@
   <div class="actions"><%= f.submit :class => "btn btn-primary" "Make Changes" %></div>
 <% end %>
 
+<!-- DEBUG
+<p>
+  <b>user_id =</b>
+  <%= @user_id.inspect %><br />
+  <b>current_user.id =</b>
+  <% if current_user %>
+    <%= current_user.id.inspect %><br />
+  <% end %>
+  <b>session id =</b>
+  <%= session[:user_id] %><br />
+  <b>@user =</b>
+  <%= @user.inspect %><br />
+  <b>@user.id =</b>
+  <%= @user.id %>
+</p>
+-->
+
 <!-- http://stackoverflow.com/questions/5607155/ -->
 
 <!-- http://railscasts.com/episodes/77-destroy-without-javascript-revised provides syntax for presenting a JS alert box in a link_to -->
