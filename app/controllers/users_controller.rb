@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	before_filter :authorize, only: [:edit, :update, :destroy]
+
 	skip_before_filter :verify_authenticity_token
 
 	def index
