@@ -4,19 +4,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :posts
-  # resources :resume
   get 'resume' => 'resume#index'
-
-  get 'main/index'
-
-  get 'main/list'
-
-  get 'main/category'
-
-  get 'main/archive'
-
-  get 'main/view_post'
 
   get 'signup' => 'users#new'
   get 'login' =>'sessions#new'
@@ -24,11 +12,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :password_resets
 
   root "articles#index"
 
-  get 'show/:permalink', :to => 'public#show'
-  get 'admin', :to => "access#index"
   # Added below route for correct "resumé" spelling
   get 'resumé', :to =>"resume#index"
 
@@ -36,17 +23,9 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
 
-  
-  resources :subjects
-  resources :pages
-  resources :sections
-  resources :admin_users
-  resources :access
   resources :about
   resources :contact
-  get 'logout' => 'access#logout'
-  post 'login' => 'access#attempt_login'
-
+  
   match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
   # match ':controller(/:action(/:id))', :via => [:get, :post]
 
