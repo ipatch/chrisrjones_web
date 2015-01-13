@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	before_create { generate_token(:confirmation_token) }
+
 	has_secure_password
 
 
@@ -15,6 +17,8 @@ class User < ActiveRecord::Base
 
 	has_many :articles, dependent: :destroy
 
+
+
 	def generate_token(column)
     	begin
       		self[column] = SecureRandom.urlsafe_base64
@@ -26,5 +30,12 @@ class User < ActiveRecord::Base
 		self.password_reset_sent_at = Time.zone.now
 		save!
 		UserMailer.password_reset(self).deliver
+	end
+
+	def send_confirmation
+		generate_token(:confirmation_token)
+		self.confirmation_sent_at = Time.zone.now
+		save!
+		UserMailer.confirmation(self).deliver
 	end
 end

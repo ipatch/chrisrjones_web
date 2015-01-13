@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
 	skip_before_filter :verify_authenticity_token
 
+	def foo
+		render foo
+	end
+
 	def index
 	end
 
@@ -17,6 +21,9 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			# send confirmation email after user has been created.
+			@user.send_confirmation
+
 			session[:user_id] = @user.id
 			redirect_to root_url, notice: "Thank you for signing up!"
 		else

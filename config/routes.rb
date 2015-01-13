@@ -10,9 +10,19 @@ Rails.application.routes.draw do
   get 'login' =>'sessions#new'
   get 'logout' => 'sessions#destroy'
 
+  # the below route led to a rails routing error
+  # get 'confirm' => 'users/:confirmation_token#confirm'
+
   resources :users
   resources :sessions
   resources :password_resets
+  resources :confirmations
+
+  # route to hopefully get confirmation link working :-/
+  # match '/users/:confirmation_token', :to => 'users#confirm', via: [:post, :get]
+
+  # test route
+  match 'users/foo', :to => 'users#foo', via: [:post, :get]
 
   root "articles#index"
 
