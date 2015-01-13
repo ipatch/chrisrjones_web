@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 			# send confirmation email after user has been created.
 			@user.send_confirmation
 
-			session[:user_id] = @user.id
+			# session[:user_id] = @user.id
 			redirect_to root_url, notice: "Thank you for signing up!"
 		else
 			render "new"
