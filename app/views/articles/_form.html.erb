@@ -36,9 +36,19 @@
     <p>
       <!-- set the 'user_id' when creating an article -->
       <!-- # set the user_id in the controller not the form. -->
+      <!-- check if current_user is nil, and if it is, redirect -->
+      <p><b>current_user = </b><%= current_user.inspect %></p>
+      
+      
       <%=  @article.user_id = current_user.id %><br />
+      
     </p>
     <%= f.submit %>
   </p>
- 
+  <p>
 <% end %>
+
+<%= form_tag({:controller => 'attachment', :action => 'create'}, :multipart => true) do %>
+      <%= file_field_tag 'attachment' %>
+      <%= submit_tag "upload", class: 'btn btn-primary' %>
+    <% end %>

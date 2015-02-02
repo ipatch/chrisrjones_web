@@ -19,7 +19,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-		@article = Article.new
+		if current_user == nil
+			redirect_to login_path
+		else
+			@article = Article.new
+		end
 	end
 
 	def edit

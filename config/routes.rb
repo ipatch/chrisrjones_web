@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   
+  get 'attachments/show'
+
+  get 'attachments/create'
+
   resources :articles do
     resources :comments
+    resources :attachments
   end
 
   get 'resume' => 'resume#index'
