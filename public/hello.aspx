@@ -1,1 +1,2 @@
-/opt/asp.net/test/hello.aspx
+<%@ Page Trace="true" Language="C#"
+   ContentType="text/html" ResponseEncoding="utf-8 %>

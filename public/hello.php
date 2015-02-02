@@ -1,1 +1,3 @@
-/opt/asp.net/test/hello.php
+<?php
+phpinfo();
+?>

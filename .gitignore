@@ -14,6 +14,10 @@
 /log/*.log
 /tmp
 
+# Ignore files in public dir
+/public/*
+
+
 # Ignore certain rails project files
 # https://github.com/github/gitignore/blob/master/Rails.gitignore
 
