@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   
-  get 'attachments/show'
-
-  get 'attachments/create'
-
-  resources :articles do
+    resources :articles do
     resources :comments
-    resources :attachments
   end
 
   get 'resume' => 'resume#index'
@@ -22,6 +17,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :password_resets
   resources :confirmations
+
+  # removed "resources :attachments" out of :articles do loop due to routing error
+  resources :attachments
 
   # route to hopefully get confirmation link working :-/
   # match '/users/:confirmation_token', :to => 'users#confirm', via: [:post, :get]

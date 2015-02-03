@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20150202074830) do
   create_table "attachments", force: :cascade do |t|
     t.string   "filename"
     t.string   "content_type"
-    t.binary   "data"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.binary   "file_contents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", force: :cascade do |t|
