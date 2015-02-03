@@ -7,6 +7,12 @@ class AttachmentsController < ApplicationController
 		@attachments = Attachment.all
 	end
 
+	def view
+		@attachment = Attachment.find(params[:id])
+		send_data(Base64.decode64(@attachment.file_contents),:type => 'image', :disposition => 'inline')
+
+	end
+
   def show
   	# @attachment = Attachment.find(params[:id])
   	# end_data @attachment.data, :filename => @attachment.filename, :type => @attachment.content_type
