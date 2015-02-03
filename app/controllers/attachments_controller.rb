@@ -1,5 +1,10 @@
 class AttachmentsController < ApplicationController
+	
 	before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+
+	before_filter :authorize, only: [:new, :creeate, :update, :destroy]
+
+	skip_before_filter :verify_authenticity_token
 
 	require "base64"
 
