@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20150202074830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "admin_users_pages", id: false, force: :cascade do |t|
     t.integer "admin_user_id"
