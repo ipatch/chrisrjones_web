@@ -42,10 +42,10 @@ config/environments/production.rb
 /.bundle
 /vendor/bundle
 
-# these shoulld all be checked in to normalize the environment:
+# these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
-# unless supportinng rvm < 1.11.0 doing something fanc, ignore this:
+# unless supportinng rvm < 1.11.0 doing something fancy, ignore this:
 # .rvmrc
 
 # Ignorre more rails project files
@@ -57,10 +57,10 @@ doc/app
 *~
 *.swo
 
-# Ignore stupid OS X GUI file placement for Finder
+# Ignore stupid OS X GUI file placement for Finder files
 .DS_Store
 
-# Ignore my scratchpad files
+# Ignore my scratchpad file
 scratchpad.txt
 
 # Ignore Trash files
