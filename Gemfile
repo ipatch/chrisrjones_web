@@ -78,3 +78,6 @@ gem 'pry'
 
 # another debugging gem (-.o)
 # gem 'debugger'
+
+#Api Gems
+gem 'active_model_serializers'
