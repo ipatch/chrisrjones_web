@@ -48,6 +48,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  # Api definitions
+  namespace :api, defaults: { format: :json },
+                              constraints: { subdomain: 'api' }, path: '/'  do
+    scope module: :v1 do
+      # list our resources here
+    end
+  end
+
   
 
   # Example of regular route:
