@@ -81,3 +81,6 @@ gem 'pry'
 
 #Api Gems
 gem 'active_model_serializers'
+
+# add puma to productoin
+gem 'puma', group: :production
