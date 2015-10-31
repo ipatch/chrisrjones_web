@@ -82,5 +82,13 @@ gem 'pry'
 #Api Gems
 gem 'active_model_serializers'
 
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+end
+
 # add puma to productoin
 gem 'puma', group: :production

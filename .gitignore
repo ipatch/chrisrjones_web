@@ -43,7 +43,9 @@ config/environments/production.rb
 /vendor/bundle
 
 # these should all be checked in to normalize the environment:
-# Gemfile.lock, .ruby-version, .ruby-gemset
+#
+# Cap requires the Gemfile.lock be checked into version control
+Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supportinng rvm < 1.11.0 doing something fancy, ignore this:
 # .rvmrc
