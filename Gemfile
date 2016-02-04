@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Notes
+# Notes - test.
 # don't ever edit the Gemfile.lock as bundler manages this file, edit this file instead.
 
 # the "~>" denotes that bundler will install minor updates, but not major
