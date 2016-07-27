@@ -16,6 +16,7 @@ gem 'therubyracer'
 gem 'pg'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'figaro'
 
 # Gems used only for assets and not required
 # in production environments by default.

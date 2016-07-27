@@ -1,0 +1,1 @@
+This is the code repository that maintains the chrisrjones.com site.
