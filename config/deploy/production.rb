@@ -129,6 +129,12 @@ end
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
+set :ssh_options, {
+   keys: %w(/Users/capin/.ssh/id_rsa),
+   forward_agent: true,
+   auth_methods: %w(publickey password)
+   # port: 4321,
+  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
