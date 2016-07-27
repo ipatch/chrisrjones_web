@@ -70,3 +70,6 @@ scratchpad.txt
 
 # Ignore compiled assets
 /public/assets
+
+# Ignore application configuration
+/config/application.yml

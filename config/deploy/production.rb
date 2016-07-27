@@ -21,7 +21,7 @@ set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
-set :linked_files,	  %w{config/secrets.yml config/database.yml}
+set :linked_files,	  %w{config/secrets.yml config/database.yml config/application.yml}
 set :puma_bind,       'tcp://0.0.0.0:9293'
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
