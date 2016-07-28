@@ -1,5 +1,8 @@
 require 'test_helper'
-require 'rails/performance_test_help'
+
+# THE BELOW LINE IS NOT REQUIRED FOR RAILS 4.X see below SO answer,
+# http://stackoverflow.com/a/28518943/708807
+# require 'rails/performance_test_help'
 
 class BrowsingTest < ActionDispatch::PerformanceTest
   # Refer to the documentation for all available options
