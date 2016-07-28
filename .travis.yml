@@ -4,3 +4,5 @@ rvm:
 
 services:
   - postgresql
+before_script:
+  - psql -c 'create database crj_cms_test;' -U postgres
