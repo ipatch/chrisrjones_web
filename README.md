@@ -1,1 +1,1 @@
-This is the code repository that maintains the chrisrjones.com site.
+This is the code repository that maintains the [chrisrjones.com](http://www.chrisrjones.com) site.
