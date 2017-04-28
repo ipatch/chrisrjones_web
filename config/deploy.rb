@@ -1,9 +1,9 @@
 # Change these
-server '104.131.80.160', port: 4321, roles: [:web, :app, :db], primary: true
+server '107.170.40.252', port: 4321, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
 set :application,     'CrjCom'
-set :user,            'capin'
+set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
