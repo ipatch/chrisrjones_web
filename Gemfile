@@ -50,6 +50,9 @@ gem 'binding_of_caller'
 #Api Gems
 gem 'active_model_serializers'
 
+# update nokogirl
+gem 'nokogiri', '~> 1.8.1 '
+
 group :development do
     gem 'capistrano',         require: false
     gem 'capistrano-rvm',     require: false
