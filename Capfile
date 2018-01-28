@@ -20,6 +20,8 @@ require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
+# Add the below line, see: https://stackoverflow.com/a/43021458/708807
+install_plugin Capistrano::Puma
 
 # require 'capistrano/rvm'
 # require 'capistrano/rbenv'
