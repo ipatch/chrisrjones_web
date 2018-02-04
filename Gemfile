@@ -14,7 +14,7 @@ gem 'sqlite3'
 gem 'therubyracer'
 # Add support for PostgreSQL
 # gem 'pg', '~> 1.0' <= too new for rails 4.x
-gem 'pg', '~> 0.21'
+gem 'pg', '~> 1.0'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'figaro'
