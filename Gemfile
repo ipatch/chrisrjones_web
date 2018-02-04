@@ -65,5 +65,5 @@ end
 # add puma to productoin
 group :production do
   gem 'pg', '~> 1.0'
-  gem 'puma', '~> 3.11', '>= 3.11.2'
+  # gem 'puma', '~> 3.11', '>= 3.11.2'
 end
