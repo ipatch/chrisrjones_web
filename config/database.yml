@@ -49,6 +49,7 @@ test:
   database: crj_cms_test
   pool: 5
   username: <%= ENV["PG_USER"] %>
+  password: <%= ENV["PG_PASS"] %>
   # password: <%= ENV["PG_PASS"] %>
   # socket: /tmp/mysql.sock
   # socket: /var/run/mysqld/mysqld.sock
