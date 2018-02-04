@@ -52,7 +52,7 @@ gem 'binding_of_caller'
 gem 'active_model_serializers'
 
 # update nokogirl
-gem 'nokogiri', '~> 1.8.1 '
+gem 'nokogiri', '~> 1.8.2'
 
 group :development do
     gem 'capistrano',         require: false
