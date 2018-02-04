@@ -11,7 +11,7 @@
 defaults: &default
   adapter: postgresql
   host: localhost
-  encoding: utf-8
+  encoding: utf8
   database: crj_cms_dev
   pool: 5
   # timeout: 5000
@@ -21,7 +21,7 @@ defaults: &default
 development:
   adapter: postgresql
   host: localhost
-  encoding: utf-8
+  encoding: utf8
   database: crj_cms_dev
   host: localhost
   pool: 5
@@ -45,7 +45,7 @@ development:
 test:
   adapter: postgresql
   host: localhost
-  encoding: utf-8
+  encoding: utf8
   database: crj_cms_test
   pool: 5
   username: <%= ENV["PG_USER"] %>
@@ -57,7 +57,7 @@ test:
 production:
   adapter: postgresql
   host: localhost
-  encoding: utf-8
+  encoding: utf8
   database: crj_cms_prod
   host: localhost
   pool: 5
