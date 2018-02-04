@@ -55,8 +55,8 @@ gem 'active_model_serializers', '~> 0.10.7'
 gem 'nokogiri', '~> 1.8.2'
 
 group :development do
-  gem 'capistrano', '~> 3.10', '>= 3.10.1'         require: false
-  gem 'capistrano-rvm', '~> 0.1.2'                 require: false
+  gem 'capistrano', '~> 3.10', '>= 3.10.1' ,       require: false
+  gem 'capistrano-rvm', '~> 0.1.2',                require: false
   gem 'capistrano-rails', '~> 1.3', '>= 1.3.1',    require: false
   gem 'capistrano-bundler', '~> 1.3',              require: false
   gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1',    require: false
