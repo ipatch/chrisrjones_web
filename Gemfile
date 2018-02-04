@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 gem 'rails', '~> 4.2.7'
-gem 'sqlite3', '~> 1.3', '>= 1.3.13'
+# gem 'sqlite3', '~> 1.3', '>= 1.3.13'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby

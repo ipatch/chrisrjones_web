@@ -9,10 +9,14 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 defaults: &default
-  adapter: sqlite3
-  encoding: utf8
+  adapter: postgresql
+  host: localhost
+  encoding: utf-8
+  database: crj_cms_dev
   pool: 5
-  timeout: 5000
+  # timeout: 5000
+  username: <%= ENV["PG_USER"] %>
+  password: <%= ENV["PG_PASS"] %>
 
 development:
   adapter: postgresql
