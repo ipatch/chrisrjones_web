@@ -18,7 +18,7 @@ gem 'therubyracer', '~> 0.12.3'
 gem 'pg', '~> 0.20.0'
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'figaro', '~> 1.1', '>= 1.1.1'
+# gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
