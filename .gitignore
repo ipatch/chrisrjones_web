@@ -32,20 +32,13 @@ rerun.txt
 pickle-email-*.html
 
 # Comment out these rules if your OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
 config/secrets.yml
-# config/database.yml
-config/environments/development.rb
-# config/environments/production.rb
 
 # Environment normalization:
 /.bundle
 /vendor/bundle
 
-# these should all be checked in to normalize the environment:
-#
 # Cap requires the Gemfile.lock be checked into version control
-Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supportinng rvm < 1.11.0 doing something fancy, ignore this:
 # .rvmrc
@@ -60,7 +53,7 @@ doc/app
 *.swo
 
 # Ignore stupid OS X GUI file placement for Finder files
-.DS_Store
+**/.DS_Store
 
 # Ignore my scratchpad file
 scratchpad.txt
@@ -70,6 +63,3 @@ scratchpad.txt
 
 # Ignore compiled assets
 /public/assets
-
-# Ignore application configuration
-/config/application.yml

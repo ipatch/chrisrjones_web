@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# crj.com
+
 # the "~>" denotes that bundler will install minor updates, but not major
 
 ruby "2.3.1"
@@ -65,6 +67,5 @@ end
 
 # add puma to productoin
 group :production do
-  # gem 'pg', '~> 1.0'
   gem 'puma', '~> 3.11', '>= 3.11.2'
 end
