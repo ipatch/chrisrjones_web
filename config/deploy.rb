@@ -14,7 +14,8 @@ set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
-set :linked_files,    %w{config/database.yml config/secrets.yml config/application.yml}
+# set :linked_files,    %w{config/database.yml config/secrets.yml config/application.yml}
+set :linked_files,    %w{config/secrets.yml}
 # preserve paperclip attachments through deployments
 set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
