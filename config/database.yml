@@ -30,9 +30,6 @@ test:
   pool: 5
   username: <%= ENV["PG_USER"] %>
   password: <%= ENV["PG_PASS"] %>
-  # password: <%= ENV["PG_PASS"] %>
-  # socket: /tmp/mysql.sock
-  # socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: postgresql
@@ -42,5 +39,3 @@ production:
   pool: 5
   username: <%= ENV["PG_USER"] %>
   password: <%= ENV["PG_PASS"] %>
-  # socket: /tmp/mysql.sock
-  # socket: /var/run/mysqld/mysqld.sock
