@@ -1,1 +1,0 @@
-/opt/asp.net/test/hello.asp
