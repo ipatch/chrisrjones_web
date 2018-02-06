@@ -91,9 +91,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => "chrisrjones.com" }
 
-  # add below line to supress deprecation warnings
-  config.log_level = :info
-
   # General Settings
   config.app_domain = 'chrisrjones.com'
 
