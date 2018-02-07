@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
 
 	has_many :articles, dependent: :destroy
 
+	has_many :attachments
+
 
 
 	def generate_token(column)
