@@ -13,7 +13,7 @@ class ContactController < ApplicationController
   	@message = Message.new(params[:message])
   	if @message.valid?
   		# TODO send message here
-      UserMailer.new_message(@message).deliver
+      UserMailer.new_message(@message).deliver_now
   		redirect_to root_url, notice: "Message sent. Thanks for contacting us."
   	else
       flash.now.alert = "Please fill all fields."
