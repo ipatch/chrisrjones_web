@@ -22,7 +22,7 @@ set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :linked_files,    %w{config/secrets.yml}
 
 # Puma Settings
-set :puma_rackup, => { File.join(current_path, 'config.ru') }
+set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_conf,       "#{shared_path}/puma.rb"
 set :puma_role,       :app
 set :puma_env,        :fetch(:rack_env, fetch(:rails_env, 'production'))
