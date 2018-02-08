@@ -93,6 +93,22 @@ namespace :deploy do
     echo 'no database.yml in shared/configs'"
   end
 
+  task :update_git_repo do
+    on release_roles :all do
+      with fetch(:git_environmental_variables) do
+        within repo_path do
+          current_repo_url = execute :git, :config, :'--get', :'remote.origin.url'
+          unless repo_url == current_repo_url
+            execute :git, :remote, :'set-url', 'origin', repo_url
+            execute :git, :remote, :update
+
+            execute :git, :config, :'--get', :'remote.origin.url'
+          end
+        end
+      end
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
