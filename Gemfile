@@ -64,7 +64,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.3',              require: false
   gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1',    require: false
   # below gem is for troubleshooting ssh settings, ie ssh-agent
-  gem 'capistrano-ssh-doctor', '~> 1.0'
+  # gem 'capistrano-ssh-doctor', '~> 1.0'
 end
 
 # add puma to productoin
