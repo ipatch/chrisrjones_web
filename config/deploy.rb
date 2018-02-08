@@ -87,6 +87,12 @@ namespace :deploy do
     end
   end
 
+  desc "link shared config files"
+  task :link_shared_secrets_config do
+    run "test -f #{shared_path}/configs/secrets.yml && ln -sf #{shared_path}/configs/secrets.yml #{current_path}/config/database.yml ||
+    echo 'no database.yml in shared/configs'"
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
