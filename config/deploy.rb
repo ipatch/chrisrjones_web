@@ -91,20 +91,20 @@ namespace :deploy do
     end
   end
 
-  desc 'copy linked files'
-  task :copy_config do
-    on release_roles :app do |role|
-      fetch(:linked_files).each do |linked_file|
-        user = role.user + "@" if role.user
-        hostname = role.hostname
-        linked_files(shared_path).each do |file|
-          run_locally do
-            execute :rsync, "-rvz -e 'ssh -p 4321'", "config/#{file.to_s.gsub(/.*\/(.*)$/,"\\1")}", "#{user}#{hostname}:#{file.to_s.gsub(/(.*)\/[^\/]*$/, "\\1")}/"
-          end
-        end
-      end
-    end
-  end
+  # desc 'copy linked files'
+  # task :copy_config do
+  #   on release_roles :app do |role|
+  #     fetch(:linked_files).each do |linked_file|
+  #       user = role.user + "@" if role.user
+  #       hostname = role.hostname
+  #       linked_files(shared_path).each do |file|
+  #         run_locally do
+  #           execute :rsync, "-rvz -e 'ssh -p 4321'", "config/#{file.to_s.gsub(/.*\/(.*)$/,"\\1")}", "#{user}#{hostname}:#{file.to_s.gsub(/(.*)\/[^\/]*$/, "\\1")}/"
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
 
   desc 'Restart application'
   task :restart do
@@ -136,8 +136,8 @@ namespace :deploy do
   #     end
   #   end
   # end
-  before 'deploy:check:linked_files', 'deploy:copy_config'
-  before 'check:linked_files', 'puma:config'
+  # before 'deploy:check:linked_files', 'deploy:copy_config'
+  # before 'check:linked_files', 'puma:config'
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
