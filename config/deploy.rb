@@ -30,11 +30,11 @@ set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
 
 # append :linked_files,    %w{config/secrets.yml}
-# append :linked_files,  "config/secrets.yml"
-set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
+append :linked_files,  "config/secrets.yml"
+# set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
-# append :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
-set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')
+append :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
+# set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')
 
 # Puma Settings
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
