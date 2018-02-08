@@ -1,7 +1,11 @@
 # Change these
 server '107.170.40.252', port: 4321, roles: [:web, :app, :db], primary: true
 
-set :scm,             :git
+# The below setting has been deprecated!
+###
+# set :scm,             :git
+### END
+
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
 set :branch,           'master'
 set :keep_releases,   5
