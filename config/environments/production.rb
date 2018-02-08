@@ -87,6 +87,9 @@ Rails.application.configure do
 
   # PASTE actionmailer config settings below this line
 
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.default_options = {from: 'no-reply@chrisrjones.com'}
 
   config.action_mailer.default_url_options = { :host => "chrisrjones.com" }

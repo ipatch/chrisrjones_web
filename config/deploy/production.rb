@@ -7,6 +7,10 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+# Environment Configuration
+set   :stage, :production
+role  :app,   %w{deploy@107.170.40.252}
+role  :web,   %w{deploy@107.170.40.252}  
 
 
 # role-based syntax
