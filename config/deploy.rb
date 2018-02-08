@@ -113,6 +113,16 @@ namespace :deploy do
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   # after  :finishing,    :restart
+
+  def remote_file_exists?(path)
+    results = []
+  
+    invoke_command("if [ -e '#{path}' ]; then echo -n 'true'; fi") do |ch, stream, out|
+      results << (out == 'true')
+    end
+  
+    results.all?
+  end
 end
 
 # ps aux | grep puma    # Get puma pid
