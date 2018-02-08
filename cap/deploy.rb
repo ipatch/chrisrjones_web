@@ -31,7 +31,7 @@ set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 
 # append :linked_files,    %w{config/secrets.yml}
 # remove :linked_files,   "config/secrets.yml"
-if test("[ -f 'config/secrets.yml' ]")
+if test("[ -f config/secrets.yml ]")
   # do nothing
 else
   append :linked_files,  "config/secrets.yml"
@@ -40,7 +40,7 @@ end
 # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
 # remove :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
-if test("[ -f 'public/404.html' ]")
+if test("[ -f public/404.html ]")
   # do nothing
 else
   append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
