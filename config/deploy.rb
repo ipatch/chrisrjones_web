@@ -140,7 +140,7 @@ namespace :deploy do
   # end
   # before 'deploy:check:linked_files', 'deploy:copy_config'
   # before 'check:linked_files', 'puma:config'
-  before 'check:linked_files', 'puma:config'
+  # before 'check:linked_files', 'puma:config'
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
