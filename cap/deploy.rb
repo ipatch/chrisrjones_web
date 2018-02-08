@@ -26,7 +26,7 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+# set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
 
 # append :linked_files,    %w{config/secrets.yml}
@@ -34,7 +34,8 @@ set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 if 'test -f "config/secrets.yml"'
   # do nothing
 else
-  append :linked_files,  "config/secrets.yml"
+  # append :linked_files,  "config/secrets.yml"
+  set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 end
 # append :linked_files,  "config/secrets.yml"
 # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
@@ -43,7 +44,8 @@ end
 if 'test -f "public/404.html"'
   # do nothing
 else
-  append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
+  # append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
+  set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')
 end
 # append :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
 # set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')

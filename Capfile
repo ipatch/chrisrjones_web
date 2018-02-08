@@ -22,4 +22,4 @@ install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob('cap/tasks/*.rb').each { |r| import r }
+Dir.glob('cap/tasks/*.rake').each { |r| import r }

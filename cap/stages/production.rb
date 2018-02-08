@@ -12,11 +12,34 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+set :port, 4321
+set :user, 'deploy'
+set :deploy_via, :remote_cache
+set :use_sudo, false
+
+server '107.170.40.252',
+  roles [:web, :app, :db],
+  port: fetch(:port),
+  user: fetch(:user),
+  primary: true
+
+set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+
+set :ssh_options, {
+   keys: %w(/home/deploy/.ssh/id_rsa),
+   forward_agent: true,
+   auth_methods: %w(publickey),
+   user: 'deploy',
+}
+
+set :rails_env, :production
+set :conditionally_migrate, true
+
 # Environment Configuration
-set   :stage, :production
-role  :app,   %w{deploy@107.170.40.252}
-role  :web,   %w{deploy@107.170.40.252} 
-role  :db,    %w{deploy@107.170.40.252} 
+# set   :stage, :production
+# role  :app,   %w{deploy@107.170.40.252}
+# role  :web,   %w{deploy@107.170.40.252} 
+# role  :db,    %w{deploy@107.170.40.252} 
 
 
 # role-based syntax
@@ -31,12 +54,6 @@ role  :db,    %w{deploy@107.170.40.252}
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-set :ssh_options, {
-   keys: %w(/home/deploy/.ssh/id_rsa),
-   forward_agent: true,
-   auth_methods: %w(publickey password),
-   port: 4321
-  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
