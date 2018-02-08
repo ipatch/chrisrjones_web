@@ -46,7 +46,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # END puma settings
 
 # preserve paperclip attachments through deployments
-set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+# set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
 
 
 namespace :puma do
