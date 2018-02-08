@@ -1,4 +1,9 @@
-# Load DSL and set up stages
+# default deploy_config_path is 'config/deploy.rb'
+set :deploy_config_path, 'cap/deploy.rb'
+# default stage_config_path is 'config/deploy'
+set :stage_config_path, 'cap/stages'
+
+# previous variables MUST be set before 'capistrano/setup' # Load DSL and set up stages
 require 'capistrano/setup'
 
 # Include default deployment tasks
