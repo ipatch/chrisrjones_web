@@ -30,7 +30,7 @@ set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
 
 # append :linked_files,    %w{config/secrets.yml}
-remove :linked_files   "config/secrets.yml"
+remove :linked_files,   "config/secrets.yml"
 append :linked_files,  "config/secrets.yml"
 # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
