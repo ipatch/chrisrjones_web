@@ -23,7 +23,8 @@ set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
-set :linked_files,    %w{config/secrets.yml}
+append :linked_files,    %w{config/secrets.yml}
+append :linked_dirs,     %w{bin log tmp vendor/bundle public/system}
 
 # Puma Settings
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
@@ -85,6 +86,8 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
     end
+
+    after :finishing, "deploy:cleanup"
   end
 
   desc "link shared config files"
