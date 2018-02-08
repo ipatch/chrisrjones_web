@@ -54,7 +54,7 @@ role  :web,   %w{deploy@107.170.40.252}
 set :ssh_options, {
    keys: %w(/home/deploy/.ssh/id_rsa),
    forward_agent: true,
-   auth_methods: %w(publickey password)
+   auth_methods: %w(publickey password),
    port: 4321
   }
 #
