@@ -52,7 +52,7 @@ end
 
 # Puma Settings
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
-set :puma_conf,       "#{shared_path}/puma.rb"
+# set :puma_conf,       "#{shared_path}/puma.rb"
 set :puma_role,       :app
 set :puma_env,        fetch(:rack_env, fetch(:rails_env, 'production'))
 # the below settings are / were working great 👌
