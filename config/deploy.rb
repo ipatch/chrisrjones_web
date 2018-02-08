@@ -104,6 +104,7 @@ namespace :deploy do
         end
       end
     end
+  end
 
   desc 'Restart application'
   task :restart do
