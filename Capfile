@@ -20,6 +20,11 @@ require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
+
+## tshoot ssh
+require 'capistrano/ssh_doctor'
+
+
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
 install_plugin Capistrano::Puma
 
