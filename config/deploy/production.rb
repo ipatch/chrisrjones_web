@@ -10,7 +10,8 @@
 # Environment Configuration
 set   :stage, :production
 role  :app,   %w{deploy@107.170.40.252}
-role  :web,   %w{deploy@107.170.40.252}  
+role  :web,   %w{deploy@107.170.40.252} 
+role  :db,    %w{deploy@107.170.40.252} 
 
 
 # role-based syntax

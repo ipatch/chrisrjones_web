@@ -1,5 +1,5 @@
 # Change these
-server '107.170.40.252', port: 4321, roles: [:web, :app, :db], primary: true
+server '107.170.40.252', port: 4321, user: 'deploy', roles: %{web, :app, db}, primary: true
 
 # The below setting has been deprecated!
 ###
