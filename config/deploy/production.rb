@@ -1,3 +1,8 @@
+###
+# Stage specific configuration file
+###
+# Per: http://capistranorb.com/documentation/getting-started/configuration/
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

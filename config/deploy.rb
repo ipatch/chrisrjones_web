@@ -1,3 +1,8 @@
+###
+# Global configuration file for cap
+###
+# Per: http://capistranorb.com/documentation/getting-started/configuration/
+
 # Change these
 server '107.170.40.252', port: 4321, user: 'deploy', roles: %{web, :app, db}, primary: true
 
@@ -23,8 +28,11 @@ set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
-append :linked_files,    %w{config/secrets.yml}
-append :linked_dirs,     %w{bin log tmp vendor/bundle public/system}
+
+# append :linked_files,    %w{config/secrets.yml}
+append :linked_files,  "config/secrets.yml"
+
+append :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
 
 # Puma Settings
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
