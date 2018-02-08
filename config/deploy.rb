@@ -30,9 +30,11 @@ set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # files we want symlinking to specific entries in shared.
 
 # append :linked_files,    %w{config/secrets.yml}
-append :linked_files,  "config/secrets.yml"
+# append :linked_files,  "config/secrets.yml"
+set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
-append :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
+# append :linked_dirs,     "bin", "log", "tmp" "vendor/bundle" "public/system"
+set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')
 
 # Puma Settings
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
@@ -89,6 +91,20 @@ namespace :deploy do
     end
   end
 
+  desc 'copy linked files'
+  task :copy_config do
+    on release_roles :app do |role|
+      fetch(:linked_files).each do |linked_file|
+        user = role.user + "@" if role.user
+        hostname = role.hostname
+        linked_files(shared_path).each do |file|
+          run_locally do
+            execute :rsync, "-rvz -e 'ssh -p 4321'", "config/#{file.to_s.gsub(/.*\/(.*)$/,"\\1")}", "#{user}#{hostname}:#{file.to_s.gsub(/(.*)\/[^\/]*$/, "\\1")}/"
+          end
+        end
+      end
+    end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -119,7 +135,8 @@ namespace :deploy do
   #     end
   #   end
   # end
-
+  before 'deploy:check:linked_files', 'deploy:copy_config'
+  before 'check:linked_files', 'puma:config'
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
