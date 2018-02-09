@@ -7,9 +7,7 @@
 
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
-	  # <%= javascript_include_tag "public" %>
-
-
+	
 	  <!-- Ruby code to add favicon to website -->
 	  <%= favicon_link_tag 'favicon.ico' %>
 
@@ -21,28 +19,22 @@
 		<div id="wrap">
 			<div id="nav_100_width">
 				<!-- put navbar outside of container to get 100% width -->
-			<%= render 'layouts/nav' %>
+				<%= render 'layouts/nav' %>
 			</div>
-
-			<div class="container">
-
-
-
-  		<%= yield %>
-
-		</div>
-		<!-- need to figure out a way to insert a footer, i.e. one that sticks
-		to the bottom of the web page -->
+				<div class="container">
+					<%= yield %>
+				</div>
+			<!-- need to figure out a way to insert a footer, i.e. one that sticks
+			to the bottom of the web page -->
 			<div id="push"></div>
     	</div>
-		<div id="footer">
+				<div id="footer">
       		<div class="container">
-        	<p class="muted credit"><id="copyright">&copy; 2019 chrisrjones.com / Chris Jones</p>
+        		<p class="muted credit"><id="copyright">&copy; 2019 chrisrjones.com / Chris Jones</p>
       		</div>
-
     	</div>
 
-	</div> <!-- wrap div -->
-	<%= render 'layouts/footer' %>
+		</div> <!-- wrap div -->
+		<%= render 'layouts/footer' %>
 	</body>
 </html>
