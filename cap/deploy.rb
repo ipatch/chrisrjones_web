@@ -9,9 +9,13 @@ set :application,     'CrjCom'
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
 set :rvm_ruby_version, '2.3.1'
 set :default_env, { rvm_bin_path: "~/.rvm/bin"}
+set :bundle_flags, '--deployment'
 SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # set the default location for the app will be deployed to
+# set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+# set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :user, "deploy"
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 
 
@@ -28,7 +32,7 @@ set :keep_releases,   5
 set :format,        :pretty
 set :log_level,     :debug
 
-set :user,            'deploy'
+# set :user,            'deploy'
 
 # Don't change these unless you know what you're doing
 set :pty,             true
