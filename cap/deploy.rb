@@ -80,8 +80,8 @@ end
 
 namespace :deploy do
   before :starting,     :check_revision
-  before 'check:linked_files', 'config:push'
-  before 'check:linked_files', 'puma:config'
+  # before 'check:linked_files', 'config:push'
+  before 'check:linked_files', 'puma_config'
   # before 'check:linked_files', 'puma:nginx_confg'
   after 'puma:smart_restart', 'nginx:restart'
   after  :finishing,    :compile_assets
