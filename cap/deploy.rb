@@ -81,7 +81,7 @@ end
 namespace :deploy do
   before :starting,     :check_revision
   # before 'check:linked_files', 'config:push'
-  before 'check:linked_files', 'puma_config'
+  before 'check:linked_files', 'puma_conf'
   # before 'check:linked_files', 'puma:nginx_confg'
   after 'puma:smart_restart', 'nginx:restart'
   after  :finishing,    :compile_assets
@@ -90,7 +90,7 @@ namespace :deploy do
   desc "Set config/puma.rb for upstart"
   task :puma_conf do
     on roles(:app) do
-      execute "ln -s #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
+      execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
     end
   end
 
