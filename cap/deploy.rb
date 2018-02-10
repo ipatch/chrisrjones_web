@@ -149,7 +149,8 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
     end
-
+    
+    after :finishing,    :compile_assets
     after :finishing, "deploy:cleanup"
   end
 end

@@ -19,7 +19,7 @@ require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
-install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma, load_hooks: false # Default puma tasks
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('cap/tasks/*.rake').each { |r| import r }
