@@ -3,19 +3,31 @@
 ###
 # Per: http://capistranorb.com/documentation/getting-started/configuration/
 ###
-server '107.170.40.252', port: 4321, user: 'deploy', roles: %{web, :app, db}, primary: true
+lock "~> 3.10.1"
+
+set :application,     'CrjCom'
+set :repo_url,        'git@github.com:ipatch/crj.com.git'
+set :rvm_ruby_version, '2.3.1'
+set :default_env, { rvm_bin_path: "~/.rvm/bin"}
+SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
+
+# set the default location for the app will be deployed to
+set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+
+
+# server '107.170.40.252', port: 4321, user: 'deploy', roles: %{web, :app, db}, primary: true
 
 # The below setting has been deprecated!
 ###
 # set :scm,             :git
 ### END
 
-set :repo_url,        'git@github.com:ipatch/crj.com.git'
+
 set :branch,           'master'
 set :keep_releases,   5
 set :format,        :pretty
 set :log_level,     :debug
-set :application,     'CrjCom'
+
 set :user,            'deploy'
 
 # Don't change these unless you know what you're doing
@@ -31,15 +43,15 @@ set :stage,           :production
 # if 'test -f "config/secrets.yml"'
   # do nothing
 # else
-  # append :linked_files,  "config/secrets.yml"
-  set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
+  append :linked_files,  "config/secrets.yml"
+  # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 # end
 
 # if 'test -f "public/404.html"'
   # do nothing
 # else
-  # append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
-  set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
+  append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
+  # set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
 # end
 
 # Puma Settings

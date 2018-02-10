@@ -12,19 +12,21 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-set :port, 4321
-set :user, 'deploy'
+server '107.170.40.252', port: 4321, user: 'deploy', roles: %w{web app db}, primary: true
+
+# set :port, 4321
+# set :user, 'deploy'
 # set :deploy_via, :remote_cache <= `cap deploy production doctor` no longer required
 # set :use_sudo, false <= `cap deploy production doctor` no longer required
 
-server '107.170.40.252',
-  # roles: [:web, :app, :db],
-  roles: %w{web app db},
-  port: fetch(:port),
-  user: fetch(:user),
-  primary: true
 
-set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+  # roles: [:web, :app, :db],
+  # roles: %w{web app db},
+  # port: fetch(:port),
+  user: fetch(:user),
+  # primary: true
+
+# set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 
 set :ssh_options, {
    keys: %w(/home/deploy/.ssh/id_rsa),
