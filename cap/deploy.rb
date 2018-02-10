@@ -66,6 +66,8 @@ set :puma_preload_app, true
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 # END puma settings
 
+Rake::Task["puma:config"].clear_actions
+
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
@@ -75,7 +77,14 @@ namespace :puma do
     end
   end
 
+  task :config do
+    on roles(:all) do
+      # execute "RACK_ENV=#{fetch(:rails_env)}"
+      execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
+    end
+  end
   before :start, :make_dirs
+  before :start, :config
 end
 
 namespace :deploy do
