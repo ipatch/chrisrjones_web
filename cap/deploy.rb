@@ -20,7 +20,7 @@ set :user,            'deploy'
 
 # Don't change these unless you know what you're doing
 set :pty,             true
-set :use_sudo,        false
+# set :use_sudo,        false <= no longer required `cap production deploy doctor`
 set :stage,           :production
 ###
 # the below setting is not valid for cap v3, checked via running `cap deploy production doctor`
