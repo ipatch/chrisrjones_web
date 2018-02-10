@@ -15,11 +15,11 @@ environment rails_env
 bind "unix://#{shared_dir}/tmp/sockets/CrjCom-puma.sock"
 
 # Logging
-stdout_redirect "#{app_dir}/current/log/puma.stdout.log", "#{app_dir}/current/log/puma.stderr.log", true
+stdout_redirect "#{release_path}/log/puma.stdout.log", "#{release_path}/log/puma.stderr.log", true
 
 # Set master PID and state locations
-pidfile "#{shared_dir}/pids/puma.pid"
-state_path "#{shared_dir}/pids/puma.state"
+pidfile "#{shared_path}/tmp/pids/puma.pid"
+state_path "#{shared_path}/tmp/pids/puma.state"
 
 on_worker_boot do
   require "active_record"
