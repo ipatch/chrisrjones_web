@@ -43,7 +43,7 @@ set :stage,           :production
 # end
 
 # Puma Settings
-set :puma_conf,      "#{shared_path}/config/puma.rb"
+set :puma_conf, "#{shared_path}/puma.rb"
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 # set :puma_conf,       "#{shared_path}/puma.rb"
@@ -89,10 +89,10 @@ namespace :deploy do
   desc "Set config/puma.rb for upstart"
   task :puma_conf do
     on roles(:app) do
-      execute "ln -s #{shared_path}/config/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
+      execute "ln -s #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
     end
   end
-  
+
   desc "Check that we can access everything"
   task :check_write_permissions do
     on roles(:all) do |host|
