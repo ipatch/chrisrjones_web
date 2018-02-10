@@ -8,8 +8,8 @@ workers 4
 # Min and Max threads per worker
 threads 1, 6
 
-# app_dir = File.expand_path("../..", __FILE__)
-app_dir = "/home/deploy/apps/CrjCom/current"
+app_dir = File.expand_path("../..", __FILE__)
+# app_dir = "/home/deploy/apps/CrjCom/current"
 shared_dir = "#{app_dir}/shared"
 
 # Default to production
@@ -20,7 +20,7 @@ environment rails_env
 bind "unix://#{shared_dir}/tmp/sockets/CrjCom-puma.sock"
 
 # Logging
-stdout_redirect "#{release_path}/log/puma.stdout.log", "#{release_path}/log/puma.stderr.log", true
+# stdout_redirect "#{}/log/puma.stdout.log", "#{release_path}/log/puma.stderr.log", true
 
 # Set master PID and state locations
 pidfile "#{shared_path}/tmp/pids/puma.pid"
