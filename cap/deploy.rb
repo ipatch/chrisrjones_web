@@ -32,7 +32,7 @@ set :stage,           :production
   # do nothing
 # else
   # append :linked_files,  "config/secrets.yml"
-  set :linked_files, fetch(:linked_files, []).push('config/secrets.yml', 'config/puma.rb')
+  set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 # end
 
 # if 'test -f "public/404.html"'
@@ -66,7 +66,7 @@ set :puma_preload_app, true
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 # END puma settings
 
-Rake::Task["puma:config"].clear_actions
+# Rake::Task["puma:config"].clear_actions
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -77,14 +77,14 @@ namespace :puma do
     end
   end
 
-  task :config do
-    on roles(:all) do
-      # execute "RACK_ENV=#{fetch(:rails_env)}"
-      execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
-    end
-  end
+  # task :config do
+  #   on roles(:all) do
+  #     # execute "RACK_ENV=#{fetch(:rails_env)}"
+  #     execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
+  #   end
+  # end
   before :start, :make_dirs
-  before :start, :config
+  # before :start, :config
 end
 
 namespace :deploy do
