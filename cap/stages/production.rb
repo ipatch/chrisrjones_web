@@ -14,8 +14,8 @@
 
 set :port, 4321
 set :user, 'deploy'
-set :deploy_via, :remote_cache
-set :use_sudo, false
+# set :deploy_via, :remote_cache <= `cap deploy production doctor` no longer required
+# set :use_sudo, false <= `cap deploy production doctor` no longer required
 
 server '107.170.40.252',
   roles: [:web, :app, :db],
