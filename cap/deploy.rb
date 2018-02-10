@@ -28,21 +28,23 @@ set :stage,           :production
 # set :deploy_via,      :remote_cache
 ### END
 
-if 'test -f "config/secrets.yml"'
+# if 'test -f "config/secrets.yml"'
   # do nothing
-else
+# else
   # append :linked_files,  "config/secrets.yml"
-  set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
-end
+  set :linked_files, fetch(:linked_files, []).push('config/secrets.yml', 'config/puma.rb')
+# end
 
-if 'test -f "public/404.html"'
+# if 'test -f "public/404.html"'
   # do nothing
-else
+# else
   # append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
   set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')
-end
+# end
 
 # Puma Settings
+set :puma_conf,      "#{shared_path}/config/puma.rb"
+
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 # set :puma_conf,       "#{shared_path}/puma.rb"
 set :puma_role,       :app
@@ -77,6 +79,10 @@ namespace :puma do
 end
 
 namespace :deploy do
+  before 'check:linked_files', 'puma:config'
+  # before 'check:linked_files', 'puma:nginx_confg'
+  after 'puma:smart_restart', 'nginx:restart'
+
   desc "Check that we can access everything"
   task :check_write_permissions do
     on roles(:all) do |host|
