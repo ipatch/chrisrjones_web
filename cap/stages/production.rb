@@ -23,7 +23,7 @@ server '107.170.40.252', port: 4321, user: 'deploy', roles: %w{web app db}, prim
   # roles: [:web, :app, :db],
   # roles: %w{web app db},
   # port: fetch(:port),
-  user: fetch(:user),
+  # user: fetch(:user),
   # primary: true
 
 # set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
