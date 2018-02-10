@@ -12,10 +12,10 @@ rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
 
 # Setp up socket location
-bind "unix://#{shared_dir}/sockets/puma.sock"
+bind "unix://#{shared_dir}/tmp/sockets/CrjCom-puma.sock"
 
 # Logging
-stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
+stdout_redirect "#{app_dir}/current/log/puma.stdout.log", "#{app_dir}/current/log/puma.stderr.log", true
 
 # Set master PID and state locations
 pidfile "#{shared_dir}/pids/puma.pid"
