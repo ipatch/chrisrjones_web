@@ -18,7 +18,8 @@ set :user, 'deploy'
 # set :use_sudo, false <= `cap deploy production doctor` no longer required
 
 server '107.170.40.252',
-  roles: [:web, :app, :db],
+  # roles: [:web, :app, :db],
+  roles: %w{web app db},
   port: fetch(:port),
   user: fetch(:user),
   primary: true
