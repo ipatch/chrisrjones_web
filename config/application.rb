@@ -1,4 +1,4 @@
-# config/application.rb
+# config/application.rb for CrjCom
 
 require File.expand_path('../boot', __FILE__)
 
