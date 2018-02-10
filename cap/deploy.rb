@@ -43,7 +43,7 @@ set :stage,           :production
 # end
 
 # Puma Settings
-set :puma_conf, "#{shared_path}/puma.rb"
+set :puma_conf, "#{current_path}/config/puma.rb"
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 # set :puma_conf,       "#{shared_path}/puma.rb"
