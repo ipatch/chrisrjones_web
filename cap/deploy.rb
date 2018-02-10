@@ -79,10 +79,20 @@ namespace :puma do
 end
 
 namespace :deploy do
+  before :starting,     :check_revision
   before 'check:linked_files', 'puma:config'
   # before 'check:linked_files', 'puma:nginx_confg'
   after 'puma:smart_restart', 'nginx:restart'
+  after  :finishing,    :compile_assets
+  after  :finishing,    :cleanup
 
+  desc "Set config/puma.rb for upstart"
+  task :puma_conf do
+    on roles(:app) do
+      execute "ln -s #{shared_path}/config/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
+    end
+  end
+  
   desc "Check that we can access everything"
   task :check_write_permissions do
     on roles(:all) do |host|
@@ -132,8 +142,4 @@ namespace :deploy do
 
     after :finishing, "deploy:cleanup"
   end
-
-  before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
 end
