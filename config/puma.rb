@@ -1,3 +1,7 @@
+#!/usr/bin/env puma
+
+basedir = '/home/deploy/apps/CrjCom/current'
+
 # Change to match your CPU core count
 workers 4
 
