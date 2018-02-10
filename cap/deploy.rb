@@ -13,13 +13,8 @@ set :bundle_flags, '--deployment'
 SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # set the default location for the app will be deployed to
-# set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
-# set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :user, "deploy"
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
-
-
-# server '107.170.40.252', port: 4321, user: 'deploy', roles: %{web, :app, db}, primary: true
 
 # The below setting has been deprecated!
 ###
@@ -31,10 +26,6 @@ set :branch,           'master'
 set :keep_releases,   5
 set :format,        :pretty
 set :log_level,     :debug
-
-# set :user,            'deploy'
-
-# Don't change these unless you know what you're doing
 set :pty,             true
 # set :use_sudo,        false <= no longer required `cap production deploy doctor`
 set :stage,           :production
@@ -44,19 +35,11 @@ set :stage,           :production
 # set :deploy_via,      :remote_cache
 ### END
 
-# if 'test -f "config/secrets.yml"'
-  # do nothing
-# else
-  append :linked_files,  "config/secrets.yml"
-  # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
-# end
+append :linked_files,  "config/secrets.yml"
+# set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
-# if 'test -f "public/404.html"'
-  # do nothing
-# else
-  append :linked_dirs, "bin", "tmp", "vendor/bundle", "public/system"
-  # set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
-# end
+append :linked_dirs, "bin", "tmp", "vendor/bundle", "public/system"
+# set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
 
 # Puma Settings
 set :puma_conf, "#{shared_path}/config/puma.rb"
@@ -106,7 +89,7 @@ end
 namespace :deploy do
   before :starting,     :check_revision
   # before 'check:linked_files', 'config:push'
-  before 'check:linked_files', 'puma_conf'
+  # before 'check:linked_files', 'puma_conf'
   # before 'check:linked_files', 'puma:nginx_confg'
   after 'puma:smart_restart', 'nginx:restart'
   after  :finishing,    :compile_assets
