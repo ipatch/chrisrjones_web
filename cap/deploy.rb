@@ -39,7 +39,7 @@ set :stage,           :production
   # do nothing
 # else
   # append linked_dirs, "bin", "log", "tmp" "vendor/bundle" "public/system"
-  set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp', 'vendor/bundle', 'public/system')
+  set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
 # end
 
 # Puma Settings
