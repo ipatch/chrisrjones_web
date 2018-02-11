@@ -16,6 +16,7 @@ require 'capistrano/rails/migrations'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 require "capistrano/scm/git"
+require "capistrano/nginx"
 install_plugin Capistrano::SCM::Git
 
 set :rvm_type, :user
