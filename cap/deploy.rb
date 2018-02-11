@@ -27,22 +27,16 @@ set :keep_releases,   5
 set :format,        :pretty
 set :log_level,     :debug
 set :stage,         :production
-set :pty,             true
+set :pty,           true
 
 append :linked_files,  "config/secrets.yml"
-# set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
-
 append :linked_dirs, "bin", "tmp", "vendor/bundle", "public/system" #, "#{release_path}.bundle"
-# set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
 set :bundle_path, -> { 'vendor/bundle' }
-# Puma Settings
-# set :puma_conf, "#{shared_path}/config/puma.rb"
-# set :puma_conf,       "#{shared_path}/puma.rb"
 
+# Puma Settings
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_role,       :app
 set :puma_env,        fetch(:rack_env, fetch(:rails_env, 'production'))
-# the below settings are / were working great 👌
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
@@ -127,13 +121,6 @@ namespace :deploy do
   after 'puma:smart_restart', 'nginx:restart'
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-
-  # desc "Set config/puma.rb for upstart"
-  # task :puma_conf do
-  #   on roles(:app) do
-  #     execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
-  #   end
-  # end
 
   desc "Check that we can access everything"
   task :check_write_permissions do
