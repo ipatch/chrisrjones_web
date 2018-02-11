@@ -32,7 +32,7 @@ set :pty,             true
 append :linked_files,  "config/secrets.yml"
 # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
-append :linked_dirs, "bin", "tmp", "vendor/bundle", "public/system", "#{release_path}.bundle"
+append :linked_dirs, "bin", "tmp", "vendor/bundle", "public/system" #, "#{release_path}.bundle"
 # set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'tmp', 'vendor/bundle', 'public/system')
 
 # Puma Settings
