@@ -7,29 +7,23 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 gem 'rails', '~> 4.2.7'
-# gem 'sqlite3', '~> 1.3', '>= 1.3.13'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', :platforms => :ruby
-# Added to prevent errornous error messages
-# gem 'execjs'
-gem 'therubyracer', '~> 0.12.3'
-# Add support for PostgreSQL
-# gem 'pg', '~> 1.0' <= too new for rails 4.x
-# gem 'pg', '~> 1.0'
 gem 'pg', '~> 0.20.0'
-
-gem 'bootstrap-sass', '~> 3.3.6'
-# gem 'figaro', '~> 1.1', '>= 1.1.1'
-
-# Gems used only for assets and not required
-# in production environments by default.
 gem 'sass-rails', '~> 5.0'
-gem 'coffee-rails', '~> 4.0.1'
-gem 'uglifier', '>= 1.3.0' # the gem is used to compress assets
-# add to test building of assets
+gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'uglifier', '>= 1.3.0' # the gem is used to compress assets
+# add to test building of assets
+
+###
+# Add a JS runtime in hopes of successful deployment of app
+###
+gem 'execjs', '~> 2.7'
+gem 'therubyracer', '~> 0.12.3'
+###
+
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # in order to use encrypted passwords the following gem must be enabled
 # bcrypt-ruby became deprecated, new name is just "bcrypt"
 # in order to use 'has_secure_password' the below gem must be installed

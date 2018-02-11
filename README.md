@@ -2,5 +2,8 @@
 
 This is the code repository that maintains the [chrisrjones.com](http://www.chrisrjones.com) site.
 
+## Deployment
+This app will bind to the local port of `7777` on the deployed server using puma and nginx.  See `deploy.rb` for more details.
+
 ## TODO
 - [ ] figure out why app isn't running in dev environment ¯\\_(ツ)_/¯

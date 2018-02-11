@@ -52,11 +52,11 @@ set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
 set :puma_preload_app, true
+set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 ###
 # the below setting is not valid for cap v3, checked via running `cap deploy production doctor`
 ###
 # set :puma_worker_timeout, nil
-set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 # END puma settings
 
 ###
@@ -103,16 +103,16 @@ set :app_server_host, "127.0.0.1"
 
 # The port the application server is running on
 # no default value
-set :app_server_port, 8080
+set :app_server_port, 7777
 
 ###
 # END - nginx settings
 ###
 
-
-# Rake::Task["puma:config"].clear_actions
-
 namespace :puma do
+  
+  before :start, :make_dirs
+  
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
     on roles(:app) do
@@ -120,32 +120,20 @@ namespace :puma do
       execute "mkdir #{shared_path}/tmp/pids -p"
     end
   end
-
-  # task :config do
-  #   on roles(:all) do
-  #     # execute "RACK_ENV=#{fetch(:rails_env)}"
-  #     execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
-  #   end
-  # end
-  before :start, :make_dirs
-  # before :start, :config
 end
 
 namespace :deploy do
   before :starting,     :check_revision
-  # before 'check:linked_files', 'config:push'
-  # before 'check:linked_files', 'puma_conf'
-  # before 'check:linked_files', 'puma:nginx_confg'
   after 'puma:smart_restart', 'nginx:restart'
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
 
-  desc "Set config/puma.rb for upstart"
-  task :puma_conf do
-    on roles(:app) do
-      execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
-    end
-  end
+  # desc "Set config/puma.rb for upstart"
+  # task :puma_conf do
+  #   on roles(:app) do
+  #     execute "ln -sf #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
+  #   end
+  # end
 
   desc "Check that we can access everything"
   task :check_write_permissions do
