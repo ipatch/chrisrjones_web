@@ -3,4 +3,4 @@
 This is the code repository that maintains the [chrisrjones.com](http://www.chrisrjones.com) site.
 
 ## TODO
-- [ ] figure out why app isn't running in dev environment ¯\_(ツ)_/¯
+- [ ] figure out why app isn't running in dev environment ¯\\_(ツ)_/¯
