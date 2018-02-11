@@ -24,6 +24,7 @@ set :rvm_map_bins, %{rake gem bundle ruby}
 
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
 install_plugin Capistrano::Puma # load_hooks: false  Default puma tasks
+install_plugin Capistrano::Puma::Nginx
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('cap/tasks/*.rake').each { |r| import r }
