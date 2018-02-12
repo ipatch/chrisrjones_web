@@ -22,10 +22,8 @@ module CrjCom
       env_file = Rails.root.join('config', 'secrets.yml').to_s
       
       if File.exist?(env_file)
-      
-        # YAML.load(File.open(env_file)).each do |key, value|
         YAML.load_file(env_file)[Rails.env].map do |key, value|
-          ENV[key.to_s] = value.to_s
+        ENV[key.to_s] = value.to_s
         end
       end
     end
