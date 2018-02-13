@@ -66,7 +66,7 @@ set :nginx_roles, :web
 
 # Path, where nginx log file will be stored
 # default value: "#{shared_path}/log"
-set :nginx_log_path, "#{release_path}/log"
+# set :nginx_log_path, "#{release_path}/log"
 
 # Path where to look for static files
 # default value: "public"
@@ -80,7 +80,7 @@ set :nginx_log_path, "#{release_path}/log"
 # Path to look for custom config template
 # `:default` will use the bundled nginx template
 # default value: :default
-set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
+# set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
 
 # Whether you want to server an application through a proxy pass
 # default value: true
@@ -89,11 +89,11 @@ set :app_server, true
 # Socket file that nginx will use as upstream to serve the application
 # Note: Socket upstream has priority over host:port upstreams
 # no default value
-set :app_server_socket, "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
+set :app_server_socket, "#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 
 # The host that nginx will use as upstream to server the application
 # default value: 127.0.0.1
-set :app_server_host, "127.0.0.1"
+set :app_server_host, "chrisrjones.com"
 
 # The port the application server is running on
 # no default value
