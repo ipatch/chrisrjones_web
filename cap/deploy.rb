@@ -93,7 +93,7 @@ set :app_server_socket, "#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.
 
 # The host that nginx will use as upstream to server the application
 # default value: 127.0.0.1
-set :app_server_host, "chrisrjones.com"
+set :app_server_host, "127.0.0.1"
 
 # The port the application server is running on
 # no default value
