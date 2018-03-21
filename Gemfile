@@ -51,6 +51,10 @@ gem 'active_model_serializers', '~> 0.10.7'
 # update nokogirl
 gem 'nokogiri', '~> 1.8.2'
 
+# update `loofah` to 2.2.1 to avoid CVE
+# gem 'loofah', '~> 2.2.1'
+# run `bundle update loofah` to get latest version
+
 # group :development do
   gem 'capistrano', '~> 3.10', '>= 3.10.1' #,       require: false
   gem 'capistrano-rvm', '~> 0.1.2'#,                require: false
