@@ -12,11 +12,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'uglifier', '>= 1.3.0' # the gem is used to compress assets
-# add to test building of assets
+gem 'uglifier', '>= 1.3.0' # compress assets, ie. js css
+
 
 ###
-# Add a JS runtime in hopes of successful deployment of app
+# Add a JS runtime
 ###
 gem 'execjs', '~> 2.7'
 gem 'therubyracer', '~> 0.12.3'
@@ -24,32 +24,19 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
-# in order to use encrypted passwords the following gem must be enabled
-# bcrypt-ruby became deprecated, new name is just "bcrypt"
-# in order to use 'has_secure_password' the below gem must be installed
-gem 'bcrypt', '~> 3.1.7'
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-# To use Jbuilder templates for JSON
-gem 'jbuilder', '~> 2.0'
+gem 'bcrypt', '~> 3.1.7' # `has_secure_password` depends on this gem
+gem 'jbuilder', '~> 2.0' # JSON templating
 
-# add gem to debug rails
-gem 'pry', '~> 0.11.3'
-# To use debugger
-# gem 'debugger'
+gem 'pry', '~> 0.11.3' # add gem to debug rails
 
-# add the following gem because Kevin uses it in his simple CMS
-# Added to sort objects for "Simple CMS"
-gem 'acts_as_list', '~> 0.3.0'
+# gem 'debugger' # To use debugger
 
-# add gem to get interactive console in error message window
-gem 'binding_of_caller', '~> 0.8.0'
+gem 'acts_as_list', '~> 0.3.0' # used to sort objects for "Simple CMS"
+gem 'binding_of_caller', '~> 0.8.0' # interactive console in error message window
 
-#Api Gems
-gem 'active_model_serializers', '~> 0.10.7'
+gem 'active_model_serializers', '~> 0.10.7' #Api Gems
 
-# update nokogirl
-gem 'nokogiri', '~> 1.8.2'
+gem 'nokogiri', '~> 1.8.2' # update nokogirl
 
 # update `loofah` to 2.2.1 to avoid CVE
 # gem 'loofah', '~> 2.2.1'
