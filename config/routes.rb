@@ -1,10 +1,18 @@
+# require 'emoji/string_ext'
+require "addressable/uri"
+
 Rails.application.routes.draw do
   
     resources :articles do
     resources :comments
   end
 
-  get 'resume' => 'resume#index'
+  # get 'resume' => 'resume#index'
+  # uri = Addressable::URI.parse("https://linkedin.com/")
+  poop = 'https://linkedin.com/💩'
+  # get 'resume', to: redirect(Addressable::URI.parse poop)
+  #
+  get 'resume', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
 
   get 'signup' => 'users#new'
   get 'login' =>'sessions#new'
@@ -27,8 +35,9 @@ Rails.application.routes.draw do
   # test route
   match 'users/foo', :to => 'users#foo', via: [:post, :get]
 
-  # Added below route for correct "resumé" spelling
-  get 'resumé', :to =>"resume#index"
+  # Add below route for correct "resumé" spelling
+  
+  get 'resumé', to: redirect('https://www.linkedin.com/༼∵༽༼⍨༽༼⍢༽༼⍤༽')
 
   # get 'about#index'
   get 'about' => 'about#index'

@@ -42,6 +42,8 @@ gem 'nokogiri', '~> 1.8.2' # update nokogirl
 # gem 'loofah', '~> 2.2.1'
 # run `bundle update loofah` to get latest version
 
+gem 'addressable', '~> 2.5.2'
+
 # group :development do
   gem 'capistrano', '~> 3.10', '>= 3.10.1' #,       require: false
   gem 'capistrano-rvm', '~> 0.1.2'#,                require: false
