@@ -1,18 +1,24 @@
-# require 'emoji/string_ext'
 require "addressable/uri"
+# The priority is based upon order of creation: first created -> highest priority.
+# See how all your routes lay out with "rake routes".
 
 Rails.application.routes.draw do
   
-    resources :articles do
+  resources :articles do
     resources :comments
   end
 
-  # get 'resume' => 'resume#index'
-  # uri = Addressable::URI.parse("https://linkedin.com/")
-  poop = 'https://linkedin.com/💩'
-  # get 'resume', to: redirect(Addressable::URI.parse poop)
-  #
+  # test route
+  match 'users/foo', :to => 'users#foo', via: [:post, :get]
+
+  poop = 'https://linkedin.com/in/💩'
   get 'resume', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
+  # Add below route for correct "resumé" spelling
+  get 'resumé', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
+
+  dots = 'https://github.com/ipatch/dotfiles'
+
+  get 'dotfiles', to: redirect { |params, req| Addressable::URI.parse(URI.escape(dots)) }
 
   get 'signup' => 'users#new'
   get 'login' =>'sessions#new'
@@ -29,15 +35,7 @@ Rails.application.routes.draw do
   # removed "resources :attachments" out of :articles do loop due to routing error
   resources :attachments
 
-  # route to hopefully get confirmation link working :-/
-  # match '/users/:confirmation_token', :to => 'users#confirm', via: [:post, :get]
 
-  # test route
-  match 'users/foo', :to => 'users#foo', via: [:post, :get]
-
-  # Add below route for correct "resumé" spelling
-  
-  get 'resumé', to: redirect('https://www.linkedin.com/༼∵༽༼⍨༽༼⍢༽༼⍤༽')
 
   # get 'about#index'
   get 'about' => 'about#index'
@@ -49,8 +47,6 @@ Rails.application.routes.draw do
   match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
   # match ':controller(/:action(/:id))', :via => [:get, :post]
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   # Api definitions
   namespace :api, defaults: { format: :json },
