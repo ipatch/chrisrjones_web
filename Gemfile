@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # crj.com
 
-# the "~>" denotes that bundler will install minor updates, but not major
+# the `~>` denotes that bundler will install minor updates, but not major
 
 ruby "2.3.1"
 
@@ -52,7 +52,6 @@ gem 'addressable', '~> 2.5.2'
   gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'#,    require: false
   gem 'capistrano3-nginx', '~> 2.0'#,               require: false
   # below gem is for troubleshooting ssh settings, ie ssh-agent
-  # gem 'capistrano-ssh-doctor', '~> 1.0'
 # end
 
 # add puma to productoin
