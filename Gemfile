@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 # the `~>` denotes that bundler will install minor updates, but not major
 
-ruby "2.3.7"
+ruby "2.4.4"
 
 gem 'rails', '~> 4.2.10'
 gem 'pg', '~> 0.20.0'
@@ -14,9 +14,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'uglifier', '>= 1.3.0' # compress assets, ie. js css
 
-
 ###
-# Add a JS runtime
+# Add JS runtime, ie. Node.js V8
 # SEE: `./config/boot.rb` for JS runtime settings
 
 gem 'bootstrap-sass', '~> 3.3.6'
