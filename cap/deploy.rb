@@ -9,13 +9,19 @@ set :application,     'CrjCom'
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
 
 set :rvm_ruby_version, '2.3.1'
-set :default_env, { rvm_bin_path: "~/.rvm/bin"}
+# TODO: see if `$PATH` env var can be used instead of
+#...explicitly defining all the paths.
+# NOTE: cap can't read env vars such `$PATH` from the local user 😡
+set :default_env, { path: "$HOME/.rvm/bin:$HOME/.asdf/shims/:$HOME/.asdf/bin:/usr/local/bin:/usr/bin:/bin"}
 set :bundle_flags, '--deployment'
+set :rvm_roles, [:app, :web, :db]
 SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # set the default location for the app will be deployed to
 set :user, "deploy"
+set :use_sudo, false
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :current_directory, "/home/#{fetch(:user)}/apps/#{fetch(:application)}/current"
 
 ### DEPRECATED
 # set :scm, :git # The below setting has been deprecated!
@@ -66,7 +72,7 @@ set :nginx_roles, :web
 
 # Path, where nginx log file will be stored
 # default value: "#{shared_path}/log"
-# set :nginx_log_path, "#{release_path}/log"
+set :nginx_log_path, "#{release_path}/log"
 
 # Path where to look for static files
 # default value: "public"
