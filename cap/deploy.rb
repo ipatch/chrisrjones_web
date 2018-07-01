@@ -8,7 +8,7 @@ lock "~> 3.10.1"
 set :application,     'CrjCom'
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
 
-set :rvm_ruby_version, '2.3.7'
+set :rvm_ruby_version, '2.4.4'
 # TODO: see if `$PATH` env var can be used instead of
 #...explicitly defining all the paths.
 # NOTE: cap can't read env vars such `$PATH` from the local user 😡
