@@ -18,7 +18,7 @@ require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.4.4'
+set :rvm_ruby_version, '2.5.1'
 set :rvm_map_bins, %{rake gem bundle ruby}
 
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
