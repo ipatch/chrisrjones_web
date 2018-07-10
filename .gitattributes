@@ -1,0 +1,19 @@
+# This file works in conjunction with `git-crypt`
+
+# Example(s) usage
+# secretfile filter=git-crypt diff=git-crypt
+# *.key filter=git-crypt diff=git-crypt
+
+# Encrypt files related to docker, ie. `docker-compose.yml` `Dockerfile`
+Dockerfile filter=git-crypt diff=git-crypt
+docker-compose.yml filter=git-crypt diff=git-crypt
+
+
+
+
+
+
+
+
+# Don't encrypt the `.gitattributes file itself
+.gitattributes !filter !diff
