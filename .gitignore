@@ -6,12 +6,15 @@
 
 # macOS 🖕
 **/.DS_Store
+# Ignore Trash files
+.Trash-1000
 
 # track all files with a name of `.gitkeep`
 !.gitkeep
 
 # Ignore bundler config
 /.bundle
+/vendor/bundle/**
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -31,42 +34,28 @@
 *.rbc
 capybara-*.html
 .rspc
-/public/system
 /coverage
 /spec/tmp
-**.orig
+/**.orig
 rerun.txt
 pickle-email-*.html
+# Ignorre more rails project files
+doc/api
+doc/app
 
 # Comment out these rules if your OK with secrets being uploaded to the repo
 config/secrets.yml
-
-# Environment normalization:
-/.bundle
-/vendor/bundle
 
 # Cap requires the Gemfile.lock be checked into version control
 
 # unless supportinng rvm < 1.11.0 doing something fancy, ignore this:
 # .rvmrc
 
-# Ignorre more rails project files
-doc/api
-doc/app
-
 # Ignorre vim swap files
-*.swp
-*~
-*.swo
-
-# Ignore stupid OS X GUI file placement for Finder files
-**/.DS_Store
+**/.swp
+**/~
+**/.swo
 
 # Ignore my scratchpad file
 scratchpad.txt
 
-# Ignore Trash files
-.Trash-1000
-
-# Ignore compiled assets
-/public/assets
