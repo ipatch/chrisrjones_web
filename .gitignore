@@ -4,6 +4,12 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
+# macOS 🖕
+**/.DS_Store
+
+# track all files with a name of `.gitkeep`
+!.gitkeep
+
 # Ignore bundler config
 /.bundle
 
@@ -18,7 +24,6 @@
 
 # Ignore files in public dir
 /public/*
-
 
 # Ignore certain rails project files
 # https://github.com/github/gitignore/blob/master/Rails.gitignore
