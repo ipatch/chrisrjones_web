@@ -11,8 +11,10 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+/log/*
+/tmp/*
+!/log/.gitkeep
+!/tmp/.gitkeep
 
 # Ignore files in public dir
 /public/*
