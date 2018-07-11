@@ -25,7 +25,7 @@
 !/tmp/.gitkeep
 
 # Ignore files in public dir
-# /public/*
+# public/*
 
 # Ignore certain rails project files
 # https://github.com/github/gitignore/blob/master/Rails.gitignore
