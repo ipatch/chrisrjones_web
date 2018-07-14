@@ -22,18 +22,24 @@ server {
 <% if fetch(:nginx_use_ssl) -%>
   listen 443;
   ssl on;
-<% if fetch(:nginx_ssl_certificate) -%>
-  ssl_certificate <%= fetch(:nginx_ssl_certificate) %>;
+  <% if fetch(:nginx_ssl_certificate) -%>
+    ssl_certificate <%= fetch(:nginx_ssl_certificate) %>;
+  <% else if -%>
+    ssl_certificate /etc/letsencrypt/live/chrisrjones.com/fullchain.pem;
+  <% else -%>
+    ssl_certificate /etc/ssl/certs/<%= fetch(:nginx_config_name) %>.crt;
+  <% end -%>
+
+  <% if fetch(:nginx_ssl_certificate_key) -%>
+    ssl_certificate_key <%= fetch(:nginx_ssl_certificate_key) %>;
+  <% else if -%> 
+    ssl_certificate_key /etc/letsencrypt/live/chrisrjones.com/privkey.pem;
+  <% else -%>
+      ssl_certificate_key /etc/ssl/private/<%= fetch(:nginx_config_name) %>.key;
+  <% end -%>
+
 <% else -%>
-  ssl_certificate /etc/ssl/certs/<%= fetch(:nginx_config_name) %>.crt;
-<% end -%>
-<% if fetch(:nginx_ssl_certificate_key) -%>
-  ssl_certificate_key <%= fetch(:nginx_ssl_certificate_key) %>;
-<% else -%>
-  ssl_certificate_key /etc/ssl/private/<%= fetch(:nginx_config_name) %>.key;
-<% end -%>
-<% else -%>
-  listen 80;
+    listen 80;
 <% end -%>
   server_name chrisrjones.com www.chrisrjones.com;
   root <%= current_path %>/public;
@@ -52,7 +58,9 @@ server {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "Upgrade";
 <% if fetch(:nginx_use_ssl) -%>
-    proxy_set_header X-Forwarded-Proto https;
+    <%# proxy_set_header X-Forwarded-Proto https; %>
+    proxy_set_header X-SSL-Protocol $ssl_protocol;
+    proxy_set_header X-SSL-Cipher $ssl_cipher;
 <% else -%>
     proxy_set_header X-Forwarded-Proto http;
 <% end -%>

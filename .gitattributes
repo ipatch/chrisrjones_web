@@ -9,11 +9,5 @@ Dockerfile filter=git-crypt diff=git-crypt
 docker-compose.yml filter=git-crypt diff=git-crypt
 .dockerignore filter=git-crypt diff=git-crypt
 
-
-
-
-
-
-
 # Don't encrypt the `.gitattributes file itself
 .gitattributes !filter !diff
