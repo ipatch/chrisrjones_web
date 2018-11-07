@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # crj.com
 
-# the `~>` denotes that bundler will install minor updates, but not major
+# `~>` denotes bundler will only install minor updates
 
 ruby "2.5.3"
 
@@ -10,11 +10,13 @@ gem 'rails', '~> 4.2.10'
 # gem 'pg', '~> 0.21'
 # gem 'pg', '>= 0.21.0', '< 1.1.3'
 gem 'pg', '~> 0.21' # rails v4.2.x and pg gem v1.x don't play nice with each other
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0' # deprecated
 gem 'coffee-rails', '~> 4.2.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'uglifier', '>= 1.3.0' # compress assets, ie. js css
+gem 'uglifier', '4.1.19' # compress assets, ie. js css
+# gem 'sassc' # updated sass engine for working with sass based projects using ruby
+gem 'sassc-rails'
 
 ###
 # Add JS runtime, ie. Node.js V8
@@ -55,5 +57,6 @@ gem 'addressable', '~> 2.5.2'
 
 # add puma to productoin
 group :production do
-  gem 'puma', '~> 3.11', '>= 3.11.2'
+  # gem 'puma', '~> 3.11', '>= 3.11.2'
+  gem 'puma', '~> 3.12'
 end

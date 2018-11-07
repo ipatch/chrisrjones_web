@@ -163,12 +163,15 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (5.0.7)
-      railties (>= 4.0.0, < 6)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (>= 1.1, < 3)
+    sassc (2.0.0)
+      ffi (~> 1.9.6)
+      rake
+    sassc-rails (2.0.0)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -210,13 +213,13 @@ DEPENDENCIES
   nokogiri (~> 1.8.2)
   pg (~> 0.21)
   pry (~> 0.12.0)
-  puma (~> 3.11, >= 3.11.2)
+  puma (~> 3.12)
   rails (~> 4.2.10)
-  sass-rails (~> 5.0)
-  uglifier (>= 1.3.0)
+  sassc-rails
+  uglifier (= 4.1.19)
 
 RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
