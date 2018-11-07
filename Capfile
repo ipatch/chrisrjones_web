@@ -15,8 +15,10 @@ require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/rvm'
 require 'capistrano/scm/git'
-require 'capistrano/nginx'
 install_plugin Capistrano::SCM::Git
+
+require 'capistrano/nginx'
+install_plugin Capistrano::Nginx
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.5.3'
@@ -24,10 +26,8 @@ set :rvm_map_bins, %{rake gem bundle ruby}
 
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
 require 'capistrano/puma'
-install_plugin Capistrano::Puma # load_hooks: false  Default puma tasks
-require "capistrano/nginx"
 # install_plugin Capistrano::Puma::Nginx
-install_plugin Capistrano::Nginx
+install_plugin Capistrano::Puma # load_hooks: false  Default puma tasks
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('cap/tasks/*.rake').each { |r| import r }
