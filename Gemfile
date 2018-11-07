@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 # the `~>` denotes that bundler will install minor updates, but not major
 
-ruby "2.5.1"
+ruby "2.5.3"
 
 gem 'rails', '~> 4.2.10'
 # gem 'pg', '~> 0.21'
