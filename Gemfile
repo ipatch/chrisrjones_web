@@ -12,7 +12,7 @@ gem 'pg', '~> 0.21' # rails v4.2.x and pg gem v1.x don't play nice with each oth
 gem 'coffee-rails', '~> 4.2.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'uglifier', '4.1.19' # compress assets, ie. js css
+gem 'uglifier', '4.1.20' # compress assets, ie. js css
 # gem 'sassc' # updated sass engine for working with sass based projects using ruby
 gem 'sassc-rails'
 
@@ -25,7 +25,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bcrypt', '~> 3.1.7' # `has_secure_password` depends on this gem
 gem 'jbuilder', '~> 2.0' # JSON templating
 
-gem 'pry', '~> 0.12.0' # add gem to debug rails
+gem 'pry', '~> 0.12.2' # add gem to debug rails
 
 # gem 'debugger' # To use debugger
 
