@@ -7,6 +7,9 @@
     <%= javascript_include_tag "application" %>
     <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="initial-scale=1.0">
+    <% if Rails.env.production? %> 
+      <%= render "shared/gtag" %>
+    <% end %>
   </head>
   <body>
     <div id="wrap">
@@ -24,9 +27,6 @@
         <p class="muted credit"><id="copyright">&copy; 2019 chrisrjones.com / Chris Jones</p>
       </div>
     </div> <!-- footer -->
-    <% if Rails.env.production? %> 
-      <%= render "shared/gtag" %>
-    <% end %>
     </div> <!-- wrap div -->
   </body>
 </html>
