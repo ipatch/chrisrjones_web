@@ -24,7 +24,9 @@
         <p class="muted credit"><id="copyright">&copy; 2019 chrisrjones.com / Chris Jones</p>
       </div>
     </div> <!-- footer -->
+    <% if Rails.env.production? %> 
+      <%= render "shared/gtag" %>
+    <% end %>
     </div> <!-- wrap div -->
-    <%# <%= render 'layouts/footer' %1> %>
   </body>
 </html>
