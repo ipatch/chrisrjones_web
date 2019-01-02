@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>chrisrjones.com<%= " | #{@page_title} " if @page_title %></title>
-		<%= stylesheet_link_tag('application', :media => 'all') %>
-		<%= javascript_include_tag('application') %>
-
-	</head>
-	<body>
-	<!-- Part 1: Wrap all page content here -->
-
+  <head>
+    <meta charset="utf-8">
+    <title>chrisrjones.com<%= " | #{@page_title} " if @page_title %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+    <%= javascript_include_tag('application') %>
+  </head>
+  <body>
+    <!-- Part 1: Wrap all page content here -->
     <div id="wrap">
-    	<div id="nav_100_width">
-    		<!-- put navbar outside of container to get 100% width -->
-    	<%= render 'layouts/nav' %>
+      <div id="nav_100_width">
+        <!-- put navbar outside of container to get 100% width -->
+        <%= render 'layouts/nav' %>
+      </div>
+      <div class="container">
+        <%= yield %>
+      </div>  
+      <div id="push"></div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit"><id="copyright">&copy; chrisrjones.com / Chris Jones</p>
+      </div>
     </div>
 
-		<div class="container">
-
-  		<%= yield %>
-			  
-		</div>  
-		<!-- need to figure out a way to insert a footer, i.e. one that sticks
-		to the bottom of the web page -->
-			<div id="push"></div>
-    	</div>
-		<div id="footer">
-      		<div class="container">
-        	<p class="muted credit"><id="copyright">&copy; chrisrjones.com / Chris Jones</p>
-      		</div>
-    	</div>
-
-	</div> <!-- wrap div -->
-	<%= render "shared/footer"%>
-	</body>
-
-
-<!-- 
-	
-<%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
- -->
-	
+    </div> <!-- wrap div -->
+    <%# <%= render "shared/footer"%>%>
+  </body>
 </html>
