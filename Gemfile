@@ -20,7 +20,7 @@ gem 'sassc-rails'
 # Add JS runtime, ie. Node.js V8
 # SEE: `./config/boot.rb` for JS runtime settings
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'bcrypt', '~> 3.1.7' # `has_secure_password` depends on this gem
 gem 'jbuilder', '~> 2.0' # JSON templating
