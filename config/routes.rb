@@ -1,4 +1,5 @@
-require "addressable/uri"
+require 'addressable/uri'
+require 'api_constraints'
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 
@@ -35,24 +36,17 @@ Rails.application.routes.draw do
   # removed "resources :attachments" out of :articles do loop due to routing error
   resources :attachments
 
-
-
-  # get 'about#index'
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
-
-  resources :about
-  resources :contact
   
   match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
   # match ':controller(/:action(/:id))', :via => [:get, :post]
 
-
   # Api definitions
-  namespace :api, defaults: { format: :json },
-                              constraints: { subdomain: 'api' }, path: '/'  do
-    scope module: :v1 do
+  namespace :api, defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
       # list our resources here
+      resources :articles
     end
   end
 
