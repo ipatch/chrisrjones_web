@@ -44,10 +44,10 @@ Rails.application.routes.draw do
 
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+    # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
       # list our resources here
       resources :articles
-    end
+    # end
   end
 
   # You can have the root of your site routed with "root"
