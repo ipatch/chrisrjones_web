@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.text :text
       t.string :created_by
+      t.string :slug # the permalink for a blog post
 
       t.timestamps null: false
     end
