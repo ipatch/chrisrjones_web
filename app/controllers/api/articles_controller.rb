@@ -3,7 +3,15 @@ module Api # namespace
     class ArticlesController < ApplicationController
       # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
       protect_from_forgery with: :null_session
-      # skip_before_filter :verify_authenticity_token
+      #
+      skip_before_action :verify_authenticity_token
+      #
+      
+      #
+      # disable session functionality for api related features
+      #
+      # before_action :destroy_session
+
       include Response
       include ExceptionHandler
 
