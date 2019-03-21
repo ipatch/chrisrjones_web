@@ -4,6 +4,9 @@ class ArticlesController < ApplicationController
 
 	skip_before_filter :verify_authenticity_token
 
+  # EXP; disable CSRF for API experimentation
+  protect_from_forgery with: :null_session
+
 	def index
 		@articles = Article.all
 	end

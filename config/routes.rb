@@ -47,6 +47,9 @@ Rails.application.routes.draw do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
       # list our resources here
       resources :articles
+      # NOTE: to limit what resources can be reached
+      # EX
+      # resources :articles, :except => [:new, :edit]
     # end
   end
 

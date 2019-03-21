@@ -1,12 +1,11 @@
 module Api # namespace
   # module V1 # scope
     class ArticlesController < ApplicationController
+      # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
+      protect_from_forgery with: :null_session
+      # skip_before_filter :verify_authenticity_token
       include Response
       include ExceptionHandler
-
-      # before_filter :authorize, only: [:create, :edit, :update, :destroy]
-
-      # skip_before_filter :verify_authenticity_token
 
       # GET /articles
       def index
@@ -14,14 +13,7 @@ module Api # namespace
         json_response(@articles)
       end
 
-      
-      def new
-        if current_user == nil
-          redirect_to login_path
-        else
-          @article = Article.new
-        end
-      end
+      # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
 
       # POST /articles
       def create
@@ -29,67 +21,34 @@ module Api # namespace
         json_response(@article, :created)
       end
 
-        # set the user_id in the controller not the form.
-        # @article.user_id = current_user.id if current_user
-
-        # if @article.save
-          # redirect_to @article
-        # else
-          # render 'new'
-        # end
-      # end
-
+      # GET /articles/:id
       def show
         json_response(@article)
-        # @article = Article.find_by_slug(params[:id])
-        # respond_to do |format|
-        #   format.html # show.html.erb
-        #   format.json { render json: @article }
-        # end
       end
 
-      # def edit
-      #   @article = Article.find_by_slug(params[:id])
-      # end
-
+      # PUT /todos/:id
       def update
         @article.update(article_params)
         head :no_content
       end
-        # @article = Article.find_by_slug(params[:id])
-        # if @article.user_id == current_user.id || current_user.admin_user == true
-        #   @article.update(article_params)
-        #   redirect_to @article
-        # else
-        #   flash[:notice] = 'Not the author of the article!'
-        #   render 'edit'
-        # end
-      # end
 
+      # DELETE /todos/:id
       def destroy
         @aritcle.destory
         head :no_content
       end
 
-        # @article = Article.find_by_slug(params[:id])
-        # if current_user == @article.user || current_user.admin_user == true
-        #   @article.destroy
-        # end
-
-        # redirect_to articles_path
-      # end
-
       private
 
       def article_params
         # params.require(:article).permit(:title, :text, :slug, :meta_description)
-        params.permit(:title, :text, :slug, :meta_description, :created_by)
+        # params.permit(:title, :text, :slug, :meta_description, :created_by)
+        # params.permit(:title)
+        params.require(:article).permit(:title)
       end
-      # def require_authorization
-      # 	redirect_to :root unless current_user.articles.find_by_slug(params[:id])
-      # 	# Use the find_by to avoid the ActiveRecord::RecordNotFound and get a nil
-      # 	# instead in case the question id doesn't belong to a question of the user
-      # end
+
+      def set_article
+        @article = Article.find(params[:id])
+      end
     end
 end
-# end
