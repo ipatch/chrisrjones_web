@@ -17,12 +17,11 @@ ActiveRecord::Schema.define(version: 20180207180008) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",            limit: 255
     t.text     "text"
-    t.string   "created_by"
-    t.string   "slug"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "slug",             limit: 255
     t.integer  "user_id"
     t.string   "meta_description"
   end
@@ -37,27 +36,27 @@ ActiveRecord::Schema.define(version: 20180207180008) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
+    t.string   "commenter",  limit: 255
     t.text     "body"
     t.integer  "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "email",                  limit: 255
+    t.string   "password_digest",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "admin_user",             default: false
+    t.boolean  "admin_user",                         default: false
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
-    t.boolean  "confirmed",              default: false
+    t.boolean  "confirmed",                          default: false
   end
 
   add_foreign_key "articles", "users"
