@@ -5,13 +5,13 @@ module Api # namespace
       protect_from_forgery with: :null_session
       skip_before_action :verify_authenticity_token
 
-      # TODO: see if below line makes a difference
-      respond_to :json
+      # NOTE: `respond_to` has been migrated into its own gem
+      # respond_to :json
       
       # disable session functionality for api related features
       # before_action :destroy_session
 
-      # include Response
+      include Response
       # include ExceptionHandler
 
       def foo
@@ -38,7 +38,7 @@ module Api # namespace
       def create
         @article = Article.new(article_params)
           if @article.save
-            respond_to do |format|
+            json_response do |format|
               format.json { render :json => @todo }
             end
           end
