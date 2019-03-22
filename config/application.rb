@@ -9,6 +9,21 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+module Kernel
+  def gem_with_pg_fix(dep, *reqs)
+    if dep == 'pg' && reqs == ['~> 0.15']
+      reqs = ['~> 1.0']
+    end
+    gem_without_pg_fix(dep, *reqs)
+  end
+
+  alias_method_chain :gem, :pg_fix
+end
+# pg 1.0 gem has migrated constants, but ActiveRecord 4.2 still reqs
+PGconn = PG::Connection
+PGresult = PG::Result
+PGError = PG::Error
+
 module CrjCom
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
