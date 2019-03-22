@@ -1,7 +1,11 @@
-module Api # namespace
+# module Api # namespace
   # module V1 # scope
-    class ArticlesController < ApplicationController
+    # class ArticlesController < ApplicationController
+class Api::ArticlesController < ApiController
       # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
+
+  before_action :set_article
+
       protect_from_forgery with: :null_session
       skip_before_action :verify_authenticity_token
 
@@ -46,7 +50,7 @@ module Api # namespace
 
       # GET /articles/:id
       def show
-        json_response(@article)
+        # json_response(@article)
       end
 
       # PUT /todos/:id
@@ -63,15 +67,20 @@ module Api # namespace
 
       private
 
-      def article_params
-        # params.require(:article).permit(:title, :text, :slug, :meta_description)
-        # params.permit(:title, :text, :slug, :meta_description, :created_by)
-        # params.permit(:title)
-        params.require(:article).permit(:title)
-      end
+      # def article_params
+      #   # params.require(:article).permit(:title, :text, :slug, :meta_description)
+      #   # params.permit(:title, :text, :slug, :meta_description, :created_by)
+      #   # params.permit(:title)
+      #   params.require(:article).permit(:title)
+      # end
 
+      # def set_article
+      #   @article = Article.find(params[:id])
+      # end
+      
       def set_article
         @article = Article.find(params[:id])
       end
-    end
 end
+  # end
+# end
