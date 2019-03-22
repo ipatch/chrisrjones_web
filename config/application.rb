@@ -15,6 +15,9 @@ module CrjCom
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # EXP
+    config.autoload_paths << Rails.root.join('lib')
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
@@ -51,7 +54,7 @@ module CrjCom
   # TODO: figure out how to get this working with pg v1.1.x
   ##
   #
-  # catch the incorrect pg version, ie. pg 0.2x and replace with one that will passs GO and collect $200
+  # catch the incorrect pg version, ie. pg 0.21.0 and replace with one that will passs GO and collect $200
   # module Kernel
   #   def gem_with_pg_fix(dep, *reqs)
   #     if dep == "pg" && reqs == ["~> 0.21"]
