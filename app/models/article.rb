@@ -1,7 +1,5 @@
 class Article < ActiveRecord::Base
-	# attr_accessible :slug
-	# rails 4 doesn't use attr_accessible, it uses strong parameters
-	# defined in the controller
+  # DEPRECATED: rails ≥ v4.x attr_accessible :slug
 
 	# specify relationship between articles & attachments
 	has_many :attachments, dependent: :destroy
@@ -11,7 +9,7 @@ class Article < ActiveRecord::Base
 	validates_presence_of :slug
 
 	# user singluar form of model when using 'belongs_to'
-	# see this SO thread, http://stackoverflow.com/questions/16257116
+	# SEE: http://stackoverflow.com/questions/16257116
 	belongs_to :user
 
 	# specify the relationship for the meta_description

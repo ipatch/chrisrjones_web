@@ -20,11 +20,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_model_serializers (0.10.9)
-      actionpack (>= 4.1, < 6)
-      activemodel (>= 4.1, < 6)
-      case_transform (>= 0.2)
-      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (4.2.11.1)
       activesupport (= 4.2.11.1)
       globalid (>= 0.3.0)
@@ -75,8 +70,6 @@ GEM
       capistrano (~> 3.7)
       capistrano-bundler
       puma (~> 3.4)
-    case_transform (0.2)
-      activesupport
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -104,7 +97,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    jsonapi-renderer (0.2.0)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -185,7 +177,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.7)
   acts_as_list (~> 0.9.17)
   addressable (~> 2.5.2)
   bcrypt (~> 3.1.7)
