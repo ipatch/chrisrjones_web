@@ -1,7 +1,8 @@
 # module Api # namespace
   # module V1 # scope
     # class ArticlesController < ApplicationController
-class Api::ArticlesController < ApiController
+# class Api::ArticlesController < ApiController
+class Api::ArticlesController < ApplicationController
       # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
 
   before_action :set_article
