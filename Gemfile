@@ -7,10 +7,15 @@ source 'https://rubygems.org'
 ruby "2.5.3"
 
 gem 'rails', '~> 4.2.11.1'
+
 #
 # NOTE: pg v0.20.0 will not display deprecation warnings
 #
+
+#
 # gem 'pg', '~> 0.21' # rails v4.2.x and pg gem v1.x don't play nice with each other
+#
+
 gem 'pg', '1.1.4'
 # gem 'sass-rails', '~> 5.0' # deprecated
 gem 'coffee-rails', '~> 4.2.2'
