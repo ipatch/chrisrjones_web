@@ -4,12 +4,15 @@ module Api # namespace
       # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
       protect_from_forgery with: :null_session
       skip_before_action :verify_authenticity_token
+
+      # TODO: see if below line makes a difference
+      respond_to :json
       
       # disable session functionality for api related features
       # before_action :destroy_session
 
-      include Response
-      include ExceptionHandler
+      # include Response
+      # include ExceptionHandler
 
       def foo
         puts 'hello from ./app/controllers/api/articles_controller#foo'
@@ -23,10 +26,22 @@ module Api # namespace
 
       # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
 
+      #
       # POST /articles
+      #
+
+      # def create
+      #   @article = Article.create!(article_params)
+      #   json_response(@article, :created)
+      # end
+
       def create
-        @article = Article.create!(article_params)
-        json_response(@article, :created)
+        @article = Article.new(article_params)
+          if @article.save
+            respond_to do |format|
+              format.json { render :json => @todo }
+            end
+          end
       end
 
       # GET /articles/:id
