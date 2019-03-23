@@ -45,11 +45,17 @@ Rails.application.routes.draw do
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+
+      match 'hello', :to => 'articles#hello', via: [:get]
+      get 'hell0' => 'articles#hello'
+
       # list our resources here
       resources :articles
       # NOTE: to limit what resources can be reached
       # EX
       # resources :articles, :except => [:new, :edit]
+
+
     # end
   end
 

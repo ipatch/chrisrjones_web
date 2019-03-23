@@ -5,7 +5,7 @@
 class Api::ArticlesController < ApplicationController
       # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
 
-  before_action :set_article
+  # before_action :set_article
 
       protect_from_forgery with: :null_session
       skip_before_action :verify_authenticity_token
@@ -23,7 +23,12 @@ class Api::ArticlesController < ApplicationController
         puts 'hello from ./app/controllers/api/articles_controller#foo'
       end
 
-      # GET /articles
+      # GET /api/articles/hello
+      def hello
+        render json: 'hello from ./app/controllers/api/articles_controller#hello'
+      end
+
+      # GET /api/articles
       def index
         @articles = Article.all
         json_response(@articles)
@@ -43,14 +48,20 @@ class Api::ArticlesController < ApplicationController
       def create
         @article = Article.new(article_params)
           if @article.save
-            json_response do |format|
-              format.json { render :json => @todo }
-            end
+            # json_response(@article) 
+            # json_response do |format|
+            #   format.json { render :json => @article }
+            # end
+            render plain:
+              {error: 'Mr Fancy Error Message.'}.to_json,
+              status: 422,
+              content_type: 'application/json'
           end
       end
 
       # GET /articles/:id
       def show
+        @article = Article.find(params[:id])
         # json_response(@article)
       end
 
@@ -68,6 +79,10 @@ class Api::ArticlesController < ApplicationController
 
       private
 
+      def article_params
+
+      end
+
       # def article_params
       #   # params.require(:article).permit(:title, :text, :slug, :meta_description)
       #   # params.permit(:title, :text, :slug, :meta_description, :created_by)
@@ -79,9 +94,9 @@ class Api::ArticlesController < ApplicationController
       #   @article = Article.find(params[:id])
       # end
       
-      def set_article
-        @article = Article.find(params[:id])
-      end
+      # def set_article
+      #   @article = Article.find(params[:id])
+      # end
 end
   # end
 # end

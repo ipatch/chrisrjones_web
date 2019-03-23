@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
   # EXP; disable CSRF for API experimentation
   protect_from_forgery with: :null_session
 
+  def foo
+    puts 'hello from ./app/controllers/api/articles_controller#foo'
+  end
+
 	def index
 		@articles = Article.all
 	end
