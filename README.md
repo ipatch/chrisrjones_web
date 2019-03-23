@@ -8,7 +8,7 @@ The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
 
 When working with attachments using this CMS visit `http://tld.com/attachments` to manage attachments stored in the Postgres DB for this app.
 
-> Must be logged in to CMS in order to manage attachments.
+> ⚠️ Must be logged in to manage attachments.
 
 <a id="deployment"></a>
 
@@ -35,13 +35,13 @@ cap production deploy
 
 ## Security
 
-To update a vulnerable gem present within the bundled gems
+To update a vulnerable gem bundled within the app
 
 ```shell
 bundle update [mr-fancy-vulnerable-gem]
 ```
 
-### Security Updating vulnerable gems example
+<strong>Ex</strong>
 
 ```shell
 bundle update loofah
