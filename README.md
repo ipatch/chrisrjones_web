@@ -6,7 +6,7 @@ The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
 
 ## Usage
 
-When working with attachments using this CMS visit `http://tld.com/attachments` to manage and upload new attachments to be stored with the Postgres DB using this CMS.
+When working with attachments using this CMS visit `http://tld.com/attachments` to manage attachments stored in the Postgres DB for this app.
 
 > Must be logged in to CMS in order to manage attachments.
 
