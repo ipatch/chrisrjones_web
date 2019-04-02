@@ -45,20 +45,24 @@ Rails.application.routes.draw do
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
-
       match 'hello', :to => 'articles#hello', via: [:get]
       get 'hell0' => 'articles#hello'
 
       # list our resources here
-      resources :articles
+      # resources :articles # WORKS
+
       # NOTE: to limit what resources can be reached
       # EX
       # resources :articles, :except => [:new, :edit]
 
-
+      # EXP
+      scope '/:articles' do
+        get '/' => 'articles#index'
+        post '/' => 'api_articles#create'
+        put '/' => 'api_articles#update'
+      end
     # end
   end
-
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root "articles#index"

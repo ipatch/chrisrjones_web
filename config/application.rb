@@ -9,6 +9,7 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# NOTE: fix, for working with pg v1.x gem in a rails v4.2 app
 module Kernel
   def gem_with_pg_fix(dep, *reqs)
     if dep == 'pg' && reqs == ['~> 0.15']
@@ -62,27 +63,5 @@ module CrjCom
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
-
   end
-
-  #########
-  # TODO: figure out how to get this working with pg v1.1.x
-  ##
-  #
-  # catch the incorrect pg version, ie. pg 0.21.0 and replace with one that will passs GO and collect $200
-  # module Kernel
-  #   def gem_with_pg_fix(dep, *reqs)
-  #     if dep == "pg" && reqs == ["~> 0.21"]
-  #       reqs = ["~1.1.3"]
-  #     end
-  #     gem_without_pg_fix(dep, *reqs)
-  #   end
-
-  #   alias_method_chain :gem, :pg_fix
-  # end
-
-  # # pg 1.0.x gem removed the below constants, but 4.2.x Active Record requires
-  # PGconn = PG::Connection
-  # PGresult = PG::Result
-  # PGError = PG::Error
 end
