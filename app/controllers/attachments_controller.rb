@@ -63,13 +63,37 @@ class AttachmentsController < ApplicationController
     end
   end
 
-  def destroy
-    @attchment = Attachment.find(params[:id])
-    if @attachment.present?
-      @attachment.destroy
+  # PATCH/PUT /attachments/1
+  # PATCH/PUT /attachments/1.json
+  def update
+    respond_to do |format|
+      if @attachment.update(attachment_params)
+        format.html { redirect_to @attachment, notice: 'Attachment updated.' }
+        format.json { render :show, status: :ok, location: @attachment }
+      else
+        format.html { render :edit }
+        format.json { render json: @attachment.errors, status: :unprocessable_entity }
+      end
     end
-    redirect_to attachments_url
   end
+
+  # DELETE /attachments/1
+  # DELETE /attachments/1.json
+  def destroy
+    @attachment.destroy
+    respond_to do |format|
+      format.html { redirect_to attachments_url, notice: 'Attachment successfully removed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # def destroy
+  #   @attchment = Attachment.find(params[:id])
+  #   if @attachment.present?
+  #     @attachment.destroy
+  #   end
+  #   redirect_to attachments_url
+  # end
 
   private
   def set_attachment
