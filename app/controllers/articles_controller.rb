@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
+  # rails 5.x
+  before_action :authorize, only: [:create, :edit, :update, :destroy]
 
-	before_filter :authorize, only: [:create, :edit, :update, :destroy]
+  # rails 4.2.x
+	# before_filter :authorize, only: [:create, :edit, :update, :destroy]
 
-	skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   # EXP; disable CSRF for API experimentation
   protect_from_forgery with: :null_session
@@ -72,10 +75,4 @@ class ArticlesController < ApplicationController
 		def article_params
 			params.require(:article).permit(:title, :text, :slug, :meta_description)
 		end
-
-		# def require_authorization
-		# 	redirect_to :root unless current_user.articles.find_by_slug(params[:id])
-		# 	# Use the find_by to avoid the ActiveRecord::RecordNotFound and get a nil
-		# 	# instead in case the question id doesn't belong to a question of the user
-		# end
 end

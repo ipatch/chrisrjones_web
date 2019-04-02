@@ -6,7 +6,8 @@ source 'https://rubygems.org'
 
 ruby "2.5.3"
 
-gem 'rails', '~> 4.2.11.1'
+# gem 'rails', '~> 4.2.11.1'
+gem 'rails', '~> 5.2.3'
 
 #
 # NOTE: pg v0.20.0 will not display deprecation warnings
@@ -17,9 +18,10 @@ gem 'coffee-rails', '~> 4.2.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'uglifier', '4.1.20' # compress assets, ie. js css
-# gem 'sassc' # updated sass engine for working with sass based projects using ruby
-gem 'sassc-rails'
+
+# gem 'sassc-rails' # replaces `sass-rails`
 # gem 'sass-rails', '~> 5.0' # deprecated
+gem 'sassc-rails'
 
 ###
 # Add JS runtime, ie. Node.js V8
@@ -32,9 +34,10 @@ gem 'jbuilder', '~> 2.0' # JSON templating
 
 gem 'pry', '~> 0.12.2' # add gem to debug rails
 
-# gem 'debugger' # To use debugger
+# gem 'debugger' # DEPRECATED, use `byebug`
+# gem 'byebug'
 
-gem 'acts_as_list', '~> 0.9.17' # used to sort objects for "Simple CMS"
+gem 'acts_as_list', '~> 0.9.17' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 0.8.0' # interactive console in error message window
 
 # gem 'active_model_serializers', '~> 0.10.7' #Api Gems
@@ -42,14 +45,12 @@ gem 'binding_of_caller', '~> 0.8.0' # interactive console in error message windo
 gem 'nokogiri', '~> 1.8.2'
 gem 'addressable', '~> 2.5.2'
 
-# group :development do
-  gem 'capistrano', '~> 3.10', '>= 3.10.1'
-  gem 'capistrano-rvm', '~> 0.1.2'
-  gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
-  gem 'capistrano-bundler', '~> 1.3'
-  gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'
-  gem 'capistrano3-nginx', '~> 3.0.1'
-# end
+gem 'capistrano', '~> 3.10', '>= 3.10.1'
+gem 'capistrano-rvm', '~> 0.1.2'
+gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
+gem 'capistrano-bundler', '~> 1.3'
+gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'
+gem 'capistrano3-nginx', '~> 3.0.1'
 
 # add puma to productoin
 group :production do

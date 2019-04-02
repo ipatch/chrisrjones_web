@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+  # rails 5.x
+  before_action :authorize, only: [:edit, :update, :destroy]
 
-	before_filter :authorize, only: [:edit, :update, :destroy]
+  # rails 4.2.x
+	# before_filter :authorize, only: [:edit, :update, :destroy]
 
-	skip_before_filter :verify_authenticity_token
+	skip_before_action :verify_authenticity_token
 
 	def foo
 		render foo

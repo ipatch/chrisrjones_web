@@ -11,14 +11,19 @@ Bundler.require(*Rails.groups)
 
 # NOTE: fix, for working with pg v1.x gem in a rails v4.2 app
 module Kernel
-  def gem_with_pg_fix(dep, *reqs)
-    if dep == 'pg' && reqs == ['~> 0.15']
-      reqs = ['~> 1.0']
-    end
-    gem_without_pg_fix(dep, *reqs)
-  end
+  # rails v4.2
+  # def gem_with_pg_fix(dep, *reqs)
+  #   if dep == 'pg' && reqs == ['~> 0.15']
+  #     reqs = ['~> 1.0']
+  #   end
+  #   gem_without_pg_fix(dep, *reqs)
+  # end
 
-  alias_method_chain :gem, :pg_fix
+  # rails v4.2
+  # alias_method_chain :gem, :pg_fix
+
+  # rails v5.x
+  # alias_method :gem, :gem_with_pg_fix
 end
 # pg 1.0 gem has migrated constants, but ActiveRecord 4.2 still reqs
 PGconn = PG::Connection
@@ -35,7 +40,7 @@ module CrjCom
     config.autoload_paths << Rails.root.join('lib')
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
 
     config.before_configuration do
       env_file = Rails.root.join('config', 'secrets.yml').to_s
@@ -63,5 +68,9 @@ module CrjCom
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
+
+
+    # UPGRADE: rails from v4.2 to 5.x
+    # ActiveSupport.halt_callback_chains_on_return_false = false
   end
 end

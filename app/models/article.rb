@@ -5,7 +5,8 @@ class Article < ActiveRecord::Base
 	has_many :attachments, dependent: :destroy
 	has_many :comments, dependent: :destroy
 
-	validates :created_by, :title, presence: true, length: { minimum: 5 }
+	validates :title, presence: true, length: { minimum: 5 }
+  # validates :created_by
 	validates_presence_of :slug
 
 	# user singluar form of model when using 'belongs_to'

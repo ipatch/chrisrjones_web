@@ -16,9 +16,7 @@ Rails.application.routes.draw do
   get 'resume', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
   # Add below route for correct "resumé" spelling
   get 'resumé', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
-
   dots = 'https://github.com/ipatch/dotfiles'
-
   get 'dotfiles', to: redirect { |params, req| Addressable::URI.parse(URI.escape(dots)) }
 
   get 'signup' => 'users#new'
@@ -33,13 +31,18 @@ Rails.application.routes.draw do
   resources :password_resets
   resources :confirmations
 
-  # removed "resources :attachments" out of :articles do loop due to routing error
+  resources :attachments do
+    member do
+      get :download
+    end
+  end
+
   resources :attachments
 
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
   
-  match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
+  # match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
   # match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # Api definitions
