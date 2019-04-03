@@ -1,20 +1,15 @@
 # module Api # namespace
 # module V1 # scope
 require_relative '../api_controller.rb'
-# class Api::ArticlesController < ApplicationController
 class Api::ArticlesController < ApiController
-  # class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
-  respond_to :json
-  layout false
-
-  # before_action :set_article
-
-  protect_from_forgery with: :null_session
-  skip_before_action :verify_authenticity_token
 
   # NOTE: `respond_to` has been migrated into its own gem
   # respond_to :json
+  # layout 'false'
+
+  # protect_from_forgery with: :null_session
+  # skip_before_action :verify_authenticity_token
 
   # disable session functionality for api related features
   # before_action :destroy_session
@@ -27,7 +22,8 @@ class Api::ArticlesController < ApiController
     puts 'hello from ./app/controllers/api/articles_controller#foo'
   end
 
-  # GET /api/articles/hello
+  # GET /api/hello
+  # GET /api/hell0
   def hello
     render json: 'hello from ./app/controllers/api/articles_controller#hello'
   end
@@ -35,9 +31,9 @@ class Api::ArticlesController < ApiController
   # GET /api/articles
   def index
     @articles = Article.all
-    # json_response(@articles) # WORKS
+    json_response(@articles) # WORKS
     # EXP
-    respond_with(@articles)
+    # respond_with(@articles)
   end
 
   # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
