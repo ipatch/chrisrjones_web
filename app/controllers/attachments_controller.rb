@@ -4,6 +4,7 @@ class AttachmentsController < ApplicationController
   # rails 5.x
   before_action :authorize, only: [:new, :create, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  # rails 4.x
 	# before_filter :authorize, only: [:new, :creeate, :update, :destroy]
 	# skip_before_filter :verify_authenticity_token
 
@@ -21,9 +22,15 @@ class AttachmentsController < ApplicationController
   end
 
   def download
-    @attachment = send_data(@attachment.file_contents,
-              type: @attachment.content_type,
-              filename: @attachment.filename)
+    a = Attachment.find(params[:id])
+    send_data a.file_contents,
+      :type => a.content_type,
+      :disposition => 'attachment',
+      :filename =>  a.filename
+
+  # TODO properly handle download errors
+  # rescue
+    # render :nothing => true, :status => 404
   end
 
 	def view
@@ -32,9 +39,6 @@ class AttachmentsController < ApplicationController
 	end
 
   def show
-  	# send_data(Base64.decode64(@attachment.file_contents),
-  	# 	type: @attachment.content_type,
-  	# 	filename: @attachment.filename)
   end
 
   # GET /attachments/new
