@@ -13,10 +13,9 @@
 <tr>
 <td><%= attachment.filename %></td>
 <td><%= attachment.id %></td>
-<td><%= button_to 'Download', attachment, method: :get %></td>
-<td><%= button_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<td><%= link_to 'Download2', download_attachment_path(attachment) %></td>
 <td><%= link_to 'View Attachment', :action => 'view', :id => attachment.id %></td>
+<td><%= button_to 'Download', download_attachment_path(attachment) %></td>
+<td><%= button_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
 <% end %>
 </tbody>
