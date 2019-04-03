@@ -28,11 +28,13 @@ class AttachmentsController < ApplicationController
   def show
   end
 
+  # GET /attachments/:id/view
   def view
     a = Attachment.find(params[:id])
+    # TODO: adjust condition to check for created_at or updated_at so old attachments can eventually be updated
     # NOTE: super hacky for my use case, not proud but keeps the ball rolling.
     if a.id <= 66
-      send_data(Base64.decode64(a.file_contents), type: a.content_type, :disposition => 'inline')
+      send_data(Base64.decode64(a.file_contents), type: a.content_type, :disposition => 'inline', filename: a.filename )
     else
       send_data a.file_contents,
         :type => a.content_type,
@@ -42,22 +44,21 @@ class AttachmentsController < ApplicationController
     # TODO: catch / handle errors
   end
 
+  # GET attachments/download/:id
   def download
     a = Attachment.find(params[:id])
-    send_data a.file_contents,
-      :type => a.content_type,
-      :disposition => 'attachment',
-      :filename =>  a.filename
-
-  # TODO properly handle download errors
-  # rescue
-    # render :nothing => true, :status => 404
+    if a.id <= 66
+      send_data(Base64.decode64(a.file_contents), type: a.content_type, :disposition => 'attachment', filename: a.filename)
+    else
+      send_data a.file_contents,
+        :type => a.content_type,
+        :disposition => 'attachment',
+        :filename =>  a.filename
+    end
+      # TODO properly handle download errors
+      # rescue
+      # render :nothing => true, :status => 404
   end
-
-	# def view
-	# 	@attachment = Attachment.find(params[:id])
-	# 	send_data(Base64.decode64(@attachment.file_contents), type: @attachment.content_type, :disposition => 'inline')
-	# end
 
   def show
   end
