@@ -87,14 +87,6 @@ class AttachmentsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @attchment = Attachment.find(params[:id])
-  #   if @attachment.present?
-  #     @attachment.destroy
-  #   end
-  #   redirect_to attachments_url
-  # end
-
   private
   def set_attachment
     @attachment = Attachment.find(params[:id])
