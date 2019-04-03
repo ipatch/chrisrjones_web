@@ -37,6 +37,8 @@ Rails.application.routes.draw do
       get :view
     end
   end
+  # GET /attachments/view/42
+  get '/attachments/view/:id', to: 'attachments#view'
 
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
