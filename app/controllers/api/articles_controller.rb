@@ -4,26 +4,19 @@ require_relative '../api_controller.rb'
 class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
 
-  # NOTE: `respond_to` has been migrated into its own gem
+  # NOTE: `respond_to` migrated to separate gem
   # respond_to :json
-  # layout 'false'
 
-  # protect_from_forgery with: :null_session
-  # skip_before_action :verify_authenticity_token
-
-  # disable session functionality for api related features
-  # before_action :destroy_session
-
-  include Response
+  include Response # `./app/controllers/concerns/`
   # include ExceptionHandler
 
   # NOTE: no GET response cuz no route points to this method.
-  def foo
+  def foo # on purpose
     puts 'hello from ./app/controllers/api/articles_controller#foo'
   end
 
   # GET /api/hello
-  # GET /api/hell0
+  # GET /api/hell0 # defined in `routes.rb`
   def hello
     render json: 'hello from ./app/controllers/api/articles_controller#hello'
   end
@@ -32,16 +25,11 @@ class Api::ArticlesController < ApiController
   def index
     @articles = Article.all
     json_response(@articles) # WORKS
-    # EXP
-    # respond_with(@articles)
   end
 
   # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
 
-  #
-  # POST /articles
-  #
-
+  # POST /api/articles
   # def create
   #   @article = Article.create!(article_params)
   #   json_response(@article, :created)
@@ -55,16 +43,16 @@ class Api::ArticlesController < ApiController
       #   format.json { render :json => @article }
       # end
       render plain:
-        {error: 'Mr Fancy Error Message.'}.to_json,
+        { error: 'Mr Fancy Error Message.' }.to_json,
         status: 422,
         content_type: 'application/json'
     end
   end
 
-  # GET /articles/:id
+  # GET /article/:id
   def show
     @article = Article.find(params[:id])
-    # json_response(@article)
+    json_response(@article)
   end
 
   # PUT /todos/:id

@@ -38,8 +38,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :attachments
-
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
 
@@ -50,19 +48,19 @@ Rails.application.routes.draw do
       get 'hell0' => 'articles#hello'
 
       # list our resources here
-      # resources :articles # WORKS
+      resources :articles # WORKS
 
       # NOTE: to limit what resources can be reached
       # EX
       # resources :articles, :except => [:new, :edit]
 
       # EXP
-      scope '/:articles' do
-        # TODO: diff between `articles` and `api_articles`
-        get '/' => 'articles#index'
-        post '/' => 'api_articles#create'
-        put '/' => 'api_articles#update'
-      end
+      # scope '/:articles' do
+      #   # TODO: diff between `articles` and `api_articles`
+      #   get '/' => 'articles#index'
+      #   post '/' => 'api_articles#create'
+      #   put '/' => 'api_articles#update'
+      # end
     # end
   end
   # You can have the root of your site routed with "root"
