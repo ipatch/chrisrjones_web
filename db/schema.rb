@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,53 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207180008) do
+ActiveRecord::Schema.define(version: 2018_02_07_180008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.string   "created_by"
-    t.string   "slug"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "user_id"
-    t.string   "meta_description"
+    t.string "title"
+    t.text "text"
+    t.string "created_by"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "meta_description"
   end
 
   create_table "attachments", force: :cascade do |t|
-    t.string   "filename"
-    t.string   "content_type"
-    t.binary   "file_contents"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "article_id"
+    t.string "filename"
+    t.string "content_type"
+    t.binary "file_contents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "article_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "article_id"
+    t.string "commenter"
+    t.text "body"
+    t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
-
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.boolean  "admin_user",             default: false
-    t.string   "password_reset_token"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.boolean "admin_user", default: false
+    t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "confirmation_token"
+    t.string "confirmation_token"
     t.datetime "confirmation_sent_at"
-    t.boolean  "confirmed",              default: false
+    t.boolean "confirmed", default: false
   end
 
   add_foreign_key "articles", "users"
