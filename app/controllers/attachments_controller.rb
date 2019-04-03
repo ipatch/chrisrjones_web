@@ -10,8 +10,10 @@ class AttachmentsController < ApplicationController
 
 	require "base64"
 
-  # GET /documents
-  # GET /documents.json
+  # TODO: construct function here or in model to test if attachment has been base64 encoded or not.
+
+  # GET /attachments
+  # GET /attahcments.json
 	def index
 		@attachments = Attachment.all
 	end
@@ -19,6 +21,16 @@ class AttachmentsController < ApplicationController
   # GET /attachments/1
   # GET /attachments/1.json
   def show
+  end
+
+  def view
+    a = Attachment.find(params[:id])
+    send_data a.file_contents,
+      :type => a.content_type,
+      :disposition => 'inline',
+      :x_sendfile => false
+
+    # TODO: catch / handle errors
   end
 
   def download
@@ -33,10 +45,10 @@ class AttachmentsController < ApplicationController
     # render :nothing => true, :status => 404
   end
 
-	def view
-		@attachment = Attachment.find(params[:id])
-		send_data(Base64.decode64(@attachment.file_contents), type: @attachment.content_type, :disposition => 'inline')
-	end
+	# def view
+	# 	@attachment = Attachment.find(params[:id])
+	# 	send_data(Base64.decode64(@attachment.file_contents), type: @attachment.content_type, :disposition => 'inline')
+	# end
 
   def show
   end

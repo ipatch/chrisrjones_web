@@ -34,16 +34,14 @@ Rails.application.routes.draw do
   resources :attachments do
     member do
       get :download
+      get :view
     end
   end
 
-  resources :attachments
+  # resources :attachments
 
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
-  
-  # match ':controller(/:action(/:id))(.:format)', via: [:post, :get]
-  # match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
@@ -60,6 +58,7 @@ Rails.application.routes.draw do
 
       # EXP
       scope '/:articles' do
+        # TODO: diff between `articles` and `api_articles`
         get '/' => 'articles#index'
         post '/' => 'api_articles#create'
         put '/' => 'api_articles#update'
@@ -67,6 +66,5 @@ Rails.application.routes.draw do
     # end
   end
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
   root "articles#index"
 end
