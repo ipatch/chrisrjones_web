@@ -12,6 +12,11 @@ class AttachmentsController < ApplicationController
 
   # TODO: construct function here or in model to test if attachment has been base64 encoded or not.
 
+  # check if base64
+  def base64?(value)
+    value.is_a?(String) && Base64.encode64(Base64.decode64(value)) == value
+  end
+
   # GET /attachments
   # GET /attahcments.json
 	def index
@@ -25,11 +30,15 @@ class AttachmentsController < ApplicationController
 
   def view
     a = Attachment.find(params[:id])
-    send_data a.file_contents,
-      :type => a.content_type,
-      :disposition => 'inline',
-      :x_sendfile => false
-
+    # NOTE: super hacky for my use case, not proud but keeps the ball rolling.
+    if a.id <= 66
+      send_data(Base64.decode64(a.file_contents), type: a.content_type, :disposition => 'inline')
+    else
+      send_data a.file_contents,
+        :type => a.content_type,
+        :disposition => 'inline',
+        :x_sendfile => false
+    end
     # TODO: catch / handle errors
   end
 
