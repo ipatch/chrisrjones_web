@@ -35,37 +35,37 @@ class Api::ArticlesController < ApiController
   #   json_response(@article, :created)
   # end
 
-  def create
-    @article = Article.new(article_params)
-    if @article.save
-      # json_response(@article) 
-      # json_response do |format|
-      #   format.json { render :json => @article }
-      # end
-      render plain:
-        { error: 'Mr Fancy Error Message.' }.to_json,
-        status: 422,
-        content_type: 'application/json'
-    end
-  end
+  # def create
+  #   @article = Article.new(article_params)
+  #   if @article.save
+  #     # json_response(@article) 
+  #     # json_response do |format|
+  #     #   format.json { render :json => @article }
+  #     # end
+  #     render plain:
+  #       { error: 'Mr Fancy Error Message.' }.to_json,
+  #       status: 422,
+  #       content_type: 'application/json'
+  #   end
+  # end
 
   # GET /article/:id
-  def show
-    @article = Article.find(params[:id])
-    json_response(@article)
-  end
+  # def show
+  #   @article = Article.find(params[:id])
+  #   json_response(@article)
+  # end
 
   # PUT /todos/:id
-  def update
-    @article.update(article_params)
-    head :no_content
-  end
+  # def update
+  #   @article.update(article_params)
+  #   head :no_content
+  # end
 
   # DELETE /todos/:id
-  def destroy
-    @aritcle.destory
-    head :no_content
-  end
+  # def destroy
+  #   @aritcle.destory
+  #   head :no_content
+  # end
 
   private
 
