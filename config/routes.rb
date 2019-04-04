@@ -55,16 +55,8 @@ Rails.application.routes.draw do
       # NOTE: to limit what resources can be reached
       # EX
       # resources :articles, :except => [:new, :edit]
-
-      # EXP
-      # scope '/:articles' do
-      #   # TODO: diff between `articles` and `api_articles`
-      #   get '/' => 'articles#index'
-      #   post '/' => 'api_articles#create'
-      #   put '/' => 'api_articles#update'
-      # end
     # end
   end
   # You can have the root of your site routed with "root"
-  root "articles#index"
+  root 'articles#index'
 end

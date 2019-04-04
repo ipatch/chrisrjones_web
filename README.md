@@ -2,6 +2,16 @@
 
 The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
 
+<a id="contents"></a>
+
+## Contents
+
+- [Usage](#usage)
+- [Deployment](#deployment)
+  - [Deployment Use Case](#deployment-use-case)
+- [Security](#security)
+- [TODOs](#todos)
+
 <a id="usage"></a>
 
 ## Usage
@@ -53,4 +63,6 @@ bundle update loofah
 
 ## TODO
 
+- [ ] update string formatting with those defined in the Rubocop style guidelines for Ruby
 - [x] ~~figure out why app isn't running in dev environment ¯\\_(ツ)_/¯~~
+
