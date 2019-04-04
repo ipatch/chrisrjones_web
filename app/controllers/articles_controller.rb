@@ -1,18 +1,7 @@
 class ArticlesController < ApplicationController
-  # rails 5.x
   before_action :authorize, only: [:create, :edit, :update, :destroy]
 
-  # rails 4.2.x
-	# before_filter :authorize, only: [:create, :edit, :update, :destroy]
-
   skip_before_action :verify_authenticity_token
-
-  # EXP; disable CSRF for API experimentation
-  protect_from_forgery with: :null_session
-
-  def foo
-    puts 'hello from ./app/controllers/api/articles_controller#foo'
-  end
 
 	def index
 		@articles = Article.all
@@ -22,7 +11,6 @@ class ArticlesController < ApplicationController
 		@article = Article.find_by_slug(params[:id])
 		respond_to do |format|
 			format.html # show.html.erb
-			format.json { render json: @article }
 		end
 	end
 

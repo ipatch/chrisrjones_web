@@ -26,24 +26,10 @@ class Api::ArticlesController < ApiController
   # NOTE: `create!` will raise an exception
 
   # POST /api/articles
-  # def create
-  #   @article = Article.create!(article_params)
-  #   json_response(@article, :created)
-  # end
-
-  # def create
-  #   @article = Article.new(article_params)
-  #   if @article.save
-  #     # json_response(@article) 
-  #     # json_response do |format|
-  #     #   format.json { render :json => @article }
-  #     # end
-  #     render plain:
-  #       { error: 'Mr Fancy Error Message.' }.to_json,
-  #       status: 422,
-  #       content_type: 'application/json'
-  #   end
-  # end
+  def create
+    @article = Article.create!(article_params)
+    json_response(@article, :created)
+  end
 
   # GET /articles/:id
   def show
@@ -51,10 +37,10 @@ class Api::ArticlesController < ApiController
   end
 
   # PUT /articles/:id
-  # def update
-  #   @article.update(article_params)
-  #   head :no_content
-  # end
+  def update
+    @article.update(article_params)
+    head :no_content
+  end
 
   # DELETE /articles/:id
   def destroy
@@ -67,6 +53,8 @@ class Api::ArticlesController < ApiController
     @article = Article.find(params[:id])
   end
 
+  # NOTE: doublecheck `./app/modles/article.rb` as well.
   def article_params
+    params.permit(:title, :slug)
   end
 end

@@ -19,4 +19,9 @@ class Article < ActiveRecord::Base
 	def to_param
 		slug
 	end
+
+
+  def json_response(object, status = :ok)
+    render json: object, status: status
+  end
 end
