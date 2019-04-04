@@ -7,12 +7,7 @@ source 'https://rubygems.org'
 # ruby "2.5.3"
 ruby '2.6.2'
 
-# gem 'rails', '~> 4.2.11.1'
 gem 'rails', '~> 5.2.3'
-
-#
-# NOTE: pg v0.20.0 will not display deprecation warnings
-#
 
 gem 'pg', '1.1.4'
 gem 'coffee-rails', '~> 4.2.2'
@@ -21,7 +16,6 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'uglifier', '4.1.20' # compress assets, ie. js css
 
 # gem 'sassc-rails' # replaces `sass-rails`
-# gem 'sass-rails', '~> 5.0' # deprecated
 gem 'sassc-rails'
 
 ###
@@ -39,11 +33,11 @@ gem 'pry', '~> 0.12.2' # add gem to debug rails
 # gem 'byebug'
 
 gem 'acts_as_list', '~> 0.9.17' # sort objects, "Simple CMS"
-gem 'binding_of_caller', '~> 0.8.0' # interactive console in error message window
+gem 'binding_of_caller', '~> 0.8.0' # irb in error window
 
 # gem 'active_model_serializers', '~> 0.10.7' #Api Gems
 
-gem 'nokogiri', '~> 1.8.2'
+gem 'nokogiri', '~> 1.10.2'
 gem 'addressable', '~> 2.5.2'
 
 gem 'capistrano', '~> 3.10', '>= 3.10.1'

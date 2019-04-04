@@ -1,5 +1,6 @@
 class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
+  before_action :authorize, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
 
   include Response # `./app/controllers/concerns/`
@@ -56,5 +57,17 @@ class Api::ArticlesController < ApiController
   # NOTE: doublecheck `./app/modles/article.rb` as well.
   def article_params
     params.permit(:title, :text, :slug)
+  end
+
+  def authorize
+    redirect_to login_url, alert: "Not authorized" if current_user.nil?
+  end
+
+  def current_user
+    begin
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+      reset_session
+    end
   end
 end
