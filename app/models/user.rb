@@ -1,25 +1,17 @@
 class User < ActiveRecord::Base
-
 	before_create { generate_token(:confirmation_token) }
+	has_secure_password # req, bcrypt gem
 
-	has_secure_password
-
-
-	## source = http://railscasts.com/episodes/274-remember-me-reset-password
-	# the below line was causing an error in rails 4.2.0
+	# NOTE: source = http://railscasts.com/episodes/274-remember-me-reset-password
+	# NOTE: the below line was causing an error in rails 4.2.0
 	# before_create { generate_token(:auth_token) }
- 
-	# the below line won't work with rails 4.x
-	
+	# NOTE: the below line won't work with rails 4.x
 	# attr_accessible :email, :password, :password_confirmation
 
-	validates_uniqueness_of :email
-
 	has_many :articles, dependent: :destroy
-
 	has_many :attachments
 
-
+	validates_uniqueness_of :email
 
 	def generate_token(column)
     	begin

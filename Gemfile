@@ -29,7 +29,7 @@ gem 'sassc-rails'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 
-gem 'bcrypt', '~> 3.1.7' # `has_secure_password` depends on this gem
+gem 'bcrypt', '~> 3.1.7' # `has_secure_password` requires this
 gem 'jbuilder', '~> 2.0' # JSON templating
 
 gem 'pry', '~> 0.12.2' # add gem to debug rails
