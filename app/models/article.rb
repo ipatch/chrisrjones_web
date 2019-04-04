@@ -1,13 +1,13 @@
 class Article < ActiveRecord::Base
   # DEPRECATED: rails ≥ v4.x attr_accessible :slug
+	validates :title, presence: true, length: { minimum: 5 }
+  validates :text, presence: true
+	validates :slug, presence: true, uniqueness: true
 
 	# specify relationship between articles & attachments
 	has_many :attachments, dependent: :destroy
 	has_many :comments, dependent: :destroy
 
-	validates :title, presence: true, length: { minimum: 5 }
-  # validates :created_by
-	validates_presence_of :slug
 
 	# user singluar form of model when using 'belongs_to'
 	# SEE: http://stackoverflow.com/questions/16257116

@@ -55,6 +55,6 @@ class Api::ArticlesController < ApiController
 
   # NOTE: doublecheck `./app/modles/article.rb` as well.
   def article_params
-    params.permit(:title, :slug)
+    params.permit(:title, :text, :slug)
   end
 end
