@@ -1,15 +1,9 @@
-# module Api # namespace
-# module V1 # scope
-require_relative '../api_controller.rb'
 class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
   before_action :set_article, only: [:show, :update, :destroy]
 
-  # NOTE: `respond_to` migrated to separate gem
-  # respond_to :json
-
   include Response # `./app/controllers/concerns/`
-  # include ExceptionHandler
+  include ExceptionHandler # `./app/controllers/concerns/`
 
   # NOTE: no GET response cuz no route points to this method.
   def foo # on purpose
@@ -29,6 +23,7 @@ class Api::ArticlesController < ApiController
   end
 
   # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
+  # NOTE: `create!` will raise an exception
 
   # POST /api/articles
   # def create
@@ -75,5 +70,3 @@ class Api::ArticlesController < ApiController
   def article_params
   end
 end
-# end
-# end
