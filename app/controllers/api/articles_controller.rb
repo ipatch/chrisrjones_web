@@ -3,6 +3,7 @@
 require_relative '../api_controller.rb'
 class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
+  before_action :set_article, only: [:show, :update, :destroy]
 
   # NOTE: `respond_to` migrated to separate gem
   # respond_to :json
@@ -49,44 +50,30 @@ class Api::ArticlesController < ApiController
   #   end
   # end
 
-  # GET /article/:id
-  # def show
-  #   @article = Article.find(params[:id])
-  #   json_response(@article)
-  # end
+  # GET /articles/:id
+  def show
+    json_response(@article)
+  end
 
-  # PUT /todos/:id
+  # PUT /articles/:id
   # def update
   #   @article.update(article_params)
   #   head :no_content
   # end
 
-  # DELETE /todos/:id
-  # def destroy
-  #   @aritcle.destory
-  #   head :no_content
-  # end
-
-  private
-
-  def article_params
-
+  # DELETE /articles/:id
+  def destroy
+    @article.destroy
+    head :no_content
   end
 
-  # def article_params
-  #   # params.require(:article).permit(:title, :text, :slug, :meta_description)
-  #   # params.permit(:title, :text, :slug, :meta_description, :created_by)
-  #   # params.permit(:title)
-  #   params.require(:article).permit(:title)
-  # end
+  private
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-  # def set_article
-  #   @article = Article.find(params[:id])
-  # end
-
-  # def set_article
-  #   @article = Article.find(params[:id])
-  # end
+  def article_params
+  end
 end
 # end
 # end

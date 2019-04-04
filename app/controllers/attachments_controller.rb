@@ -10,13 +10,6 @@ class AttachmentsController < ApplicationController
 
 	require "base64"
 
-  # TODO: construct function here or in model to test if attachment has been base64 encoded or not.
-
-  # check if base64
-  def base64?(value)
-    value.is_a?(String) && Base64.encode64(Base64.decode64(value)) == value
-  end
-
   # GET /attachments
   # GET /attahcments.json
 	def index

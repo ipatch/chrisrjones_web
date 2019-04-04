@@ -37,7 +37,7 @@ Rails.application.routes.draw do
       get :view
     end
   end
-  # GET /attachments/view/42
+  # GET /attachments/view/42 #legacy
   get '/attachments/view/:id', to: 'attachments#view'
 
   get 'about' => 'about#index'

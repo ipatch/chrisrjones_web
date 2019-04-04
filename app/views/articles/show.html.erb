@@ -1,5 +1,6 @@
 <% content_for :title, @article.title %>
 <% content_for :meta_description, @article.meta_description %>
+<% content_for :article_id, @article.id %>
 
 <p>
   <strong>Title:</strong>
@@ -9,6 +10,10 @@
 <p>
   <strong>Text:</strong>
   <%= sanitize @article.text %>
+</p>
+<p>
+  <strong>Article id:</strong>
+  <%= @article.id.inspect %>
 </p>
 
 <p>
