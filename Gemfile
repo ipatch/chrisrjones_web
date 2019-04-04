@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 
 # `~>` denotes bundler will only install minor updates
 
-ruby "2.5.3"
+# ruby "2.5.3"
+ruby '2.6.2'
 
 # gem 'rails', '~> 4.2.11.1'
 gem 'rails', '~> 5.2.3'
