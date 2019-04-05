@@ -49,11 +49,7 @@ To update a vulnerable gem bundled within the app
 
 ```shell
 bundle update [mr-fancy-vulnerable-gem]
-```
-
-<strong>Ex</strong>
-
-```shell
+echo "Example"
 bundle update loofah
 ```
 
