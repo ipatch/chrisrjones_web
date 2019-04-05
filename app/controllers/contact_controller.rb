@@ -20,6 +20,4 @@ class ContactController < ApplicationController
   		render "contact"
   	end
   end
-
-
 end
