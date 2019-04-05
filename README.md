@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ipatch/crj.com.svg?branch=master)](https://travis-ci.org/ipatch/crj.com)
 
-The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
+> The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
 
 <div align="center">
 
