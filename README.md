@@ -2,15 +2,15 @@
 
 The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
 
+<div align="center">
+
 <a id="contents"></a>
 
 ## Contents
 
-- [Usage](#usage)
-- [Deployment](#deployment)
-  - [Deployment Use Case](#deployment-use-case)
-- [Security](#security)
-- [TODOs](#todos)
+• [Usage](#usage) • [Deployment](#deployment) • [Deployment Use Case](#deployment-use-case) • [Security](#security) • [TODOs](#todos) •
+
+</div>
 
 <a id="usage"></a>
 
@@ -34,8 +34,8 @@ For my particular use case, I manage many different Rubies on my system using va
 
 ```shell
 echo "rvm use [RUBY_VERSION_DEFINED_FOR_THIS APP]"
-echo "as of Dec 6, 2018, 👇"
-rvm ues 2.5.3
+echo "as of Apr 5, 2019, 👇"
+rvm ues 2.6.2
 ssh-agent
 ssh-add ~/.ssh/id_rsa
 cap production deploy
