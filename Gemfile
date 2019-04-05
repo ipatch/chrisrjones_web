@@ -48,10 +48,10 @@ gem 'capistrano3-nginx', '~> 3.0.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
 end
 
 group :test do
-  gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
   gem 'shoulda-matchers', '~> 3.1' # 4.0.1
   gem 'faker', '~> 1.9.3'
   gem 'database_cleaner', '~> 1.7.0'
