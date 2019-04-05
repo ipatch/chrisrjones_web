@@ -76,7 +76,8 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  # config.include RequestSpecHelper, type: :request
+  # NOTE: there needs to be a `./spec/support/request_spec_helper` 
+  config.include RequestSpecHelper, type: :request
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
