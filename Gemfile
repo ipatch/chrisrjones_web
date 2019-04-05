@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 # `~>` denotes bundler will only install minor updates
 
-# ruby "2.5.3"
 ruby '2.6.2'
 
 gem 'rails', '~> 5.2.3'
@@ -46,6 +45,17 @@ gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
 gem 'capistrano-bundler', '~> 1.3'
 gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'
 gem 'capistrano3-nginx', '~> 3.0.1'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+group :test do
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
+end
 
 # add puma to productoin
 group :production do
