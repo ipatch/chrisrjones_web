@@ -1,6 +1,6 @@
 class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
-  before_action :authorize, only: [:create, :edit, :update, :destroy]
+  # before_action :authorize, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
 
   include Response # `./app/controllers/concerns/`

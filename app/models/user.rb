@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 	has_many :articles, dependent: :destroy
 	has_many :attachments
 
+  validates_presence_of :email, :password_digest
 	validates_uniqueness_of :email
 
 	def generate_token(column)

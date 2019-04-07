@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :article do
-    title { Faker::Lorem.word }
+    # NOTE: create a title with at least 5 characters
+    title { Faker::Lorem.characters(5) }
     text { Faker::Lorem.word }
-    slug { Faker::Lorem.word }
+    # NOTE: slug / permalink must be unique
+    slug { Faker::Lorem.unique.word }
   end
 end
