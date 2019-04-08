@@ -37,7 +37,7 @@ RSpec.describe AuthorizeApiRequest do
         end
 
         it 'raises an InvalidToken error' do
-          except { invalid_request_obj.call }
+          expect { invalid_request_obj.call }
             .to raise_error(ExceptionHandler::InvalidToken, /Invalid token/)
         end
       end
@@ -47,7 +47,7 @@ RSpec.describe AuthorizeApiRequest do
         subject(:request_obj) { described_class.new(header) }
 
         it 'raises ExceptionHandler::ExpiredSignature error' do
-          except { request_obj.call }
+          expect { request_obj.call }
             .to raise_error(
               ExceptionHandler::InvalidToken,
               /Signature has expired/
@@ -60,7 +60,7 @@ RSpec.describe AuthorizeApiRequest do
         subject(:invalid_request_obj) { described_class.new(header) }
         
         it 'handles JWT::DecodeError' do
-          except { invalid_request_obj.call }
+          expect { invalid_request_obj.call }
             .to raise_error(
               ExceptionHandler::InvalidToken,
               /Not enough or too many segments/
