@@ -3,6 +3,7 @@ class Api::AuthenticationController < ApiController
 
   # include AuthenticateUser
   include Response
+  include ExceptionHandler
 
   # return auth token once user is authenticated
   def authenticate
