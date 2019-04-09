@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Articles API', type: :request do
+  # add articles owner
+  let(:user) { create(:user) }
+  let!(:articles) { create_list(:article, 10) }
+  let(:article_id) { articles.first.id }
+  # authorize request
+  let(:headers) { valid_headers }
+
+
   # initialize test data
   let!(:articles) { create_list(:article, 10) }
   let(:article_id) { articles.first.id }
@@ -8,7 +16,7 @@ RSpec.describe 'Articles API', type: :request do
   # Test suite for GET /articles
   describe 'GET /api/articles' do
     # make HTTP get request before each example
-    before { get '/api/articles' }
+    before { get '/api/articles', params: {}, headers: headers }
 
     it 'returns articles' do
       # Note `json` is a custom helper to parse JSON responses
@@ -23,7 +31,7 @@ RSpec.describe 'Articles API', type: :request do
 
   # Test suite for GET /articles/:id
   describe 'GET /api/articles/:id' do
-    before { get "/api/articles/#{article_id}" }
+    before { get "/api/articles/#{article_id}", params: {}, headers: headers }
 
     context 'when the record exists' do
       it 'returns the article' do
@@ -51,11 +59,13 @@ RSpec.describe 'Articles API', type: :request do
 
   # Test suite for POST /articles
   describe 'POST /api/articles' do
-    # valid payload
-    let(:valid_attributes) { { title: 'Read a book', text: 'Reading the book', slug: 'reading-book' } }
+    let(:valid_attributes) do 
+    # send valid JSON payload
+      { title: 'Read a book', text: 'Reading the book', slug: 'reading-book' }.to_json
+    end
 
     context 'when the request is valid' do
-      before { post '/api/articles', params: valid_attributes }
+      before { post '/api/articles', params: valid_attributes, headers: headers }
 
       it 'creates a article' do
         expect(json['title']).to eq('Read a book')
@@ -67,25 +77,27 @@ RSpec.describe 'Articles API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/api/articles', params: { title: 'Foobar' } }
+      let(:invalid_attributes) { { title: nil }.to_json }
+      before { post '/api/articles', params: invalid_attributes, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
 
       it 'returns a validation failure message' do
-          # TODO: improve regex matching for validation errors
-        expect(response.body).to match(/Validation failed:/)
+        # TODO: improve regex matching for validation errors
+        expect(json['message'])
+          .to match(/Validation failed: Title can't be blank/)
       end
     end
   end
 
   # Test suite for PUT /api/articles/:id
   describe 'PUT /articles/:id' do
-    let(:valid_attributes) { { title: 'Reading More' } }
+    let(:valid_attributes) { { title: 'Reading More' }.to_json }
 
     context 'when the record exists' do
-      before { put "/api/articles/#{article_id}", params: valid_attributes }
+      before { put "/api/articles/#{article_id}", params: valid_attributes, headers: headers }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -99,7 +111,7 @@ RSpec.describe 'Articles API', type: :request do
 
   # Test suite for DELETE /api/articles/:id
   describe 'DELETE /api/articles/:id' do
-    before { delete "/api/articles/#{article_id}" }
+    before { delete "/api/articles/#{article_id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)

@@ -49,6 +49,9 @@ Rails.application.routes.draw do
       match 'hello', :to => 'articles#hello', via: [:get]
       get 'hell0' => 'articles#hello'
 
+      post 'auth/login', to: 'authentication#authenticate'
+      post 'signup', to: 'users#create'
+
       # list our resources here
       resources :articles # WORKS
 

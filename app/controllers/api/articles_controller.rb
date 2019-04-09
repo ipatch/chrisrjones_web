@@ -19,7 +19,10 @@ class Api::ArticlesController < ApiController
 
   # GET /api/articles
   def index
-    @articles = Article.all
+    # get the current user articles
+    @articles = current_user.articles
+
+    # @articles = Article.all
     json_response(@articles) # WORKS
   end
 
@@ -28,7 +31,10 @@ class Api::ArticlesController < ApiController
 
   # POST /api/articles
   def create
-    @article = Article.create!(article_params)
+    # create articles belonging to current user
+    @article = current_user.article.create!(article_params)
+    
+    # @article = Article.create!(article_params)
     json_response(@article, :created)
   end
 
