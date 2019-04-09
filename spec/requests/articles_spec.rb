@@ -1,17 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Articles API', type: :request do
-  # add articles owner
+  # initialize test data
   let(:user) { create(:user) }
+  # TODO: setup articles to list users articles
   let!(:articles) { create_list(:article, 10) }
   let(:article_id) { articles.first.id }
   # authorize request
   let(:headers) { valid_headers }
-
-
-  # initialize test data
-  let!(:articles) { create_list(:article, 10) }
-  let(:article_id) { articles.first.id }
 
   # Test suite for GET /articles
   describe 'GET /api/articles' do
