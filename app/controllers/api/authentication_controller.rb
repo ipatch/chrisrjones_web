@@ -1,5 +1,8 @@
-class AuthenticationController < ApiController
+class Api::AuthenticationController < ApiController
   skip_before_action :authorize_request, only: :authenticate
+
+  # include AuthenticateUser
+  include Response
 
   # return auth token once user is authenticated
   def authenticate

@@ -1,5 +1,8 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApiController
   skip_before_action :authorize_request, only: :create
+
+  include Response # `./app/controllers/concerns/`
+  include ExceptionHandler # `./app/controllers/concerns/`
 
   # POST /api/signup
   # return authenticated token upon signup

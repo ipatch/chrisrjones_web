@@ -1,4 +1,8 @@
 class AuthenticateUser
+  
+# include 'message' # searches for a `module`
+# include Message # search for a `class`
+
   def initialize(email, password)
     @email = email
     @password = password

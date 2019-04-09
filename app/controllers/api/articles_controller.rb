@@ -20,7 +20,7 @@ class Api::ArticlesController < ApiController
   # GET /api/articles
   def index
     # get the current user articles
-    @articles = current_user.articles
+    @articles = current_user.Article.all
 
     # @articles = Article.all
     json_response(@articles) # WORKS
