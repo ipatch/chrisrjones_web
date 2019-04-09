@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# seed 50 records
+50.times do
+  article = Article.create(title: Faker::Lorem.word, text: Faker::Lorem.word, slug: Faker::Lorem.word)
+end
