@@ -3,6 +3,7 @@ class Api::ArticlesController < ApiController
   # before_action :authorize, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
   skip_before_action :authorize_request, only: :hello
+  # skip_before_action :verify_authenticity_token, only: :hello
 
 
   include Response # `./app/controllers/concerns/`

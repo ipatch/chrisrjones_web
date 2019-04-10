@@ -244,7 +244,7 @@ DEPENDENCIES
   pg (= 1.1.4)
   pry (~> 0.12.2)
   puma (~> 3.12.1)
-  rack-cors (~> 1.0.3)
+  rack-cors (= 1.0.3)
   rails (~> 5.2.3)
   rspec-rails (~> 3.5)
   sassc-rails (~> 2.1.0)

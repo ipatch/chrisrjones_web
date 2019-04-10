@@ -69,8 +69,20 @@ module CrjCom
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
-
     # UPGRADE: rails from v4.2 to 5.x
     # ActiveSupport.halt_callback_chains_on_return_false = false
+
+    # setup CORS to connect rails API to JS client
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:3000', '127.0.0.1:300', 'http://localhost:4000'
+        resource '/api/*', credentials: false, headers: :any, methods: [:get, :post, :options]
+      end
+
+      allow do
+        origins '*'
+        resource '/api/*', headers: :any, methods: :get
+      end
+    end
   end
 end
