@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this
 # API gems
 gem 'jbuilder', '~> 2.8.0' # JSON templating
 gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
+gem 'rack-cors', '~> 1.0.3' # allow diff clients to access API
+# gem 'active_model_serializers', '~> 0.10.7' #Api Gems
 
 gem 'pry', '~> 0.12.2' # add gem to debug rails
 
@@ -37,7 +39,6 @@ gem 'pry', '~> 0.12.2' # add gem to debug rails
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 0.8.0' # irb in error window
 
-# gem 'active_model_serializers', '~> 0.10.7' #Api Gems
 
 gem 'nokogiri', '~> 1.10.2'
 gem 'addressable', '~> 2.6.0'

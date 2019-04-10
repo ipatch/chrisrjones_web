@@ -59,6 +59,7 @@ bundle update loofah
 
 ## TODO
 
+- [ ] figure out why _seed_ data isn't properly inserting into the test database
 - [ ] experiment with versioning API, ie. create a V1 & V2
 - [ ] update string formatting with those defined in the Rubocop style guidelines for Ruby
 - [x] ~~figure out why app isn't running in dev environment ¯\\_(ツ)_/¯~~
