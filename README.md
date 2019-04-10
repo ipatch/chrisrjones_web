@@ -20,6 +20,20 @@ When working with attachments using this CMS visit `http://tld.com/attachments` 
 
 > ⚠️ Must be logged in to manage attachments.
 
+### Usage > Manually Testing API endpoints
+
+[httpie]() is a useful utility for accessing endpoints, and even those exposed through an API.  That said, I half ass setup SSL a while back, and test certain API endpoints on the remote box, ie. chrisrjones.com, pass the `--verify=no` flag to **http** to manually access / test an endpoint.
+
+<strong>Ex</strong>
+
+```shell
+http --verbose --verify=no https://chrisrjones.com/api/hello
+```
+
+The above command is an exposed API endpoint that does not require an auth token to access, and should return a **200** HTTP status code.
+
+> The URL **must** be http**s** and NOT _http_ or else a **302** response will be returned from the server.
+
 <a id="deployment"></a>
 
 ## Deployment
