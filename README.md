@@ -20,9 +20,11 @@ When working with attachments using this CMS visit `http://tld.com/attachments` 
 
 > ⚠️ Must be logged in to manage attachments.
 
+<a id="usage-testing-api-endpoints"></a>
+
 ### Usage > Manually Testing API endpoints
 
-[httpie]() is a useful utility for accessing endpoints, and even those exposed through an API.  That said, I half ass setup SSL a while back, and test certain API endpoints on the remote box, ie. chrisrjones.com, pass the `--verify=no` flag to **http** to manually access / test an endpoint.
+[httpie](https://httpie.org) is a useful utility for accessing endpoints, and even those exposed through an API.  That said, I half ass setup SSL a while back, and test certain API endpoints on the remote box, ie. chrisrjones.com, pass the `--verify=no` flag to **http** to manually access / test an endpoint.
 
 <strong>Ex</strong>
 
