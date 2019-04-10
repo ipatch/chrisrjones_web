@@ -79,10 +79,10 @@ module CrjCom
         resource '/api/*', credentials: false, headers: :any, methods: [:get, :post, :options]
       end
 
-      allow do
-        origins '*'
-        resource '/api/*', headers: :any, methods: :get
-      end
+      # allow do
+      #   origins '*'
+      #   resource '/api/*', headers: :any, methods: :get
+      # end
     end
   end
 end
