@@ -9,7 +9,6 @@ ruby '2.6.2'
 gem 'rails', '~> 5.2.3'
 
 gem 'pg', '1.1.4'
-# gem 'coffee-rails', '~> 4.2.2'
 gem 'jquery-rails', '~> 4.3.3' 
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'uglifier', '4.1.20' # compress assets, ie. js css
@@ -39,8 +38,8 @@ gem 'pry', '~> 0.12.2' # add gem to debug rails
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 0.8.0' # irb in error window
 
-gem 'nokogiri', '~> 1.10.2'
-gem 'addressable', '~> 2.6.0'
+gem 'nokogiri', '~> 1.10.2' # XML HTML parser
+gem 'addressable', '~> 2.6.0' # emojis in URLs
 
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rvm', '~> 0.1.2'
