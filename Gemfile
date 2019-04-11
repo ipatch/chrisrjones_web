@@ -26,7 +26,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this
 
 # API gems
-gem 'jbuilder', '~> 2.8.0' # JSON templating
+# gem 'jbuilder', '~> 2.8.0' # JSON templating
 gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
 # gem 'rack-cors', '~> 0.4.1' # allow diff clients to access API
 gem 'rack-cors', '1.0.3'

@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'login' =>'sessions#new'
   get 'logout' => 'sessions#destroy'
-
   # the below route led to a rails routing error
   # get 'confirm' => 'users/:confirmation_token#confirm'
 
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
   end
   # GET /attachments/view/42 #legacy
   get '/attachments/view/:id', to: 'attachments#view'
-
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
 
