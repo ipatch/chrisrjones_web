@@ -3,6 +3,12 @@ class Api::ArticlesController < ApiController
   # before_action :authorize, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
   skip_before_action :authorize_request, only: [:hello, :empty]
+
+  #
+  # EXP
+  #
+  skip_before_action :authorize_request, only: :index
+
   # skip_before_action :verify_authenticity_token, only: :hello
 
 
@@ -30,7 +36,11 @@ class Api::ArticlesController < ApiController
     # @articles = current_user.Articles
 
     @articles = Article.all
-    json_response(@articles) # WORKS
+    json_response(ArticleSerializer.new(@articles).serialized_json)
+
+    # @articles = Article.all
+    # json_response(@articles) # WORKS
+
   end
 
   # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
