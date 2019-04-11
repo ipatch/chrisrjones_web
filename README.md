@@ -59,6 +59,8 @@ bundle update loofah
 
 ## TODO
 
+- [ ] fix contact form time permitting
+- [ ] make certain that only the **owner** of an attachment can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
 - [ ] figure out why _seed_ data isn't properly inserting into the test database
 - [ ] experiment with versioning API, ie. create a V1 & V2
 - [ ] update string formatting with those defined in the Rubocop style guidelines for Ruby

@@ -36,6 +36,13 @@ module CrjCom
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # EXP with displaying `.html` extensions
+    #
+    CrjCom::Application.default_url_options = { :format => 'html' }
+    #
+    # NOTE: not hot dog
+    # config.default_url_options = { :format => 'html' }
+
     # EXP
     config.autoload_paths << Rails.root.join('lib')
 
@@ -60,10 +67,10 @@ module CrjCom
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Configure the default encoding used in templates for Ruby 1.9.
+    # Configure the default encoding used in templates Ruby 1.9
     config.encoding = "utf-8"
 
-    # Configure sensitive parameters which will be filtered from the log file.
+    # filter sensitive parameters from log file(s).
     config.filter_parameters += [:password]
 
     # Enable escaping HTML in JSON.

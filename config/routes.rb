@@ -61,5 +61,5 @@ Rails.application.routes.draw do
     # end
   end
   # You can have the root of your site routed with "root"
-  root 'articles#index'
+  root :to => 'articles#index', :defaults => { :format => 'html' }
 end
