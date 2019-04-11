@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
       match 'hello', :to => 'articles#hello', via: [:get]
       get 'hell0' => 'articles#hello'
+      get 'empty' => 'articles#empty'
 
       post 'auth/login', to: 'authentication#authenticate'
       post 'signup', to: 'users#create'
