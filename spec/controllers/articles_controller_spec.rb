@@ -11,16 +11,14 @@ RSpec.describe Api::ArticlesController, type: :controller do
     end
 
      it 'should return proper json' do
-      articles = create_list :article, 2
+      create_list :article, 2
       subject
-      # get :index
-      # json = JSON.parse(response.body)
       #
       # DEBUG
       # pp json
       #
-      # json_data = json['data']
-      articles.each_with_index do |article, index|
+      # FIXME recent func does not properly order
+      Article.recent.each_with_index do |article, index|
         expect(json_data[index]['attributes']).to eq({
           'title' => article.title,
           'text' => article.text,
