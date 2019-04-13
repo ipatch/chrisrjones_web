@@ -49,6 +49,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include FactoryBot::Syntax::Methods
+  config.include JsonApiHelpers
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

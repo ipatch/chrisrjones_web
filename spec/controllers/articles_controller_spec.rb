@@ -3,20 +3,30 @@ require 'rails_helper'
 RSpec.describe Api::ArticlesController, type: :controller do
 
   describe '#index' do
+    subject { get :index }
+
     it 'should return success response' do
       get :index
       expect(response).to have_http_status(:ok)
     end
 
      it 'should return proper json' do
-      create_list :article, 2
-      get :index
-      json = JSON.parse(response.body)
-      pp json
+      articles = create_list :article, 2
+      subject
+      # get :index
+      # json = JSON.parse(response.body)
+      #
+      # DEBUG
+      # pp json
+      #
       # json_data = json['data']
-      # pp json_data
-      # json_data = json[:data]
-      # expect(json_data.length).to eq(1)
+      articles.each_with_index do |article, index|
+        expect(json_data[index]['attributes']).to eq({
+          'title' => article.title,
+          'text' => article.text,
+          'slug' => article.slug
+        })
+      end
     end
   end
 
