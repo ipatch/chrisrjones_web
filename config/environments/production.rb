@@ -22,6 +22,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   # config.assets.js_compressor = :uglifier
+  #
   config.assets.js_compressor = Uglifier.new(harmony: true)
 
 
