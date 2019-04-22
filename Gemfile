@@ -14,7 +14,7 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'uglifier', '4.1.20' # compress assets, ie. js css
 
 # gem 'sassc-rails' # replaces `sass-rails`
-gem 'sassc-rails', '~> 2.1.0'
+gem 'sassc-rails', '~> 2.1.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 
 ###
@@ -37,7 +37,7 @@ gem 'pry', '~> 0.12.2' # add gem to debug rails
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 0.8.0' # irb in error window
 
-gem 'nokogiri', '~> 1.10.2' # XML HTML parser
+gem 'nokogiri', '~> 1.10.3' # XML HTML parser
 gem 'addressable', '~> 2.6.0' # emojis in URLs
 
 gem 'capistrano', '~> 3.11'
