@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'login' =>'sessions#new'
   get 'logout' => 'sessions#destroy'
-
   # the below route led to a rails routing error
   # get 'confirm' => 'users/:confirmation_token#confirm'
 
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
   end
   # GET /attachments/view/42 #legacy
   get '/attachments/view/:id', to: 'attachments#view'
-
   get 'about' => 'about#index'
   get 'contact' => 'contact#contact'
 
@@ -48,6 +46,7 @@ Rails.application.routes.draw do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
       match 'hello', :to => 'articles#hello', via: [:get]
       get 'hell0' => 'articles#hello'
+      get 'empty' => 'articles#empty'
 
       post 'auth/login', to: 'authentication#authenticate'
       post 'signup', to: 'users#create'
@@ -61,5 +60,5 @@ Rails.application.routes.draw do
     # end
   end
   # You can have the root of your site routed with "root"
-  root 'articles#index'
+  root :to => 'articles#index', :defaults => { :format => 'html' }
 end

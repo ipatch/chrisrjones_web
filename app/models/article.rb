@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
   validates :text, presence: true
 	validates :slug, presence: true, uniqueness: true
 
+  scope :recent, -> { order(created_at: :desc) }
+
 	# specify relationship between articles & attachments
 	has_many :attachments, dependent: :destroy
 	has_many :comments, dependent: :destroy
@@ -19,7 +21,6 @@ class Article < ActiveRecord::Base
 	def to_param
 		slug
 	end
-
 
   def json_response(object, status = :ok)
     render json: object, status: status

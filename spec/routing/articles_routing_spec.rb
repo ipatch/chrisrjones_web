@@ -11,5 +11,11 @@ RSpec.describe Api::ArticlesController, type: :controller do
       get :hello, params: { use_route: 'articles/hello' }
       expect(response.status).to eq(200)
     end
+
+    # TODO: fixme
+    # it 'should route to hello' do
+    #   expect(get '/articles/hello').to
+    #   route_to('articles#hello')
+    # end
   end
 end

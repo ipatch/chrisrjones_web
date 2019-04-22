@@ -2,7 +2,14 @@ class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
   # before_action :authorize, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
-  skip_before_action :authorize_request, only: :hello
+  skip_before_action :authorize_request, only: [:hello, :empty]
+
+  #
+  # EXP
+  #
+  skip_before_action :authorize_request, only: :index
+
+  # skip_before_action :verify_authenticity_token, only: :hello
 
 
   include Response # `./app/controllers/concerns/`
@@ -19,13 +26,21 @@ class Api::ArticlesController < ApiController
     render json: 'hello from ./app/controllers/api/articles_controller#hello'
   end
 
+  def empty
+    render json: []
+  end
+
   # GET /api/articles
   def index
     # get the current user articles
     # @articles = current_user.Articles
 
     @articles = Article.all
-    json_response(@articles) # WORKS
+    json_response(ArticleSerializer.new(@articles).serialized_json)
+
+    # @articles = Article.all
+    # json_response(@articles) # WORKS
+
   end
 
   # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.

@@ -51,7 +51,7 @@ For my particular use case, I manage many different Rubies on my system using va
 ```shell
 echo "rvm use [RUBY_VERSION_DEFINED_FOR_THIS APP]"
 echo "as of Apr 5, 2019, 👇"
-rvm ues 2.6.2
+rvm ues 2.6.3
 ssh-agent
 ssh-add ~/.ssh/id_rsa
 cap production deploy
@@ -75,6 +75,8 @@ bundle update loofah
 
 ## TODO
 
+- [ ] fix contact form time permitting
+- [ ] make certain that only the **owner** of an attachment can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
 - [ ] figure out why _seed_ data isn't properly inserting into the test database
 - [ ] experiment with versioning API, ie. create a V1 & V2
 - [ ] update string formatting with those defined in the Rubocop style guidelines for Ruby

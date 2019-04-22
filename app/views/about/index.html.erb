@@ -4,7 +4,7 @@
 	Hello, my name Chris Jones, and and I am 35 year old computer key masher.  I have written an iOS app, <a href="http://github.com/ipatch/kegcop/">KegCop</a>, and am currently maintaining all aspects of this site, ie. CMS dev, hosting, and dev ops.  I have chosen a variety of open source software to maintain the site, and I hope you enjoy your visit.  
 </p>
 <p>
-  While working on this site, I also work with a mirage open source software primairly maintained throughout GitHub. You can see what I've been up <a href="http://github.com/ipatch/">here</a>. Don't be a stranger, and I promise I won't bite. 
+  While working on this site, I also work with a mirage open source software primairly maintained throughout GitHub. You can see what I've been up to <a href="http://github.com/ipatch/">here</a>. Don't be a stranger, and I promise I won't bite. 
 </p>
 <p>
 	I also maintain another site, <a href="http://theairportwiki.com">theairportwiki.com</a> which contains information concerning Apple home routers and NAS's, ie Apple Time Capsules and what not.
@@ -16,4 +16,8 @@
   Chris
 </p>
 
-<!-- hold on to your butts @2 -->
+<% if Rails.env.production? %>
+<!-- hold on to your production butts -->
+<% elsif Rails.env.development? %>
+<!-- hold on to your develpoment butts -->
+<% end %>

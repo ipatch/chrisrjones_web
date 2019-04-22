@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery unless: -> { request.format.json? }
 
+  def default_url_options
+    { :format => :html }
+  end
+
   private
   def confirm_logged_in
     unless session[:user_id]
