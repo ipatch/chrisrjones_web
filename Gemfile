@@ -16,9 +16,6 @@ gem 'uglifier', '4.1.20' # compress assets, ie. js css
 # gem 'sassc-rails' # replaces `sass-rails`
 gem 'sassc-rails', '~> 2.1.0'
 gem 'bootstrap-sass', '~> 3.4.1'
-# gem 'coffee-rails', '4.2.2'
-# gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
-# gem 'sprockets', github: 'rails/sprockets', branch: 'master'
 
 ###
 # Add JS runtime, ie. Node.js V8
@@ -31,8 +28,6 @@ gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
 gem 'rack-cors', '1.0.3'
 gem 'fast_jsonapi', '~> 1.5'
 # gem 'active_model_serializers', '~> 0.10.9' #Api Gems
-# gem 'rack-cors', '~> 0.4.1' # allow diff clients to access API
-# gem 'jbuilder', '~> 2.8.0' # JSON templating
 
 gem 'pry', '~> 0.12.2' # add gem to debug rails
 
