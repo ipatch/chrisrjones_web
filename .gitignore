@@ -56,3 +56,6 @@ config/secrets.yml
 # Ignore my scratchpad file
 scratchpad.txt
 
+# rails 5.2.x artifacts
+**/node_modules/**
+yarn.lock

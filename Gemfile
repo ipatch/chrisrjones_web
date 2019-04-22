@@ -16,6 +16,9 @@ gem 'uglifier', '4.1.20' # compress assets, ie. js css
 # gem 'sassc-rails' # replaces `sass-rails`
 gem 'sassc-rails', '~> 2.1.0'
 gem 'bootstrap-sass', '~> 3.4.1'
+# gem 'coffee-rails', '4.2.2'
+# gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
+# gem 'sprockets', github: 'rails/sprockets', branch: 'master'
 
 ###
 # Add JS runtime, ie. Node.js V8
