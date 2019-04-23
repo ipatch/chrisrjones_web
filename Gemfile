@@ -23,16 +23,16 @@ gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this
 
+###
+# Profiling
+gem 'memory_profiler'
+gem 'derailed_benchmarks'
+
 # API gems
 gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
 gem 'rack-cors', '1.0.3'
 gem 'fast_jsonapi', '~> 1.5'
 # gem 'active_model_serializers', '~> 0.10.9' #Api Gems
-
-gem 'pry', '~> 0.12.2' # add gem to debug rails
-
-# gem 'debugger' # DEPRECATED, use `byebug`
-# gem 'byebug'
 
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 0.8.0' # irb in error window
@@ -48,6 +48,9 @@ gem 'capistrano3-puma', '~> 3.1.1'
 gem 'capistrano3-nginx', '~> 3.0.1'
 
 group :development, :test do
+  # gem 'debugger' # DEPRECATED, use `byebug`
+  # gem 'byebug'
+  gem 'pry', '~> 0.12.2' # add gem to debug rails
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
 end
