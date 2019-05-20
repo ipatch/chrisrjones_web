@@ -1,16 +1,15 @@
+# frozen_string_literal: true
+
 require 'addressable/uri'
 require 'api_constraints'
-# The priority is based upon order of creation: first created -> highest priority.
+# priority based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 
 Rails.application.routes.draw do
-  
   resources :articles do
     resources :comments
   end
 
-  # test route
-  match 'users/foo', :to => 'users#foo', via: [:post, :get]
 
   poop = 'https://linkedin.com/in/💩'
   get 'resume', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
@@ -25,7 +24,9 @@ Rails.application.routes.draw do
   # the below route led to a rails routing error
   # get 'confirm' => 'users/:confirmation_token#confirm'
 
-  resources :users
+  resources :users do
+    get 'foo' => 'users#foo'
+  end
   resources :sessions
   resources :password_resets
   resources :confirmations

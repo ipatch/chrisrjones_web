@@ -11,7 +11,7 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Kernel
+module Kernel #:nodoc:
 end
 
 # pg 1.0 gem has migrated constants, but ActiveRecord 4.2 still reqs
@@ -67,7 +67,7 @@ module CrjCom
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'localhost:3000', '127.0.0.1:300', 'http://localhost:4000'
-        resource '/api/*', credentials: false, headers: :any, methods: %i[:get :post :options]
+        resource '/api/*', credentials: false, headers: :any, methods: %i[get post options]
       end
 
       # allow do
