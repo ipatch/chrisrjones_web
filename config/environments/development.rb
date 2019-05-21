@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # these settings take presedence over config/application.rb.
   # in dev mode every request is reloaded 

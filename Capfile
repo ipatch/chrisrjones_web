@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # default deploy_config_path is 'config/deploy.rb'
 set :deploy_config_path, 'cap/deploy.rb'
 # default stage_config_path is 'config/deploy'

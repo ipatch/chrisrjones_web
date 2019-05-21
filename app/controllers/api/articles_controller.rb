@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::ArticlesController < ApiController
   # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
   # before_action :authorize, only: [:create, :edit, :update, :destroy]

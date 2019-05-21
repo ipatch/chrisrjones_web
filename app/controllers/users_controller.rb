@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   # rails 5.x
   before_action :authorize, only: [:edit, :update, :destroy]

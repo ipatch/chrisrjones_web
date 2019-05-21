@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # CREDIT:https://stackoverflow.com/a/51232774/708807
 # NOTE: this file is useful for resolving deprecation warnings when using the pg gem at version 0.21.0 with rails 4.2.x
 # NOTE: drop this file in ./config/initializers/

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ###
 # Global configuration file for cap
 ###

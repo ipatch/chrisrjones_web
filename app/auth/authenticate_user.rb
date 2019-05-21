@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthenticateUser
   
 # include 'message' # searches for a `module`

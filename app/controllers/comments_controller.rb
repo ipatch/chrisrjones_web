@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   # rails 5.x
   before_action :authorize, only: [:create, :edit, :update, :destroy]

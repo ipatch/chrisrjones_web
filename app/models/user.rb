@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ActiveRecord::Base
 	before_create { generate_token(:confirmation_token) }
 	has_secure_password # req, bcrypt gem

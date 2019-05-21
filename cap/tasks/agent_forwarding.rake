@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # lib/capistrano/tasks/agent_forwarding.rake
 desc "Check if agent forwarding is working"
 task :forwarding do

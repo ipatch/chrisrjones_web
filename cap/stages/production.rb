@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ###
 # Stage specific configuration file for crj.com
 ###

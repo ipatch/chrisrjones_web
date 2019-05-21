@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ResumeController < ApplicationController
    def index
       pdf_filename = File.join(Rails.root, "tmp/chris-jones-resume.pdf")
