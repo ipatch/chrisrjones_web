@@ -27,7 +27,7 @@ RSpec.describe AuthenticateUser do
           .to raise_error(
             ExceptionHandler::AuthenticationError,
             /Invalid credentials/
-        )
+          )
       end
     end
   end

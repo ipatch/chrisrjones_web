@@ -5,22 +5,22 @@
 ###
 # Per: http://capistranorb.com/documentation/getting-started/configuration/
 ###
-lock "~> 3.11.0"
+lock '~> 3.11.0'
 
 set :application,     'CrjCom'
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
 
 set :rvm_ruby_version, '2.6.3'
 # TODO: see if `$PATH` env var can be used instead of
-#...explicitly defining all the paths.
+# ...explicitly defining all the paths.
 # NOTE: cap can't read env vars such `$PATH` from the local user 😡
-set :default_env, { path: "$HOME/.rvm/bin:$HOME/.asdf/shims/:$HOME/.asdf/bin:/usr/local/bin:/usr/bin:/bin"}
+set :default_env, path: '$HOME/.rvm/bin:$HOME/.asdf/shims/:$HOME/.asdf/bin:/usr/local/bin:/usr/bin:/bin'
 set :bundle_flags, '--deployment'
-set :rvm_roles, [:app, :web, :db]
+set :rvm_roles, %i[app web db]
 SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # set the default location for the app will be deployed to
-set :user, "deploy"
+set :user, 'deploy'
 set :use_sudo, false
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :current_directory, "/home/#{fetch(:user)}/apps/#{fetch(:application)}/current"
@@ -30,15 +30,15 @@ set :current_directory, "/home/#{fetch(:user)}/apps/#{fetch(:application)}/curre
 # set :use_sudo, false <= no longer required `cap production deploy doctor`
 # set :deploy_via,      :remote_cache
 ### END
-set :branch,           'master'
-set :keep_releases,   5
+set :branch, 'master'
+set :keep_releases, 5
 set :format,        :pretty
 set :log_level,     :debug
 set :stage,         :production
 set :pty,           true
 
-append :linked_files,  "config/secrets.yml"
-append :linked_dirs, "bin", "tmp", "vendor/bundle", "public/system"
+append :linked_files, 'config/secrets.yml'
+append :linked_dirs, 'bin', 'tmp', 'vendor/bundle', 'public/system'
 set :bundle_path, -> { 'vendor/bundle' }
 
 # Puma Settings
@@ -52,9 +52,9 @@ set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
+set :ssh_options,     forward_agent: true, user: fetch(:user), keys: %w[~/.ssh/id_rsa.pub]
 set :puma_preload_app, true
-set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :puma_init_active_record, true # Change to false when not using ActiveRecord
 ###
 # the below setting is not valid for cap v3, checked via running `cap deploy production doctor`
 ###
@@ -64,9 +64,9 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 ###
 # Nginx setup
 ###
-set :nginx_domains, "chrisrjones.com"
+set :nginx_domains, 'chrisrjones.com'
 # nginx service script
-set :nginx_service_path, "/etc/init.d/nginx"
+set :nginx_service_path, '/etc/init.d/nginx'
 
 # Roles the deploy nginx site on,
 # default value: :web
@@ -101,7 +101,7 @@ set :app_server_socket, "#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.
 
 # The host that nginx will use as upstream to server the application
 # default value: 127.0.0.1
-set :app_server_host, "127.0.0.1"
+set :app_server_host, '127.0.0.1'
 
 # The port the application server is running on
 # no default value
@@ -112,9 +112,8 @@ set :app_server_port, 7777
 ###
 
 namespace :puma do
-  
   before :start, :make_dirs
-  
+
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
     on roles(:app) do
@@ -125,12 +124,12 @@ namespace :puma do
 end
 
 namespace :deploy do
-  before :starting,     :check_revision
+  before :starting, :check_revision
   after 'puma:smart_restart', 'nginx:restart'
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
 
-  desc "Check that we can access everything"
+  desc 'Check that we can access everything'
   task :check_write_permissions do
     on roles(:all) do |host|
       if test("[ -w #{fetch(:deploy_to)} ]")
@@ -141,12 +140,12 @@ namespace :deploy do
     end
   end
 
-  desc "Make sure local git is in sync with remote."
+  desc 'Make sure local git is in sync with remote.'
   task :check_revision do
     on roles(:app) do
       unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
+        puts 'WARNING: HEAD is not the same as origin/master'
+        puts 'Run `git push` to sync changes.'
         exit
       end
     end
@@ -176,8 +175,8 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
     end
-    
-    after :finishing,    :compile_assets
-    after :finishing, "deploy:cleanup"
+
+    after :finishing, :compile_assets
+    after :finishing, 'deploy:cleanup'
   end
 end

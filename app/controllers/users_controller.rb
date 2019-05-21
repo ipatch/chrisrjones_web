@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   # rails 5.x
-  before_action :authorize, only: [:edit, :update, :destroy]
+  before_action :authorize, only: %i[edit update destroy]
 
   # rails 4.2.x
   # before_filter :authorize, only: [:edit, :update, :destroy]
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     if session[:user_id] == @user.id || current_user.admin_user == true
       respond_to do |format|
         # if @user.update_attributes(params[:user])
-        if @user.update_attributes(user_params)
+        if @user.update(user_params)
           format.html { redirect_to @user, notice: 'User was successfully updated.' }
           format.json { head :no_content }
         else

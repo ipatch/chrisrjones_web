@@ -10,16 +10,15 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-
   poop = 'https://linkedin.com/in/💩'
-  get 'resume', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
+  get 'resume', to: redirect { |_params, _req| Addressable::URI.parse(URI.escape(poop)) }
   # Add below route for correct "resumé" spelling
-  get 'resumé', to: redirect { |params, req| Addressable::URI.parse(URI.escape(poop)) }
+  get 'resumé', to: redirect { |_params, _req| Addressable::URI.parse(URI.escape(poop)) }
   dots = 'https://github.com/ipatch/dotfiles'
-  get 'dotfiles', to: redirect { |params, req| Addressable::URI.parse(URI.escape(dots)) }
+  get 'dotfiles', to: redirect { |_params, _req| Addressable::URI.parse(URI.escape(dots)) }
 
   get 'signup' => 'users#new'
-  get 'login' =>'sessions#new'
+  get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
   # the below route led to a rails routing error
   # get 'confirm' => 'users/:confirmation_token#confirm'
@@ -45,21 +44,21 @@ Rails.application.routes.draw do
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
-      match 'hello', :to => 'articles#hello', via: [:get]
-      get 'hell0' => 'articles#hello'
-      get 'empty' => 'articles#empty'
+    match 'hello', to: 'articles#hello', via: [:get]
+    get 'hell0' => 'articles#hello'
+    get 'empty' => 'articles#empty'
 
-      post 'auth/login', to: 'authentication#authenticate'
-      post 'signup', to: 'users#create'
+    post 'auth/login', to: 'authentication#authenticate'
+    post 'signup', to: 'users#create'
 
-      # list our resources here
-      resources :articles # WORKS
+    # list our resources here
+    resources :articles # WORKS
 
-      # NOTE: to limit what resources can be reached
-      # EX
-      # resources :articles, :except => [:new, :edit]
+    # NOTE: to limit what resources can be reached
+    # EX
+    # resources :articles, :except => [:new, :edit]
     # end
   end
   # You can have the root of your site routed with "root"
-  root :to => 'articles#index', :defaults => { :format => 'html' }
+  root to: 'articles#index', defaults: { format: 'html' }
 end

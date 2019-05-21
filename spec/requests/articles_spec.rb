@@ -57,8 +57,8 @@ RSpec.describe 'Articles API', type: :request do
 
   # Test suite for POST /articles
   describe 'POST /api/articles' do
-    let(:valid_attributes) do 
-    # send valid JSON payload
+    let(:valid_attributes) do
+      # send valid JSON payload
       { title: 'Read a book', text: 'Reading the book', slug: 'reading-book' }.to_json
     end
 

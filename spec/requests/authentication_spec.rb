@@ -25,7 +25,7 @@ RSpec.describe 'Authentication', type: :request do
 
     # set request.headers to our custom headers
     # before { allow(request).to receive(:headers).and_return(headers) }
-    
+
     # returns auth token when request is valid
     context 'When request is valid' do
       before { post '/api/auth/login', params: valid_credentials, headers: headers }

@@ -2,9 +2,9 @@
 
 # Load the Rails application.
 # require 'logger'
-require File.expand_path('../application', __FILE__)
+require File.expand_path('application', __dir__)
 
 # Initialize the Rails application.
 Rails.application.initialize!
 
-RAILS_DEFAULT_LOGGER = Logger.new("#{Rails.root}/log/#{Rails.env}.log", "daily")
+RAILS_DEFAULT_LOGGER = Logger.new("#{Rails.root}/log/#{Rails.env}.log", 'daily')

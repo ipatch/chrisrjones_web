@@ -5,5 +5,5 @@
 # environment 'production'
 
 # require 'logger'
-require ::File.expand_path('../config/environment',  __FILE__)
+require ::File.expand_path('../config/environment', __FILE__)
 run CrjCom::Application

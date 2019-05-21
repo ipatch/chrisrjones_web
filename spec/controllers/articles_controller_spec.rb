@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Api::ArticlesController, type: :controller do
-
   describe '#index' do
     subject { get :index }
 
@@ -12,7 +11,7 @@ RSpec.describe Api::ArticlesController, type: :controller do
       expect(response).to have_http_status(:ok)
     end
 
-     it 'should return proper json' do
+    it 'should return proper json' do
       create_list :article, 2
       subject
       #
@@ -21,16 +20,16 @@ RSpec.describe Api::ArticlesController, type: :controller do
       #
       # FIXME recent func does not properly order
       Article.recent.each_with_index do |article, index|
-        expect(json_data[index]['attributes']).to eq({
+        expect(json_data[index]['attributes']).to eq(
           'title' => article.title,
           'text' => article.text,
           'slug' => article.slug
-        })
+        )
       end
     end
   end
 
-  #describe '#empty' do
+  # describe '#empty' do
   #  it 'should return success response' do
   #    get :empty
   #    expect(response).to have_http_status(:ok)
@@ -46,9 +45,9 @@ RSpec.describe Api::ArticlesController, type: :controller do
   #  #  json_data = json[:data]
   #  #  expect(json_data.length).to eq(1)
   #  #end
-  #end
+  # end
 
-  #describe '#hello' do
+  # describe '#hello' do
   #  it 'should return success response' do
   #    get :hello
   #    expect(response).to have_http_status(:ok)
@@ -61,7 +60,7 @@ RSpec.describe Api::ArticlesController, type: :controller do
   #    # json_data = json[:data]
   #    # expect(json_data.length).to eq(1)
   #  # end
-  #end
+  # end
 
   # TODO: fixme, API can't return response unless authenticated
   # describe '#index' do

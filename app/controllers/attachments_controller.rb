@@ -1,27 +1,26 @@
 # frozen_string_literal: true
 
 class AttachmentsController < ApplicationController
-	before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :set_attachment, only: %i[show edit update destroy]
 
   # rails 5.x
-  before_action :authorize, only: [:new, :create, :update, :destroy]
+  before_action :authorize, only: %i[new create update destroy]
   skip_before_action :verify_authenticity_token
   # rails 4.x
-	# before_filter :authorize, only: [:new, :creeate, :update, :destroy]
-	# skip_before_filter :verify_authenticity_token
+  # before_filter :authorize, only: [:new, :creeate, :update, :destroy]
+  # skip_before_filter :verify_authenticity_token
 
-	require "base64"
+  require 'base64'
 
   # GET /attachments
   # GET /attahcments.json
-	def index
-		@attachments = Attachment.all
-	end
+  def index
+    @attachments = Attachment.all
+  end
 
   # GET /attachments/1
   # GET /attachments/1.json
-  def show
-  end
+  def show; end
 
   # GET /attachments/:id/view
   def view
@@ -29,12 +28,12 @@ class AttachmentsController < ApplicationController
     # TODO: adjust condition to check for created_at or updated_at so old attachments can eventually be updated
     # NOTE: super hacky for my use case, not proud but keeps the ball rolling.
     if a.id <= 66
-      send_data(Base64.decode64(a.file_contents), type: a.content_type, :disposition => 'inline', filename: a.filename )
+      send_data(Base64.decode64(a.file_contents), type: a.content_type, disposition: 'inline', filename: a.filename)
     else
       send_data a.file_contents,
-        :type => a.content_type,
-        :disposition => 'inline',
-        :x_sendfile => false
+                type: a.content_type,
+                disposition: 'inline',
+                x_sendfile: false
     end
     # TODO: catch / handle errors
   end
@@ -43,20 +42,19 @@ class AttachmentsController < ApplicationController
   def download
     a = Attachment.find(params[:id])
     if a.id <= 66
-      send_data(Base64.decode64(a.file_contents), type: a.content_type, :disposition => 'attachment', filename: a.filename)
+      send_data(Base64.decode64(a.file_contents), type: a.content_type, disposition: 'attachment', filename: a.filename)
     else
       send_data a.file_contents,
-        :type => a.content_type,
-        :disposition => 'attachment',
-        :filename =>  a.filename
+                type: a.content_type,
+                disposition: 'attachment',
+                filename: a.filename
     end
-      # TODO properly handle download errors
-      # rescue
-      # render :nothing => true, :status => 404
+    # TODO: properly handle download errors
+    # rescue
+    # render :nothing => true, :status => 404
   end
 
-  def show
-  end
+  def show; end
 
   # GET /attachments/new
   def new
@@ -64,8 +62,7 @@ class AttachmentsController < ApplicationController
   end
 
   # GET /attachments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /attachments
   # POST /attachments.json
@@ -109,6 +106,7 @@ class AttachmentsController < ApplicationController
   end
 
   private
+
   def set_attachment
     @attachment = Attachment.find(params[:id])
   end

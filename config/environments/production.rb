@@ -27,7 +27,6 @@ Rails.application.configure do
   #
   config.assets.js_compressor = Uglifier.new(harmony: true)
 
-
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -85,9 +84,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_options = {from: 'no-reply@chrisrjones.com'}
+  config.action_mailer.default_options = { from: 'no-reply@chrisrjones.com' }
 
-  config.action_mailer.default_url_options = { :host => "chrisrjones.com" }
+  config.action_mailer.default_url_options = { host: 'chrisrjones.com' }
 
   # General Settings
   config.app_domain = 'chrisrjones.com'
@@ -96,13 +95,13 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.chrisrjones.com",
-    :port                 => 587,
-    :domain               => 'chrisrjones.com',
-    :user_name            => ENV['MAIL_ADDRESS'],
-    :password             => ENV['MAIL_PASSWORD'],
-    :authentication       => 'plain',
-    :enable_starttls_auto => true,
+    address: 'smtp.chrisrjones.com',
+    port: 587,
+    domain: 'chrisrjones.com',
+    user_name: ENV['MAIL_ADDRESS'],
+    password: ENV['MAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
     openssl_verify_mode: 'none'
   }
 end
