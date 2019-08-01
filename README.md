@@ -71,6 +71,24 @@ bundle update loofah
 
 > The above command is useful for updating gems bundled in the gemset but aren't defined within the `Gemfile`.
 
+<a id="maintenance"></a>
+
+## Maintenance
+
+To update gems listed within a **Gemfile**
+
+```shell
+bundle update --all
+```
+
+❗️ The are sub commands for performing different levels of updates ie.
+
+- major
+- minor
+- patch
+
+to name a few.  For more info on granular updating of gems [see](https://bundler.io/v2.0/man/bundle-update.1.html)
+
 <a id="todo"></a>
 
 ## TODO

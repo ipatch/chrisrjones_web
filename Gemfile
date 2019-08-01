@@ -14,8 +14,8 @@ gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails', '~> 4.3.3'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'pg', '1.1.4'
-gem 'uglifier', '4.1.20' # compress assets, ie. js css
+gem 'pg', '~> 1.1.4'
+gem 'uglifier', '~> 4.1.20' # compress assets, ie. js css
 
 # gem 'sassc-rails' # replaces `sass-rails`
 gem 'sassc-rails', '~> 2.1.1'
@@ -32,7 +32,7 @@ gem 'memory_profiler'
 # API gems
 gem 'fast_jsonapi', '~> 1.5'
 gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
-gem 'rack-cors', '1.0.3'
+gem 'rack-cors', '~> 1.0.3'
 # gem 'active_model_serializers', '~> 0.10.9' #Api Gems
 
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
