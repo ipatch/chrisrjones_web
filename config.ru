@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # This file is used by Rack-based servers to start the application.
 
 # environment 'production'
 
 # require 'logger'
-require ::File.expand_path('../config/environment',  __FILE__)
+require ::File.expand_path('../config/environment', __FILE__)
 run CrjCom::Application

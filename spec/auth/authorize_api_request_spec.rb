@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AuthorizeApiRequest do
@@ -16,7 +18,7 @@ RSpec.describe AuthorizeApiRequest do
     # returns user object when request is valid
     context 'when valid request' do
       it 'returns user object' do
-        result =request_obj.call
+        result = request_obj.call
         expect(result[:user]).to eq(user)
       end
     end
@@ -51,20 +53,20 @@ RSpec.describe AuthorizeApiRequest do
             .to raise_error(
               ExceptionHandler::InvalidToken,
               /Signature has expired/
-          )
+            )
         end
       end
 
       context 'fake token' do
         let(:header) { { 'Authorization' => 'foobar' } }
         subject(:invalid_request_obj) { described_class.new(header) }
-        
+
         it 'handles JWT::DecodeError' do
           expect { invalid_request_obj.call }
             .to raise_error(
               ExceptionHandler::InvalidToken,
               /Not enough or too many segments/
-          )
+            )
         end
       end
     end

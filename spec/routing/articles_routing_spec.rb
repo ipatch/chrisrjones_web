@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::ArticlesController, type: :controller do
-
-  describe "GET #hello" do
+  describe 'GET #hello' do
     it 'responds with 200 status code' do
       expect(response.code).to eq('200')
     end

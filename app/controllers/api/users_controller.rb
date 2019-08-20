@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::UsersController < ApiController
   skip_before_action :authorize_request, only: :create
 

@@ -1,0 +1,9 @@
+---
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Style/SymbolArray:
+  Enabled: true

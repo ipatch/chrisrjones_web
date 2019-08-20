@@ -1,2 +1,4 @@
-module SessionsHelper
+# frozen_string_literal: true
+
+module SessionsHelper # :nodoc:
 end

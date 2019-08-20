@@ -1,23 +1,14 @@
-class Message #< ActiveRecord::Base
+# frozen_string_literal: true
 
-  # include ActiveAttr::Model
-
-  # attribute :name
-  # attribute :subject
-  # attribute :content
-
-  # validates_presence_of :name
-  # validates_presence_of :subject
-  # validates_length_of :content, :maximum => 500
-
+class Message # :nodoc:
   include ActiveModel::Validations
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
   attr_accessor :name, :email, :subject, :body
 
-  validates :name, :email, :subject, :body, :presence => true
-  validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
+  validates :name, :email, :subject, :body, presence: true
+  validates :email, format: { with: /.+@.+\..+/ }, allow_blank: true
 
   def initialize(attributes = {})
     attributes.each do |name, value|

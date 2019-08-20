@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :article do
     # NOTE: create a title with at least 5 chars

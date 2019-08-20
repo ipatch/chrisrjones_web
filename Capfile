@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # default deploy_config_path is 'config/deploy.rb'
 set :deploy_config_path, 'cap/deploy.rb'
 # default stage_config_path is 'config/deploy'
@@ -22,7 +24,7 @@ install_plugin Capistrano::Nginx
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.6.3'
-set :rvm_map_bins, %{rake gem bundle ruby}
+set :rvm_map_bins, %i[rake gem bundle ruby]
 
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
 require 'capistrano/puma'

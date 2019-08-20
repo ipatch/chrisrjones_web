@@ -1,8 +1,11 @@
-class Api::ArticlesController < ApiController
-  # Out of the box, rails comes with CSRF which is problematic when developing APIs, thus CSRF can be turned off on a controller basis.
+# frozen_string_literal: true
+
+class Api::ArticlesController < ApiController # :nodoc:
+  # CSRF provided by rails is problematic for API controllers
+  # disable CSRF on a controller basis
   # before_action :authorize, only: [:create, :edit, :update, :destroy]
-  before_action :set_article, only: [:show, :update, :destroy]
-  skip_before_action :authorize_request, only: [:hello, :empty]
+  before_action :set_article, only: %i[show update destroy]
+  skip_before_action :authorize_request, only: %i[hello empty]
 
   #
   # EXP
@@ -11,12 +14,12 @@ class Api::ArticlesController < ApiController
 
   # skip_before_action :verify_authenticity_token, only: :hello
 
-
   include Response # `./app/controllers/concerns/`
   include ExceptionHandler # `./app/controllers/concerns/`
 
   # NOTE: no GET response cuz no route points to this method.
-  def foo # on purpose
+  def foo
+    # on purpose
     puts 'hello from ./app/controllers/api/articles_controller#foo'
   end
 
@@ -40,17 +43,17 @@ class Api::ArticlesController < ApiController
 
     # @articles = Article.all
     # json_response(@articles) # WORKS
-
   end
 
-  # NOTE: `create` generates an object, and saves it to the DB whereas  `new` just generates an object, that will later require saving to the DB.
+  # NOTE: `create` generates an object, and saves it to the DB
+  # NOTE: `new` generates an object, that will require saving to the DB.
   # NOTE: `create!` will raise an exception
 
   # POST /api/articles
   def create
     # create articles belonging to current user
     # @article = current_user.article.create!(article_params)
-    
+
     @article = Article.create!(article_params)
     json_response(@article, :created)
   end
@@ -73,6 +76,7 @@ class Api::ArticlesController < ApiController
   end
 
   private
+
   def set_article
     @article = Article.find(params[:id])
   end
@@ -83,14 +87,12 @@ class Api::ArticlesController < ApiController
   end
 
   def authorize
-    redirect_to login_url, alert: "Not authorized" if current_user.nil?
+    redirect_to login_url, alert: 'Not authorized' if current_user.nil?
   end
 
   def current_user
-    begin
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    rescue ActiveRecord::RecordNotFound
-      reset_session
-    end
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  rescue ActiveRecord::RecordNotFound
+    reset_session
   end
 end

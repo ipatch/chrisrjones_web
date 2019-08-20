@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AddMetaDescriptionToArticles < ActiveRecord::Migration[5.2]
   def change
-  	add_column :articles, :meta_description, :string
+    add_column :articles, :meta_description, :string
   end
 end

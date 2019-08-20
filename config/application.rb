@@ -1,6 +1,8 @@
-# config/application.rb for CrjCom
+# frozen_string_literal: true
 
-require File.expand_path('../boot', __FILE__)
+# config/application.rb for chrisrjones_rails
+#
+require File.expand_path('boot', __dir__)
 
 require 'rails/all'
 require 'yaml'
@@ -9,34 +11,22 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# NOTE: fix, for working with pg v1.x gem in a rails v4.2 app
-module Kernel
-  # rails v4.2
-  # def gem_with_pg_fix(dep, *reqs)
-  #   if dep == 'pg' && reqs == ['~> 0.15']
-  #     reqs = ['~> 1.0']
-  #   end
-  #   gem_without_pg_fix(dep, *reqs)
-  # end
-
-  # rails v4.2
-  # alias_method_chain :gem, :pg_fix
-
-  # rails v5.x
-  # alias_method :gem, :gem_with_pg_fix
+module Kernel #:nodoc:
 end
+
 # pg 1.0 gem has migrated constants, but ActiveRecord 4.2 still reqs
 PGconn = PG::Connection
 PGresult = PG::Result
 PGError = PG::Error
 
 module CrjCom
+  # base class for application
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
+    # Settings in config/environments/* take precedence over these
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # configure JS engine, no coffescript 🙅‍♂️
+    # configure JS engine, no coffescript
     config.generators.javascript_engine = :js
 
     # EXP
@@ -47,24 +37,22 @@ module CrjCom
 
     config.before_configuration do
       env_file = Rails.root.join('config', 'secrets.yml').to_s
-      
       if File.exist?(env_file)
         YAML.load_file(env_file)[Rails.env].map do |key, value|
-        ENV[key.to_s] = value.to_s
+          ENV[key.to_s] = value.to_s
         end
       end
     end
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
+    # Run `rake -D time` to list avail timezones . Default is UTC.
     config.time_zone = 'Central Time (US & Canada)'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    # default locale = :en translations in config/locales/*.rb,yml autoloaded
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
     # Configure the default encoding used in templates Ruby 1.9
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # filter sensitive parameters from log file(s).
     config.filter_parameters += [:password]
@@ -79,7 +67,7 @@ module CrjCom
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'localhost:3000', '127.0.0.1:300', 'http://localhost:4000'
-        resource '/api/*', credentials: false, headers: :any, methods: [:get, :post, :options]
+        resource '/api/*', credentials: false, headers: :any, methods: %i[get post options]
       end
 
       # allow do

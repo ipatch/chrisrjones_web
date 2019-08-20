@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # these settings take presedence over config/application.rb.
-  # in dev mode every request is reloaded 
+  # in dev mode every request is reloaded
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -37,7 +39,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-  
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -48,13 +50,13 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.chrisrjones.com",
-    :port                 => 587,
-    :domain               => 'chrisrjones.com',
-    :user_name            => ENV['MAIL_ADDRESS'],
-    :password             => ENV['MAIL_PASSWORD'],
-    :authentication       => 'plain',
-    :enable_starttls_auto => true,
+    address: 'smtp.chrisrjones.com',
+    port: 587,
+    domain: 'chrisrjones.com',
+    user_name: ENV['MAIL_ADDRESS'],
+    password: ENV['MAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
     openssl_verify_mode: 'none'
   }
 end
