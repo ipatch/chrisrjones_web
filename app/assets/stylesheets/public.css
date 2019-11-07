@@ -36,7 +36,7 @@ a:hover {}*/
 	background: #993120; color: #FFFFFF; }*/
 /*#header h1 { margin: 0; padding: 0; } */
 /* #main { min-height: 500px; background: #F2DC87; } */
-/* #navigation { float: left; width: 180px; min-height: 480px; padding: 10px;*/*/
+/* #navigation { float: left; width: 180px; min-height: 480px; padding: 10px;*/
 /* background: #94B26F; color: #4C2516; } */
 /*  #content { padding: 10px; } */
 /* #footer { clear: both; height: 2.5em; text-align: right;
@@ -70,11 +70,11 @@ body {
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 100%;
   height: auto !important;
   height: 100%;
   /* Negative indent footer by it's height */
   margin: 0 auto -60px;
+  min-height: 100%;
 }
 
 /* Set the fixed height of the footer here */
