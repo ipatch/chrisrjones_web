@@ -32,7 +32,7 @@ gem 'memory_profiler'
 # API gems
 gem 'fast_jsonapi', '~> 1.5'
 gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
-gem 'rack-cors', '~> 1.0.3'
+gem 'rack-cors', '~> 1.0.5'
 # gem 'active_model_serializers', '~> 0.10.9' #Api Gems
 
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
