@@ -247,7 +247,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 6.0, >= 6.0.1)
   jwt (~> 2.1.0)
   memory_profiler
-  nokogiri (~> 1.10.3)
+  nokogiri (~> 1.10.8)
   pg (~> 1.1.4)
   pry (~> 0.12.2)
   puma (~> 3.12.4)
