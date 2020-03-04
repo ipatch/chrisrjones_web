@@ -5,7 +5,7 @@
 ###
 # Per: http://capistranorb.com/documentation/getting-started/configuration/
 ###
-lock '~> 3.11.0'
+lock '~> 3.12.0'
 
 set :application,     'CrjCom'
 set :repo_url,        'git@github.com:ipatch/crj.com.git'
