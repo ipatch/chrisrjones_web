@@ -50,8 +50,8 @@ For my particular use case, I manage many different Rubies on my system using va
 
 ```shell
 echo "rvm use [RUBY_VERSION_DEFINED_FOR_THIS APP]"
-echo "as of Apr 5, 2019, 👇"
-rvm ues 2.6.3
+echo "as of March 4, 2020 👇"
+rvm ues 2.7.0
 ssh-agent
 ssh-add ~/.ssh/id_rsa
 cap production deploy
