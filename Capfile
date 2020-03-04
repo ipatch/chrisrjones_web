@@ -23,7 +23,7 @@ require 'capistrano/nginx'
 install_plugin Capistrano::Nginx
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.6.3'
+set :rvm_ruby_version, '2.7.0'
 set :rvm_map_bins, %i[rake gem bundle ruby]
 
 # Add the below line, see: https://stackoverflow.com/a/43021458/708807
