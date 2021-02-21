@@ -62,3 +62,6 @@ yarn.lock
 
 # ignore local symlink to chrisrjones_client project
 chrisrjones_client-react
+
+# asdf
+.tool-versions
