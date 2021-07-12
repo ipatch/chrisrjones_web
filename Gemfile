@@ -38,7 +38,7 @@ gem 'rack-cors', '~> 1.0.5'
 gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 0.8.0' # irb in error window
 
-gem 'addressable', '~> 2.6.0' # emojis in URLs
+gem 'addressable', '~> 2.8.0' # emojis in URLs
 gem 'nokogiri', '~> 1.10.8' # XML HTML parser
 
 gem 'capistrano', '~> 3.12'
