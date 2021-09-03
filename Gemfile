@@ -7,6 +7,7 @@ source 'https://rubygems.org'
 # `~>` denotes bundler will only install minor updates
 
 ruby '2.7.2'
+# ruby '3.0.0' # nova
 
 gem 'rails', '~> 5.2.3'
 
