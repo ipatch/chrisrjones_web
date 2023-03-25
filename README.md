@@ -1,28 +1,27 @@
-[![Build Status](https://travis-ci.org/ipatch/crj.com.svg?branch=master)](https://travis-ci.org/ipatch/crj.com)
-
 > The code repository maintaining [chrisrjones.com](http://www.chrisrjones.com)
 
 <div align="center">
 
-<a id="contents"></a>
-
 ## Contents
+
+<a name="contents"></a>
 
 • [Usage](#usage) • [Deployment](#deployment) • [Deployment Use Case](#deployment-use-case) • [Security](#security) • [TODOs](#todos) •
 
 </div>
 
-<a id="usage"></a>
-
 ## Usage
+
+<a name="usage"></a>
 
 When working with attachments using this CMS visit `http://tld.com/attachments` to manage attachments stored in the Postgres DB for this app.
 
 > ⚠️ Must be logged in to manage attachments.
 
-<a id="usage-testing-api-endpoints"></a>
 
-### Usage > Manually Testing API endpoints
+### Usage / Manually Testing API endpoints
+
+<a id="usage-testing-api-endpoints"></a>
 
 [httpie](https://httpie.org) is a useful utility for accessing endpoints, and even those exposed through an API.  That said, I half ass setup SSL a while back, and test certain API endpoints on the remote box, ie. chrisrjones.com, pass the `--verify=no` flag to **http** to manually access / test an endpoint.
 
@@ -36,15 +35,15 @@ The above command is an exposed API endpoint that does not require an auth token
 
 > The URL **must** be http**s** and NOT _http_ or else a **302** response will be returned from the server.
 
-<a id="deployment"></a>
-
 ## Deployment
+
+<a id="deployment"></a>
 
 This app will bind to the local port of `7777` on the deployed server using puma and nginx.  See `deploy.rb` for more details.
 
-<a id="deployment-use-case"></a>
-
 ### Deployment Use Case
+
+<a id="deployment-use-case"></a>
 
 For my particular use case, I manage many different Rubies on my system using various different tools such as asdf, homebrew, and RVM, that said, I chose to use RVM to manage the bundled gems used within this app because RVM integrates with Capistrano less painful then other Ruby managers, ie. asdf.  One caveat with using fish shell with RVM is that by default I use asdf Rubies on the daily, and need to switch to RVM when I want to manage gems contained with this app, and also need to start and ssh-agent when deploying this app using fish shell with RVM.
 
@@ -57,9 +56,9 @@ ssh-add ~/.ssh/id_rsa
 cap production deploy
 ```
 
-<a id="security"></a>
-
 ## Security
+
+<a id="security"></a>
 
 To update a vulnerable gem bundled within the app
 
@@ -71,9 +70,37 @@ bundle update loofah
 
 > The above command is useful for updating gems bundled in the gemset but aren't defined within the `Gemfile`.
 
+## Maintenance
+
 <a id="maintenance"></a>
 
-## Maintenance
+### maintenance / march 2023
+
+- it appears a rails 5.x app will not work with ruby 3.x so use ruby 2.7.x to work with rails 5.x
+
+1. install rvm for local `$USER`
+2. install latest ruby 2.7.x
+  2a. if using archlinux, install openssl 1.x via rvm
+  ```
+  rvm pkg install openssl
+  ```
+  2b. reinstall ruby 2.7.x via rvm, use rvm defined openssl
+  ```
+  rvm install 2.7.7 --with-openssl-dir=$HOME/.rvm/usr
+  ```
+3. if using fish shell, setup `rvm.fish` from dotfiles repo
+4. if working locally on an arch linux box, install postgres
+  4a. post postgres setup steps
+  ```
+  sudo -iu postgres
+  initdb -D /var/lib/postgres/data
+  createuser --interactive
+  ```
+5. then run rails tasks
+  ```
+  rails db:create
+  rails db:migrate
+  ```
 
 To update gems listed within a **Gemfile**
 
@@ -89,9 +116,9 @@ bundle update --all
 
 to name a few.  For more info on granular updating of gems [see](https://bundler.io/v2.0/man/bundle-update.1.html)
 
-<a id="todo"></a>
-
 ## TODO
+
+<a id="todo"></a>
 
 - [ ] fix contact form time permitting
 - [ ] make certain that only the **owner** of an attachment can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
