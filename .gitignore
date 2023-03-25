@@ -59,3 +59,9 @@ scratchpad.txt
 # rails 5.2.x artifacts
 **/node_modules/**
 yarn.lock
+
+# ignore local symlink to chrisrjones_client project
+chrisrjones_client-react
+
+# asdf
+.tool-versions
