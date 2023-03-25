@@ -6,18 +6,19 @@ source 'https://rubygems.org'
 
 # `~>` denotes bundler will only install minor updates
 
-# ruby '2.7.2'
+ruby '2.7.7'
 # ruby '3.0.0' # nova
 
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.8.1'
 
 gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'jquery-rails', '~> 4.3.3'
+# gem 'jquery-rails', '~> 4.3.3'
+gem 'jquery-rails', '~> 4.5.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 # gem 'pg', '~> 1.1.4'
 gem 'pg'
-gem 'uglifier', '~> 4.1.20' # compress assets, ie. js css
+gem 'uglifier', '~> 4.2.0' # compress assets, ie. js css
 
 # gem 'sassc-rails' # replaces `sass-rails`
 gem 'sassc-rails', '~> 2.1.1'
@@ -33,11 +34,11 @@ gem 'memory_profiler'
 
 # API gems
 gem 'fast_jsonapi', '~> 1.5'
-gem 'jwt', '~> 2.1.0' # authenticate using JSON web tokens
-gem 'rack-cors', '~> 1.0.5'
+gem 'jwt', '~> 2.7.0' # authenticate using JSON web tokens
+# gem 'rack-cors', '~> 1.0.5'
+gem 'rack-cors', '~> 2.0.1'
 # gem 'active_model_serializers', '~> 0.10.9' #Api Gems
-
-gem 'acts_as_list', '~> 0.9.19' # sort objects, "Simple CMS"
+gem 'acts_as_list', '~> 1.1.0' # sort objects, "Simple CMS"
 # gem 'binding_of_caller', '~> 0.8.0' # irb in error window
 gem 'binding_of_caller' # , '~> 0.8.0' # irb in error window
 
@@ -57,16 +58,16 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
   # gem 'pry', '~> 0.12.2' # add gem to debug rails
   gem 'pry' # , '~> 0.12.2' # add gem to debug rails
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 5.1.2'
 end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
-  gem 'faker', '~> 1.9.3'
-  gem 'shoulda-matchers', '~> 3.1' # 4.0.1
+  gem 'faker', '~> 3.1.1'
+  gem 'shoulda-matchers', '~> 5.3.0' # 4.0.1
 end
 
 # add puma to productoin
 group :production do
-  gem 'puma', '~> 3.12.4'
+  gem 'puma', '~> 3.4'
 end
