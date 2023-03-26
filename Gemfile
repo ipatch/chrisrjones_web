@@ -10,6 +10,7 @@ ruby '2.7.7'
 # ruby '3.0.0' # nova
 
 gem 'rails', '~> 5.2.8.1'
+# gem 'activerecord', '~> 5.2.8.15' # NOTE: ipatch, requires paid rails LTS
 
 gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this
 gem 'bootstrap-sass', '~> 3.4.1'
