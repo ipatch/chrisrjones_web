@@ -76,7 +76,7 @@ bundle update loofah
 
 ### maintenance / march 2023
 
-- it appears a rails 5.x app will not work with ruby 3.x so use ruby 2.7.x to work with rails 5.x
+> it appears a rails 5.x app will not work with ruby 3.x so use ruby 2.7.x to work with rails 5.x
 
 1. install rvm for local `$USER`
 2. install latest ruby 2.7.x
@@ -94,7 +94,7 @@ bundle update loofah
   ```
 
 3. if using fish shell, setup `rvm.fish` from dotfiles repo
-4. if working locally on an arch linux box, install postgres
+4. if working locally with a arch linux box, install postgres
 
   4a. post postgres setup steps
 

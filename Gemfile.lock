@@ -159,7 +159,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (5.0.1)
-    puma (4.3.12)
+    puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
@@ -249,7 +249,7 @@ DEPENDENCIES
   acts_as_list (~> 1.1.0)
   addressable (~> 2.8.0)
   bcrypt (~> 3.1.12)
-  binding_of_caller
+  binding_of_caller (~> 1.0.0)
   bootstrap-sass (~> 3.4.1)
   capistrano (~> 3.12)
   capistrano-bundler (~> 2.1.0)
@@ -266,15 +266,16 @@ DEPENDENCIES
   jquery-ui-rails (~> 6.0, >= 6.0.1)
   jwt (~> 2.7.0)
   memory_profiler
-  nokogiri
-  pg
-  pry
-  puma (~> 4.3.12)
+  nokogiri (~> 1.14.2)
+  pg (~> 1.4.6)
+  pry (~> 0.14.2)
+  puma (~> 5.6.5)
   rack-cors (~> 2.0.1)
   rails (~> 5.2.8.1)
   rspec-rails (~> 5.1.2)
   sassc-rails (~> 2.1.1)
   shoulda-matchers (~> 5.3.0)
+  tzinfo (~> 1.2.1)
   uglifier (~> 4.2.0)
 
 RUBY VERSION
