@@ -46,11 +46,13 @@ gem 'addressable', '~> 2.8.0' # emojis in URLs
 gem 'nokogiri'# , '~> 1.10.8' # XML HTML parser
 
 gem 'capistrano', '~> 3.12'
-gem 'capistrano-bundler', '~> 1.5'
+# gem 'capistrano-bundler', '~> 1.5'
+gem 'capistrano-bundler', '~> 2.1.0'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-rvm', '~> 0.1.2'
 gem 'capistrano3-nginx', '~> 3.0.1'
-gem 'capistrano3-puma', '~> 3.1.1'
+# gem 'capistrano3-puma', '~> 3.1.1'
+gem 'capistrano3-puma', '~> 5.2.0'
 
 group :development, :test do
   # gem 'debugger' # DEPRECATED, use `byebug`
@@ -69,5 +71,6 @@ end
 
 # add puma to productoin
 group :production do
-  gem 'puma', '~> 3.4'
+  # gem 'puma', '~> 3.4'
+  gem 'puma', '~> 4.3.12'
 end

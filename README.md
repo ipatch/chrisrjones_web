@@ -80,23 +80,32 @@ bundle update loofah
 
 1. install rvm for local `$USER`
 2. install latest ruby 2.7.x
+
   2a. if using archlinux, install openssl 1.x via rvm
+
   ```
   rvm pkg install openssl
   ```
+
   2b. reinstall ruby 2.7.x via rvm, use rvm defined openssl
+
   ```
   rvm install 2.7.7 --with-openssl-dir=$HOME/.rvm/usr
   ```
+
 3. if using fish shell, setup `rvm.fish` from dotfiles repo
 4. if working locally on an arch linux box, install postgres
+
   4a. post postgres setup steps
+
   ```
   sudo -iu postgres
   initdb -D /var/lib/postgres/data
   createuser --interactive
   ```
+
 5. then run rails tasks
+
   ```
   rails db:create
   rails db:migrate
