@@ -28,6 +28,7 @@ When working with attachments using this CMS visit `http://tld.com/attachments` 
 <strong>Ex</strong>
 
 ```shell
+http --verbose --verify=no http://localhost:3000/api/hello
 http --verbose --verify=no https://chrisrjones.com/api/hello
 ```
 
