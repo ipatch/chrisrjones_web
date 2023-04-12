@@ -42,7 +42,7 @@ gem 'acts_as_list', '~> 1.1.0' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 1.0.0' # , '~> 0.8.0' # irb in error window
 
 gem 'addressable', '~> 2.8.0' # emojis in URLs
-gem 'nokogiri', '~> 1.14.2' # XML HTML parser
+gem 'nokogiri', '~> 1.14.3' # XML HTML parser
 
 gem 'capistrano', '~> 3.12'
 gem 'capistrano-bundler', '~> 2.1.0'
