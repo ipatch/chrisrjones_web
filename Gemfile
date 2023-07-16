@@ -22,7 +22,8 @@ gem 'uglifier', '~> 4.2.0' # compress assets, ie. js css
 # gem 'sassc-rails' # replaces `sass-rails`
 gem 'sassc-rails', '~> 2.1.1'
 
-gem 'tzinfo', '~> 1.2.1'
+gem 'tzinfo', '~> 1.2.11'
+# gem 'tzinfo', '~> 2.0.6' # no rails 5.x compat
 
 #--
 # Add JS runtime, ie. Node.js V8
@@ -42,7 +43,7 @@ gem 'acts_as_list', '~> 1.1.0' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 1.0.0' # , '~> 0.8.0' # irb in error window
 
 gem 'addressable', '~> 2.8.0' # emojis in URLs
-gem 'nokogiri', '~> 1.14.2' # XML HTML parser
+gem 'nokogiri', '~> 1.14.5' # XML HTML parser
 
 gem 'capistrano', '~> 3.12'
 gem 'capistrano-bundler', '~> 2.1.0'
