@@ -130,6 +130,7 @@ to name a few.  For more info on granular updating of gems [see](https://bundler
 
 <a id="todo"></a>
 
+- [ ] updating my `boot.rb` file to use next avail port broke accessing my app on my LAN, should be easy fix
 - [ ] fix contact form time permitting
 - [ ] make certain that only the **owner** of an attachment can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
 - [ ] figure out why _seed_ data isn't properly inserting into the test database
