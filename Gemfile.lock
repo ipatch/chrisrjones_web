@@ -138,6 +138,7 @@ GEM
     method_source (1.0.0)
     mini_histogram (0.3.1)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.2)
     minitest (5.18.1)
     net-imap (0.3.6)
       date
@@ -152,6 +153,9 @@ GEM
       net-protocol
     net-ssh (7.1.0)
     nio4r (2.5.9)
+    nokogiri (1.14.5)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.14.5-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.6)
@@ -245,6 +249,7 @@ GEM
     websocket-extensions (0.1.5)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -281,7 +286,7 @@ DEPENDENCIES
   uglifier (~> 4.2.0)
 
 RUBY VERSION
-   ruby 2.7.7p221
+   ruby 2.7.8p225
 
 BUNDLED WITH
    2.2.27

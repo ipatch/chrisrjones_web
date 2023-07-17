@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 
 # `~>` denotes bundler will only install minor updates
 
-ruby '2.7.7'
+ruby '2.7.8'
 # ruby '3.0.0' # nova
 
 gem 'rails', '~> 5.2.8.1'
@@ -71,3 +71,4 @@ group :production do
   # gem 'puma', '~> 4.3.12'
   gem 'puma', '~> 5.6.5'
 end
+
