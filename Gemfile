@@ -56,14 +56,14 @@ group :development, :test do
   # gem 'debugger' # DEPRECATED, use `byebug`
   # gem 'byebug'
   gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
-  gem 'pry', '~> 0.14.2' # , '~> 0.12.2' # add gem to debug rails
+  gem 'pry', '~> 0.14.2' # add gem to debug rails
   gem 'rspec-rails', '~> 5.1.2'
 end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
   gem 'faker', '~> 3.1.1'
-  gem 'shoulda-matchers', '~> 5.3.0' # 4.0.1
+  gem 'shoulda-matchers', '~> 5.3.0'
 end
 
 # add puma to productoin
