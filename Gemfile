@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 # `~>` denotes bundler will only install minor updates
 
 ruby '2.7.8'
-# ruby '3.0.0' # nova
+# NOTE: ipatch, rails 5.2.x no compat with ruby v3.x
+# ruby '3.0.6' # nova
 
 gem 'rails', '~> 5.2.8.1'
 # gem 'activerecord', '~> 5.2.8.15' # NOTE: ipatch, requires paid rails LTS
