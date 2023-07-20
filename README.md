@@ -84,7 +84,7 @@ bundle update loofah
 
   2a. if using archlinux, install openssl 1.x via rvm
 
-  ```
+  ```shell
   rvm pkg install openssl
   ```
 
@@ -92,6 +92,8 @@ bundle update loofah
 
   ```
   rvm install 2.7.7 --with-openssl-dir=$HOME/.rvm/usr
+  echo "install ruby with local openssl and jemalloc"
+  rvm reinstall 2.7.8 --with-openssl-dir="$HOME/.rvm/usr" --with-jemalloc
   ```
 
 3. if using fish shell, setup `rvm.fish` from dotfiles repo
