@@ -47,18 +47,35 @@ Rails.application.configure do
   config.app_domain = 'localhost'
 
   # TODO: ipatch, properly setup mail server for development environment
+  # NOTE: ipatch, rails does not provide a builtin mail server BOOOO 👎
 
-  config.action_mailer.default_url_options = { host: config.app_domain }
+  # config/environments/development.rb
+
+  # TODO: need to access the port var from the `./config/boot.rb`
+  config.action_mailer.default_url_options = { host: "localhost:#{ENV['PORT']}" }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.chrisrjones.com',
+    address: 'smtp.gmail.com',
     port: 587,
-    domain: 'chrisrjones.com',
-    user_name: ENV['MAIL_ADDRESS'],
-    password: ENV['MAIL_PASSWORD'],
+    domain: 'gmail.com',
+    # user_name: 'your_gmail_username@gmail.com', 
+    # password: 'your_gmail_password',
+    user_name: ENV['crjrails_gmail_un'],
+    password: ENV['crjrails_gmail_pw'],
     authentication: 'plain',
-    enable_starttls_auto: true,
-    openssl_verify_mode: 'none'
+    enable_starttls_auto: true
   }
+  # config.action_mailer.default_url_options = { host: config.app_domain }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.chrisrjones.com',
+  #   port: 587,
+  #   domain: 'chrisrjones.com',
+  #   user_name: ENV['MAIL_ADDRESS'],
+  #   password: ENV['MAIL_PASSWORD'],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true,
+  #   openssl_verify_mode: 'none'
 end
