@@ -10,6 +10,7 @@
 
 # track all files with a name of `.gitkeep`
 !.gitkeep
+!.keep
 
 # Ignore bundler config
 /.bundle
