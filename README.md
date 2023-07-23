@@ -133,7 +133,7 @@ to name a few.  For more info on granular updating of gems [see](https://bundler
 <a id="todo"></a>
 
 - [ ] if using app as an API only how can i authenticate with the app using a frontend framework such as react
-- [ ] fix the user registration process, ie. when i register an account the app throws and error as seen below
+- [x] fix the user registration process, ie. when i register an account the app throws and error as seen below
     ```
     SocketError in UsersController#create
 
