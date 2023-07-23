@@ -132,6 +132,19 @@ to name a few.  For more info on granular updating of gems [see](https://bundler
 
 <a id="todo"></a>
 
+- [ ] if using app as an API only how can i authenticate with the app using a frontend framework such as react
+- [ ] fix the user registration process, ie. when i register an account the app throws and error as seen below
+    ```
+    SocketError in UsersController#create
+
+    getaddrinfo: Name or service not known
+
+    Rails.root: /opt/code/git/github/chrisrjones_rails
+    Application Trace | Framework Trace | Full Trace
+
+    app/models/user.rb:36:in `send_confirmation'
+    app/controllers/users_controller.rb:28:in `create'
+    ```
 - [ ] work on figuring out how i can setup an intializer to experiment with the bun & deno javascript runtimes
 - [x] updating my `boot.rb` file to use next avail port broke accessing my app on my LAN, should be easy fix
 - [ ] fix contact form time permitting
