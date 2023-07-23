@@ -44,7 +44,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # General Settings
-  config.app_domain = 'chrisrjones.com'
+  config.app_domain = 'localhost'
+
+  # TODO: ipatch, properly setup mail server for development environment
 
   config.action_mailer.default_url_options = { host: config.app_domain }
   config.action_mailer.perform_deliveries = true
