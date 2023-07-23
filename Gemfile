@@ -22,7 +22,7 @@ gem 'uglifier', '~> 4.2.0' # compress js css assets
 gem 'sassc-rails', '~> 2.1.1'
 
 gem 'tzinfo', '~> 1.2.11'
-# gem 'tzinfo', '~> 2.0.6' # no rails 5.x compat
+# gem 'tzinfo', '~> 2.0.6' # not rails 5.x compat
 
 #--
 # Add JS runtime, ie. Node.js V8
