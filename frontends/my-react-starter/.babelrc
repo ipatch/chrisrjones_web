@@ -1,0 +1,26 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage", // "usage" | "entry" | false, defaults to false.
+      "corejs": "3.6.5",
+      "targets": [ 
+        "last 2 versions",
+        "not dead",
+        "not < 2%",
+        "not ie 11"
+      ],
+      "debug": false
+    }],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "dynamic-import-node"
+      ]
+    }
+  }
+}

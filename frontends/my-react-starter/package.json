@@ -1,0 +1,66 @@
+{
+  "//hacky-json-comment": "a hacky way to put comments in json files",
+  "name": "react-boilerplate",
+  "version": "0.3.0",
+  "description": "A starter project for quickly setting up a Node.js app built around React & friends",
+  "engines": {
+    "node": ">= 8.x",
+    "npm": ">= 5.x",
+    "yarn": ""
+  },
+  "scripts": {
+    "NOTE": "dev4 is borked",
+    "dev4": "webpack-dev-server --env development --config ./config/webpack.config.js",
+    "dev5": "webpack serve --config ./config/webpack5.dev.js",
+    "dev:hot": "npm run dev5 -- --hot",
+    "build": "webpack --env production --config ./config/webpack.config.js",
+    "test": "jest",
+    "lint": "eslint ./*",
+    "eslint-fix": "eslint --fix \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "author": "@ipatch",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipatch/js-and-friends.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.12",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
+    "acorn": "^8.7.1",
+    "babel-jest": "^28.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
+    "core-js": "^3.22.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.15.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-webpack-plugin": "^3.1.1",
+    "extract-css-chunks-webpack-plugin": "^4.9.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "prettier": "^2.6.2",
+    "prop-types": "^15.8.1",
+    "react-axe": "^3.5.4",
+    "react-hot-loader": "^4.13.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "keywords": []
+}
