@@ -3,8 +3,13 @@
   <head>
     <title>chrisrjones.com <%= yield(:title) %></title>
     <meta name="description" content="<%= yield(:meta_description) %>">
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
+    <%# <%= stylesheet_link_tag    "application", media: "all" %>
+    <%# <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "modern-normalize", media: "all" %>
+    <%#%>
+    <%= stylesheet_link_tag "navbar", media: "all" %>
+    <%= javascript_include_tag "navbar" %>
+
     <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="initial-scale=1.0">
     <% if Rails.env.production? %> 
@@ -15,7 +20,7 @@
     <div id="wrap">
       <div id="nav_100_width">
         <!-- put navbar outside of container to get 100% width -->
-        <%= render 'layouts/nav' %>
+        <%= render 'layouts/nav_nobs' %>
       </div>
       <div class="container">
         <%= yield %>
