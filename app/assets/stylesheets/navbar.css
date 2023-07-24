@@ -1,0 +1,31 @@
+/* NOTE: ipatch, my attempt to create a vanilla html+css+js navbar ie. no bootstrap */
+/* Optional CSS for basic styling */
+
+
+/* TODO: ipatch is there a way to add borders only when in development mode? */
+
+.navbar {
+  outline: 1px solid red;
+  background-color: #333;
+  color: #fff;
+}
+
+.navbar-brand, .nav > li > a {
+  color: #fff;
+}
+
+.navbar-menu {
+  display: none;
+}
+
+.navbar-menu.show {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
