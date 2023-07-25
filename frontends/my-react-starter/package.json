@@ -1,8 +1,7 @@
 {
-  "//hacky-json-comment": "a hacky way to put comments in json files",
-  "name": "react-boilerplate",
-  "version": "0.3.0",
-  "description": "A starter project for quickly setting up a Node.js app built around React & friends",
+  "name": "chrisrjones.com / frontend / react",
+  "version": "0.3.1",
+  "description": "experimenting with react as a frontend for a simple rails API",
   "engines": {
     "node": ">= 8.x",
     "npm": ">= 5.x",
@@ -24,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ipatch/js-and-friends.git"
+    "url": "git+https://github.com/ipatch/chrisrjones_rails.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -47,6 +46,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "modern-normalize": "^2.0.0",
     "prettier": "^2.6.2",
     "prop-types": "^15.8.1",
     "react-axe": "^3.5.4",
