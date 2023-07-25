@@ -10,6 +10,20 @@
   color: #fff;
 }
 
+.navbar-toggle {
+  outline: 1px solid green;
+
+}
+
+/* Style the "icon-bar" class to create the hamburger icon with SVG bars */
+.icon-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+}
+
 .navbar-brand, .nav > li > a {
   color: #fff;
 }
