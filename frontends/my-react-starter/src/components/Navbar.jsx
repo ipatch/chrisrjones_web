@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PlaceholderBlogPost from './PlaceholderBlogPost.jsx';
 
+// NOTE: ipatch
+// ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
+
 const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
 
