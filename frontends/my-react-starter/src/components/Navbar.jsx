@@ -32,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <> {/* use jsx commenting here */}
       <nav
         style={{
           position: 'sticky',
@@ -46,11 +46,9 @@ const Navbar = () => {
         }}
       >
         <div className="logo">chrisrjones.com</div>
-        <div
-          className="links"
-          style={{
-            display: 'flex',
-            gap: '1rem',
+        <div className="links" style={{
+          display: 'flex',
+          gap: '1rem',
           }}
         >
           <a href="#">About Me</a>
@@ -65,7 +63,7 @@ const Navbar = () => {
       <main>
         <PlaceholderBlogPost />
       </main>
-    </div>
+    </>
   );
 };
 
