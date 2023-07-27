@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PlaceholderBlogPost from './PlaceholderBlogPost.jsx';
 
 // NOTE: ipatch
 // ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
@@ -8,18 +7,62 @@ import PlaceholderBlogPost from './PlaceholderBlogPost.jsx';
 //
 
 const NavbarDropdown = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
   return (
     <div className="dropdown">
-      <button className="dropbtn">Contribute</button> 
-      <div className="dropdown-content"> 
-        <a href="#">Signup</a> 
-        <a href="#">Login</a> 
-      </div> 
-    </div> 
+      <button
+        className="dropbtn"
+        onClick={toggleDropdown}
+        style={{
+          position: 'relative',
+        }}
+      >
+        Contribute
+      </button>
+      {showDropdown && (
+        <div
+          className="dropdown-content"
+          style={{
+            display: 'block',
+            position: 'absolute',
+            backgroundColor: '#f1f1f1',
+            minWidth: '160px',
+            boxShadow: '0px 8px 16px 0px rgba(0, 0, 0, 0.2)',
+            zIndex: 1,
+          }}
+        >
+          <a
+            href="#"
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              textDecoration: 'none',
+              color: 'black',
+            }}
+          >
+            Signup
+          </a>
+          <a
+            href="#"
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              textDecoration: 'none',
+              color: 'black',
+            }}
+          >
+            Login
+          </a>
+        </div>
+      )}
+    </div>
   );
 };
-
-// export default NavbarDropdown;
 
 const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
@@ -70,6 +113,7 @@ const Navbar = () => {
         >
           <a href="#">About Me</a>
           <a href="#">Contact Me</a>
+          {/* TODO: move url into a var of some sort */}
           <a href="https://github.com/ipatch/dotfiles">❤ ~/.🛠🐈</a>
           <a href="#">youtube</a>
           <a href="#">linkedin</a>
@@ -78,14 +122,9 @@ const Navbar = () => {
           <NavbarDropdown />
         </div>
       </nav>
-      <main>
-        <PlaceholderBlogPost />
-      </main>
     </>
   );
 };
 
-// export { Navbar };
 export { Navbar, NavbarDropdown };
-// export default Navbar;
 
