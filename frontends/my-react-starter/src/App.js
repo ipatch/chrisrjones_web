@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './components/Navbar.jsx';
-// import PlaceholderBlogPost from './components/PlaceholderBlogPost.jsx';
+import { Navbar, NavbarDropdown, } from './components/Navbar.jsx';
+import PlaceholderBlogPost from './components/PlaceholderBlogPost.jsx';
 // import './styles.css';
 import '../node_modules/modern-normalize/modern-normalize.css';
 import { hot } from 'react-hot-loader';
@@ -8,10 +8,12 @@ import { hot } from 'react-hot-loader';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <Navbar />
-      {/* <PlaceholderBlogPost /> */}
-      </div>
+        <main>
+          <PlaceholderBlogPost />
+        </main>
+      </>
     );
   }
 }
