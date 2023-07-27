@@ -3,6 +3,23 @@ import PlaceholderBlogPost from './PlaceholderBlogPost.jsx';
 
 // NOTE: ipatch
 // ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
+//--------------------
+// NOTE: ipatch, it appears current webpack settings rm below JSX comment
+//
+
+const NavbarDropdown = () => {
+  return (
+    <div className="dropdown">
+      <button className="dropbtn">Contribute</button> 
+      <div className="dropdown-content"> 
+        <a href="#">Signup</a> 
+        <a href="#">Login</a> 
+      </div> 
+    </div> 
+  );
+};
+
+// export default NavbarDropdown;
 
 const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
@@ -58,6 +75,7 @@ const Navbar = () => {
           <a href="#">linkedin</a>
           <a href="#">CV</a>
           <a href="#">Contribute</a>
+          <NavbarDropdown />
         </div>
       </nav>
       <main>
@@ -67,5 +85,7 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+// export { Navbar };
+export { Navbar, NavbarDropdown };
+// export default Navbar;
 
