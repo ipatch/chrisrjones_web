@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 
 // NOTE: ipatch
@@ -99,6 +101,8 @@ const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
 
   const handleScroll = () => {
+    // TODO: ipatch how to disable lsp diagnostic warning for deprecated browser API
+    // eslint-disable-next-line
     const currentScrollPosition = window.scrollY || window.pageYOffset;
     setScrollingDown(currentScrollPosition > previousScrollPosition);
     previousScrollPosition = currentScrollPosition;
