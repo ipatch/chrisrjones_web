@@ -128,6 +128,15 @@ bundle update --all
 
 to name a few.  For more info on granular updating of gems [see](https://bundler.io/v2.0/man/bundle-update.1.html)
 
+
+## scratchpad
+
+## scratchpad / fe / react
+
+> just some thought / notes working with react experimenting building out a frontend
+
+- styling CSS pseduo class elements like hover becomes **non trivial** when using inline styles 👎️
+
 ## TODO
 
 <a id="todo"></a>
