@@ -2,24 +2,58 @@ import React, { useEffect, useState } from 'react';
 
 // NOTE: ipatch
 // ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
+// NOTE: ipatch, react workaround for styling css pseudo elements
+// https://stackabuse.com/how-to-style-hover-in-react/
 //--------------------
 // NOTE: ipatch, it appears current webpack settings rm below JSX comment
 //
 
 const NavbarDropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
 
   const toggleDropdown = () => {
     setShowDropdown((prev) => !prev);
   };
 
+  const navbarDropdownContentStyle = {
+    display: 'block',
+    padding: '12px 16px',
+    textDecoration: 'none',
+    color: 'black',
+    // cursor: 'pointer'
+    backgroundColor: isHover ? 'lightblue' : 'rgb(0, 191, 255)',
+    color: isHover ? 'red' : 'green',
+  }
+
   return (
-    <div className="dropdown">
+    <div
+      className="dropdown"
+      onMouseEnter={() => setShowDropdown(true)}
+      onMouseLeave={() => setShowDropdown(false)}
+      style={{
+        position: 'relative',
+        display: 'inline-block',
+        // cursor: 'pointer'
+      }}
+    >
       <button
         className="dropbtn"
         onClick={toggleDropdown}
         style={{
-          position: 'relative',
+          // first color is the hover color
+          backgroundColor: showDropdown ? 'red' : '#04AA6D',
+          border: 'none',
+          textDecoration: 'none',
+          display: 'block',
         }}
       >
         Contribute
@@ -34,27 +68,24 @@ const NavbarDropdown = () => {
             minWidth: '160px',
             boxShadow: '0px 8px 16px 0px rgba(0, 0, 0, 0.2)',
             zIndex: 1,
+            ':hover': {
+              backgroundColor: 'red',
+            },
           }}
         >
           <a
             href="#"
-            style={{
-              display: 'block',
-              padding: '12px 16px',
-              textDecoration: 'none',
-              color: 'black',
-            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={navbarDropdownContentStyle}
           >
             Signup
           </a>
           <a
             href="#"
-            style={{
-              display: 'block',
-              padding: '12px 16px',
-              textDecoration: 'none',
-              color: 'black',
-            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={navbarDropdownContentStyle}
           >
             Login
           </a>
