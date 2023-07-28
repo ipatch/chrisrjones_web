@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarDropdown, } from './components/Navbar.jsx';
+import { Navbar, } from './components/Navbar.jsx';
 import PlaceholderBlogPost from './components/PlaceholderBlogPost.jsx';
 // import './styles.css';
 import '../node_modules/modern-normalize/modern-normalize.css';
