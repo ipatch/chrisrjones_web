@@ -143,6 +143,10 @@ i came across the below neovim LSP error message today appearing as virtual text
 nvim native lsp tsserver could not find a declaration file for module 'react'.
 ```
 
+## useful links
+
+- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+
 ## TODO
 
 <a id="todo"></a>
