@@ -137,6 +137,12 @@ to name a few.  For more info on granular updating of gems [see](https://bundler
 
 - styling CSS pseduo class elements like hover becomes **non trivial** when using inline styles 👎️
 
+i came across the below neovim LSP error message today appearing as virtual text, the quick solution is to install the `@types/react` npm package for my react starter project because i initialzed a `tsconfig.js` in the root of the project.
+
+```
+nvim native lsp tsserver could not find a declaration file for module 'react'.
+```
+
 ## TODO
 
 <a id="todo"></a>
