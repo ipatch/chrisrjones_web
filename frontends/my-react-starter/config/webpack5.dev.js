@@ -7,7 +7,7 @@ module.exports = mergeWithCustomize({
   })
 })(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   module: {
     rules: [
       {
