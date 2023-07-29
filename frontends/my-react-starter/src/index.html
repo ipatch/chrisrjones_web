@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <% if(process.env.NODE_ENV === 'development') { %>
       <title>dev / chrisrjones.com</title>
+      <!-- NOTE: ipatch, prevent 404 requests for favicons -->
+      <link rel="icon" href="data:,">
     <% } %>
   </head>
   <body>
