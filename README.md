@@ -131,6 +131,8 @@ to name a few.  For more info on granular updating of gems [see](https://bundler
 
 ## scratchpad
 
+<a id="scratchpad"></a>
+
 ## scratchpad / fe / react
 
 > just some thought / notes working with react experimenting building out a frontend
@@ -144,6 +146,8 @@ nvim native lsp tsserver could not find a declaration file for module 'react'.
 ```
 
 ## useful links
+
+<a id="useful-links"></a>
 
 - https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
 

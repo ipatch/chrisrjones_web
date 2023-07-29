@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 
 // NOTE: ipatch
@@ -56,6 +54,7 @@ const NavbarDropdown = () => {
           border: 'none',
           textDecoration: 'none',
           display: 'block',
+          cursor: 'pointer',
         }}
       >
         Contribute
@@ -100,6 +99,8 @@ const NavbarDropdown = () => {
 const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
 
+  const [showLinks, setShowLink] = useState(false);
+
   const handleScroll = () => {
     // TODO: ipatch how to disable lsp diagnostic warning for deprecated browser API
     // eslint-disable-next-line
@@ -110,8 +111,6 @@ const Navbar = () => {
 
   useEffect(() => {
     let previousScrollPosition = 0;
-
-    const nav = document.querySelector('nav');
 
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY || window.pageYOffset;
@@ -129,6 +128,7 @@ const Navbar = () => {
   return (
     <> {/* use jsx commenting here */}
       <nav
+        className="Navbar"
         style={{
           position: 'sticky',
           top: scrollingDown ? '-100%' : '0',
@@ -138,13 +138,22 @@ const Navbar = () => {
           padding: '1.5rem 2rem',
           backgroundColor: '#eaeaea',
           transition: 'top 0.3s ease',
+          // textDecoration: 'none',
         }}
       >
+        <button
+        className="navbar-navi-button"
+        > Open </button>
         <div className="logo">chrisrjones.com</div>
-        <div className="links" style={{
-          display: 'flex',
-          gap: '1rem',
-          }}
+        <div className="navbar-links" 
+    // style={{
+          // display: 'flex',
+          // gap: '1rem',
+    //       // textDecoration: 'none',
+    //       // bullshit: 'none',
+    //       // NO WORK! 👇️
+    //       // textDecoration: 'none',
+   //       }}
         >
           <a href="#">About Me</a>
           <a href="#">Contact Me</a>
@@ -153,7 +162,7 @@ const Navbar = () => {
           <a href="#">youtube</a>
           <a href="#">linkedin</a>
           <a href="#">CV</a>
-          <a href="#">Contribute</a>
+          {/* <a href="#">Contribute</a> */}
           <NavbarDropdown />
         </div>
       </nav>
