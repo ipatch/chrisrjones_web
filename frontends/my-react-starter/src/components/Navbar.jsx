@@ -99,7 +99,7 @@ const NavbarDropdown = () => {
 const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
 
-  const [showLinks, setShowLink] = useState(false);
+  const [showLinks, setShowLinks] = useState(true);
 
   const handleScroll = () => {
     // TODO: ipatch how to disable lsp diagnostic warning for deprecated browser API
@@ -141,11 +141,13 @@ const Navbar = () => {
           // textDecoration: 'none',
         }}
       >
-        <button
-        className="navbar-navi-button"
-        > Open </button>
+        <button onClick={() => setShowLinks(!showLinks)}
+          className="navbar-navi-button"
+        >
+        Open
+        </button>
         <div className="logo">chrisrjones.com</div>
-        <div className="navbar-links" 
+        <div className="navbar-links" id={showLinks ? "hidden" : "" }
     // style={{
           // display: 'flex',
           // gap: '1rem',
