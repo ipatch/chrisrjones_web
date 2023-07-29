@@ -13,6 +13,11 @@
   /* max-height: 1180px; */
 }
 
+.navbar-links #hidden {
+  display: flex;
+
+}
+
 .navbar-links a {
   text-decoration: none;
   gap: '1rem';
@@ -21,12 +26,28 @@
   margin-left: 8px;
 }
 
+.navbar-navi-button {
+  display: none;
+}
+
 @media only screen and (max-width: 650px) {
-  .Navbar button {
+  .navbar-navi-button {
     display: flex;
   }
 
   .navbar-links {
     display: none;
+  }
+
+  .navbar-links #hidden {
+    position: absolute;
+    left: 0px;
+    top: 80px;
+    height: 230px;
+    width: 100%;
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
