@@ -6,8 +6,14 @@ module.exports = {
   entry: ['./src/index.js'],
   output: {
     // `path:` has to be absolute NOT relative
-    path: path.join(__dirname, '../dist'),
+    // path: path.join(__dirname, '../dist'),
+    path: path.resolve(__dirname, 'public'),
+
     filename: 'app.bundle.js',
+    // possible fix for firefox
+    // devtoolModuleFilenameTemplate: function(info){
+    //   return "file:///"+encodeURI(info.absoluteResourcePath);
+    // },
   },
   module: {
     rules: [
