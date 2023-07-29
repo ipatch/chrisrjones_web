@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars, indent */
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
