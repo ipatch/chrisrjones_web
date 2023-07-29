@@ -5,7 +5,7 @@ class Hello extends React.Component {
     return (
       <>
       Hello from JSX!
-      </>;
+      </>
     );
   }
 }
