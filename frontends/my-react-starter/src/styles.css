@@ -15,13 +15,12 @@
 
 .navbar-links #hidden {
   display: flex;
-
 }
 
 .navbar-links a {
   text-decoration: none;
   gap: '1rem';
-  color: blue;
+  color: red;
   font-size: 20px;
   margin-left: 8px;
 }
@@ -30,6 +29,7 @@
   display: none;
 }
 
+/* NOTE: ipatch nvim ufo can't fold this #fixme: */
 @media only screen and (max-width: 650px) {
   .navbar-navi-button {
     display: flex;

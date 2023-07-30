@@ -3,7 +3,7 @@ import { Navbar, } from './components/Navbar.jsx';
 import PlaceholderBlogPost from './components/PlaceholderBlogPost.jsx';
 import './styles.css';
 import '../node_modules/modern-normalize/modern-normalize.css';
-import { hot } from 'react-hot-loader';
+// import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
   render() {
@@ -19,4 +19,5 @@ class App extends React.Component {
 }
 
 // preserve app state during hot reloading
-export default hot(module)(App);
+// export default hot(module)(App);
+export default App;
