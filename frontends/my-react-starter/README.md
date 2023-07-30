@@ -1,6 +1,6 @@
 ## React Boilerplate
 
-> a frontend using react to experiment and learn using with rails to interact with an API
+> a frontend using react to experiment and learn with interacting with a rails API
 
 <em>A React boilerplate project for spinning up a react <strong>v16.7+</strong> app using the below NPM modules</em>
 
@@ -28,11 +28,10 @@
 
     - [x] ~~upgraded to _webpack5_ hot reloading stopped working for CSS~~
     - [x] ✅ is _react-hot-loader_ preserving state ie a _counter_ when hot reload is triggered
-    - [ ] _webpack bundle analyzer_ appears not generate a `.html` of bundle, when running `npm run build`
+    - [ ] _webpack bundle analyzer_  does not generate a `.html` of bundle, when running `npm run build`
     - [x] ~~update webpack config prod file to work with **webpack-merge**~~
 
 </details>
-
 
 ## Contents
 
@@ -467,7 +466,7 @@ Error boundaries are useful when working with react because if the default UI ca
 
 #### Video 32 / define prop-types for a react class component
 
-### Video 33 >/check for accessibility issues in the browser
+### Video 33 /check for accessibility issues in the browser
 
 To check for specific accessibility issues related to react install **react-axe**
 
