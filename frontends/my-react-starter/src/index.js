@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 
 const container = document.getElementById('app');
+if (container instanceof HTMLElement) {
+  const root = createRoot(container);
+  root.render(<App />);
+} else {
+  console.error('element with id "app" not found');
+}
 
-// NOTE: ipatch, the below line is blowing up my LSP #wtf
-const root = createRoot(container);
-
-root.render(<App />);
