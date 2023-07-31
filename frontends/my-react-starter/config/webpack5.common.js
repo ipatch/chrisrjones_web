@@ -17,13 +17,13 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [
-          'babel-loader'
-        ],
-      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: [
+      //     'babel-loader'
+      //   ],
+      // },
       // moved CSS / styling test to webpack5.dev.js
       {
         test: /\.(jpe?g|gif|png|svg|bmp)$/,
