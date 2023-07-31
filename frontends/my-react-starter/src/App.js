@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, } from './components/Navbar.jsx';
+import { Counter, } from './components/Counter.js';
 import PlaceholderBlogPost from './components/PlaceholderBlogPost.jsx';
 import './styles.css';
 import '../node_modules/modern-normalize/modern-normalize.css';
@@ -11,6 +12,7 @@ class App extends React.Component {
       <>
         <Navbar />
         <main>
+          <Counter />
           <PlaceholderBlogPost />
         </main>
       </>
