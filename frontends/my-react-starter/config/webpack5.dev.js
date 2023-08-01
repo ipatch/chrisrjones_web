@@ -40,5 +40,6 @@ module.exports = mergeWithCustomize({
     hot: true,
     // port: 0
     // open: true 
+    historyApiFallback: true,
   }
 });
