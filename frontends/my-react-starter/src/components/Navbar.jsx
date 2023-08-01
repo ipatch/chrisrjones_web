@@ -97,6 +97,35 @@ const NavbarDropdown = () => {
   );
 };
 
+const LogoutButton = () => {
+  const handleLogout = () => {
+
+    const jwtToken = localStorage.getItem('jwtToken');
+
+    if (jwtToken) {
+    fetch('http://localhost:3000/api/logout', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Authorization': `Bearer ${jwtToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
+        .then((response) => {
+          console.log('logout successful');
+          localStorage.removeItem('jwtToken');
+        })
+      .catch((error) => {
+        console.error('logout failed', error);
+      });
+    } else {
+      console.log('user is not logged in.')
+    }
+  };
+
+  return <button onClick={handleLogout}>Logout</button>;
+};
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [scrollingDown, setScrollingDown] = useState(false);
@@ -105,6 +134,7 @@ const Navbar = () => {
 
   const [showLinks, setShowLinks] = useState(true);
 
+  
   const handleScroll = () => {
     // TODO: ipatch how to disable lsp diagnostic warning for deprecated browser API
     // eslint-disable-next-line
@@ -152,6 +182,8 @@ const Navbar = () => {
         </button>
         <div className="logo">chrisrjones.com</div>
         <div className="navbar-links" id={showLinks ? "hidden" : "" }>
+          {/* <button onClick={handleLogout}>Logout</button> */}
+          <LogoutButton />
           <a onClick={() => navigate('/about')}>About Me</a>
           <a href="#">Contact Me</a>
           <a href={dotsurl}>❤ ~/.🛠🐈</a>
@@ -166,5 +198,5 @@ const Navbar = () => {
   );
 };
 
-export { Navbar, NavbarDropdown };
+export { Navbar, NavbarDropdown, LogoutButton };
 
