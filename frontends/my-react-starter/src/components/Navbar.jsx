@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // NOTE: ipatch
 // ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
@@ -97,6 +98,7 @@ const NavbarDropdown = () => {
 };
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [scrollingDown, setScrollingDown] = useState(false);
 
   const [showLinks, setShowLinks] = useState(true);
@@ -157,7 +159,8 @@ const Navbar = () => {
     //       // textDecoration: 'none',
    //       }}
         >
-          <a href="#">About Me</a>
+          {/* <a href="#">About Me</a> */}
+          <a onClick={() => navigate('/about')}>About Me</a>
           <a href="#">Contact Me</a>
           {/* TODO: move url into a var of some sort */}
           <a href="https://github.com/ipatch/dotfiles">❤ ~/.🛠🐈</a>
