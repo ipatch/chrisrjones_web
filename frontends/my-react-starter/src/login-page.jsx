@@ -10,19 +10,25 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-  try {
-    // send POST request to localhost:3000/auth/login
-    const response = await axios.post('http://localhost:3000/api/auth/login', {
-      email: email,
-      password: password,
-    });
+    try {
+      // send POST request to localhost:3000/auth/login
+      const response = await axios.post('http://localhost:3000/api/auth/login', {
+        email: email,
+        password: password,
+      });
+      // if login good, handle response
+      console.log(response.data);
 
-    // if login good, handle response
-    console.log(response.data);
+      // DEBUG
+      // console.log('api response:', response);
 
-  } catch (error) {
-    // handle error
-    console.error(error);
+      // store jwt token from rails api in browser local storage
+      const token = response.data.auth_token;
+      localStorage.setItem('jwtToken', token);
+
+    } catch (error) {
+      // handle error
+      console.error(error);
     }
   };
 
