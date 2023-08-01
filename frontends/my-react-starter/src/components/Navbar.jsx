@@ -84,8 +84,7 @@ const NavbarDropdown = () => {
           >
             Signup
           </a>
-          <a
-            href="#"
+          <a onClick={() => navigate('/login')}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={navbarDropdownContentStyle}

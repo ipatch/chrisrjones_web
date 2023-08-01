@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+.signup-page-container {
+  margin: 2rem 6rem;
+  /* display: flex; */
+  /* display: block; */
+}
 .Navbar {
   font-family: Helvetica;
   flex: 50%;

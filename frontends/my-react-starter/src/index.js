@@ -5,6 +5,7 @@ import App from './App';
 import ErrorPage from './error-page.jsx';
 import { AboutPage } from './about-page.jsx';
 import { SignupPage } from './signup-page.jsx';
+import { LoginPage } from './login-page.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     // TODO: ipatch, add an alias of `sign-up`
     path: '/signup',
     element: <SignupPage />
+  },
+  {
+    path: '/login',
+    element: <LoginPage />
   },
 ]);
 
