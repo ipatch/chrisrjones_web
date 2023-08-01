@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Api::AuthenticationController < ApiController
-  skip_before_action :authorize_request, only: :authenticate
+  before_action :authorize_request, except: :authenticate
+  skip_before_action :authorize_request, only: [:authenticate, :logout]
 
   # include AuthenticateUser
   include Response
@@ -9,14 +10,43 @@ class Api::AuthenticationController < ApiController
 
   # return auth token once user is authenticated
   def authenticate
-    auth_token =
-      AuthenticateUser.new(auth_params[:email], auth_params[:password]).call
-    json_response(auth_token: auth_token)
+    # binding.pry
+    user = User.find_by(email: auth_params[:email])
+
+    if user&.authenticate(auth_params[:password])
+      auth_token = JsonWebToken.encode(user_id: user.id)
+      user.update_column(:jwt_token, auth_token)
+      json_response(auth_token: auth_token)
+    else
+      logger.error("Authentication Failed: Invalid credentials for email #{auth_params[:email]}")
+      json_response({ error: 'invalid credentials' }, :unauthorized)
+    end
   end
+
+  
+  def logout
+  token = request.headers['Authorization']
+  if TokenBlacklist.exists?(jwt_token: token)
+    render json: { error: 'Token revoked' }, status: :unauthorized
+  else
+    # Blacklist the current token
+    TokenBlacklist.create(jwt_token: token, expiring_at: Time.now + 1.day)
+
+    # Clear the jwt_token for the current user if authenticated
+    if current_user
+      current_user.update_column(:jwt_token, nil)
+      render json: { message: 'rails api logout successful' }, status: :ok
+    else
+      # TODO: ipatch this is kindof a hack to fix logout issue of unauthorized 401
+      render json: { message: 'rails api logout successful' }, status: :ok
+    end
+  end
+end
 
   private
 
   def auth_params
+    # params.require(:authentication).permit(:email, :password)
     params.permit(:email, :password)
   end
 end
