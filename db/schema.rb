@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_07_180008) do
+ActiveRecord::Schema.define(version: 2023_08_01_193329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 2018_02_07_180008) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
+  create_table "token_blacklists", force: :cascade do |t|
+    t.string "jwt_token"
+    t.datetime "expiring_at"
+    t.index ["jwt_token"], name: "index_token_blacklists_on_jwt_token"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -56,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_02_07_180008) do
     t.string "confirmation_token"
     t.datetime "confirmation_sent_at"
     t.boolean "confirmed", default: false
+    t.string "jwt_token"
   end
 
   add_foreign_key "articles", "users"

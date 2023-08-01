@@ -53,8 +53,8 @@ gem 'capistrano3-nginx', '~> 3.0.1'
 gem 'capistrano3-puma', '~> 6.0.0.alpha.1'
 
 group :development, :test do
-  # gem 'debugger' # DEPRECATED, use `byebug`
-  # gem 'byebug'
+  # gem 'debugger' # DEPRECATED
+  gem 'byebug'
   gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
   gem 'pry', '~> 0.14.2' # debug
   gem 'rspec-rails', '~> 5.1.2'
