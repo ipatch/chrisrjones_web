@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
 import App from './App';
 import ErrorPage from './error-page.jsx';
 import { AboutPage } from './about-page.jsx';
+import { SignupPage } from './signup-page.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <AboutPage />
+  },
+  {
+    // TODO: ipatch, add an alias of `sign-up`
+    path: '/signup',
+    element: <SignupPage />
   },
 ]);
 

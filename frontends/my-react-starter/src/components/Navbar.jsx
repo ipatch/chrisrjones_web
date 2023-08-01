@@ -13,6 +13,8 @@ const NavbarDropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isHover, setIsHover] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleMouseEnter = () => {
     setIsHover(true);
   };
@@ -70,13 +72,12 @@ const NavbarDropdown = () => {
             minWidth: '160px',
             boxShadow: '0px 8px 16px 0px rgba(0, 0, 0, 0.2)',
             zIndex: 1,
-            ':hover': {
-              backgroundColor: 'red',
-            },
+            // ':hover': {
+            //   backgroundColor: 'red',
+            // },
           }}
         >
-          <a
-            href="#"
+          <a onClick={() => navigate('/signup')}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={navbarDropdownContentStyle}
@@ -100,6 +101,8 @@ const NavbarDropdown = () => {
 const Navbar = () => {
   const navigate = useNavigate();
   const [scrollingDown, setScrollingDown] = useState(false);
+
+  const dotsurl = 'https://github.com/ipatch/dotfiles'
 
   const [showLinks, setShowLinks] = useState(true);
 
@@ -149,21 +152,10 @@ const Navbar = () => {
         Open
         </button>
         <div className="logo">chrisrjones.com</div>
-        <div className="navbar-links" id={showLinks ? "hidden" : "" }
-    // style={{
-          // display: 'flex',
-          // gap: '1rem',
-    //       // textDecoration: 'none',
-    //       // bullshit: 'none',
-    //       // NO WORK! 👇️
-    //       // textDecoration: 'none',
-   //       }}
-        >
-          {/* <a href="#">About Me</a> */}
+        <div className="navbar-links" id={showLinks ? "hidden" : "" }>
           <a onClick={() => navigate('/about')}>About Me</a>
           <a href="#">Contact Me</a>
-          {/* TODO: move url into a var of some sort */}
-          <a href="https://github.com/ipatch/dotfiles">❤ ~/.🛠🐈</a>
+          <a href={dotsurl}>❤ ~/.🛠🐈</a>
           <a href="#">youtube</a>
           <a href="#">linkedin</a>
           <a href="#">CV</a>
