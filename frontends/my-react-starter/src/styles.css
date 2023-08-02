@@ -30,6 +30,15 @@
   margin: 2rem 6rem;
 }
 
+.logo a {
+  text-decoration: none;
+}
+
+.logo {
+  /* text-decoration: none; */
+  border: 1px solid red;
+}
+
 .Navbar {
   font-family: Helvetica;
   flex: 50%;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // NOTE: ipatch
 // ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
@@ -175,14 +175,18 @@ const Navbar = () => {
           // textDecoration: 'none',
         }}
       >
+        {/* hamburger button */}
         <button onClick={() => setShowLinks(!showLinks)}
           className="navbar-navi-button"
         >
         Open
         </button>
-        <div className="logo">chrisrjones.com</div>
+        <div className="logo">
+          <Link to="/">
+            <>chrisrjones.com</>
+        </Link>
+        </div>
         <div className="navbar-links" id={showLinks ? "hidden" : "" }>
-          {/* <button onClick={handleLogout}>Logout</button> */}
           <LogoutButton />
           <a onClick={() => navigate('/about')}>About Me</a>
           <a href="#">Contact Me</a>
@@ -190,7 +194,6 @@ const Navbar = () => {
           <a href="#">youtube</a>
           <a href="#">linkedin</a>
           <a href="#">CV</a>
-          {/* <a href="#">Contribute</a> */}
           <NavbarDropdown />
         </div>
       </nav>
