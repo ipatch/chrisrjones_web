@@ -155,10 +155,11 @@ nvim native lsp tsserver could not find a declaration file for module 'react'.
 
 <a id="todo"></a>
 
+- [ ] #fe #react only show logout button if a user is logged in
 - [x] #fe #react need to preserve state through hot reloads, will be useful later on
 - [ ] #fe #react what's a good way to see the code of the actual components in my browser dev tools?
     - as of right now when opening the debugger tab i'm seeing the entire app bundle ie. `app.bundle.js` 👎️
-- [ ] if using app as an API only how can i authenticate with the app using a frontend framework such as react
+- [x] if using app as an API only how can i authenticate with the app using a frontend framework such as react
 - [x] fix the user registration process, ie. when i register an account the app throws and error as seen below
     ```
     SocketError in UsersController#create
