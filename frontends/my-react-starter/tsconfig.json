@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
+
     /* NOTE: ipatch, editing this file directly impacts how my LSP operates in neovim /*
-    "ignoreDeprecations": "1",
-    "reportsDeprecated": "false",
     "target": "es2016", /* Set the js lang version for emitted JS and include compatible library declarations. */
     // "jsx": "react-jsx",
+    "baseUrl": ".",
     "jsx": "react", /* got better results with this than above */
     "module": "commonjs",                                /* Specify what module code is generated. */
     "rootDir": "./",                                  /* Specify the root folder within your source files. */
@@ -17,10 +17,13 @@
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
-    "moduleResolution": "nodenext", /* setting nodenext will prevent warnings about using require() ie. commonjs */
+    "moduleResolution": "nodenext" /* setting nodenext will prevent warnings about using require() ie. commonjs */
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "./src"
   ]
 }
 
