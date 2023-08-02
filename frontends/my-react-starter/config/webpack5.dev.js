@@ -1,5 +1,6 @@
 const common = require('./webpack5.common.js');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { mergeWithCustomize, customizeArray } = require('webpack-merge');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -34,7 +35,10 @@ module.exports = mergeWithCustomize({
       },
     ],
   },
-  plugins: [isDevelopment && new ReactRefreshWebpackPlugin()].filter(Boolean),
+  plugins: [
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+    new BundleAnalyzerPlugin()
+  ].filter(Boolean),
   devServer: {
     // contentBase: './dist',
     hot: true,
