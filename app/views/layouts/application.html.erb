@@ -3,8 +3,8 @@
   <head>
     <title>chrisrjones.com <%= yield(:title) %></title>
     <meta name="description" content="<%= yield(:meta_description) %>">
-    <%# <%= stylesheet_link_tag    "application", media: "all" %>
-    <%# <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag "modern-normalize", media: "all" %>
     <%#%>
     <%= stylesheet_link_tag "navbar", media: "all" %>
@@ -19,7 +19,8 @@
   <body>
     <div id="wrap">
         <!-- put navbar outside of container to get 100% width -->
-        <%= render 'layouts/nav_nobs' %>
+        <%# <%= render 'layouts/nav_nobs' %>
+        <%= render 'layouts/nav' %>
       </div>
       <div class="container">
         <%= yield %>
