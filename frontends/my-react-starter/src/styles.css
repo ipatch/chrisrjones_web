@@ -25,6 +25,11 @@
   /* display: flex; */
   /* display: block; */
 }
+
+.login-page-container {
+  margin: 2rem 6rem;
+}
+
 .Navbar {
   font-family: Helvetica;
   flex: 50%;
