@@ -1,6 +1,6 @@
 {
-  "name": "chrisrjones.com / frontend / react",
-  "version": "0.3.1",
+  "name": "chrisrjones.com-frontend-react",
+  "version": "0.3.2",
   "description": "experimenting with react as a frontend for a simple rails API",
   "engines": {
     "node": ">= 8.x",
