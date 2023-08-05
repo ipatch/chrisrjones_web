@@ -155,6 +155,8 @@ nvim native lsp tsserver could not find a declaration file for module 'react'.
 
 <a id="todo"></a>
 
+- [ ] #fe #react see if i can recreate the chatgpt login page, the little email animation to top of box thingy
+- [ ] #fe #react create a footer component
 - [ ] #fe #react only show logout button if a user is logged in
 - [x] #fe #react need to preserve state through hot reloads, will be useful later on
 - [ ] #fe #react what's a good way to see the code of the actual components in my browser dev tools?
