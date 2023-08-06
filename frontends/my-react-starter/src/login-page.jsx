@@ -43,12 +43,24 @@ const LoginPage = () => {
         <h1>login</h1>
         <form onSubmit={handleLogin}>
           <div>
-          <label htmlFor='fname'>username:</label>
-          <input type='text' id='uname' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <label htmlFor='username'>username:</label>
+            <input 
+              type='text' 
+              id='uname' 
+              required
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+            />
           </div>
           <div>
-          <label htmlFor='password'>password:</label>
-          <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <label htmlFor='password'>password:</label>
+            <input 
+              type='password' 
+              id='password' 
+              required
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
           </div>
           <input type='submit' value='login' />
         </form>
