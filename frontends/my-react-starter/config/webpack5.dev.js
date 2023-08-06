@@ -37,7 +37,11 @@ module.exports = mergeWithCustomize({
   },
   plugins: [
     isDevelopment && new ReactRefreshWebpackPlugin(),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(
+      {
+      openAnalyzer: false
+      }
+    )
   ].filter(Boolean),
   devServer: {
     // contentBase: './dist',
