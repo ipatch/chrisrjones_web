@@ -15,7 +15,11 @@ const LoginPage = () => {
       const response = await axios.post('http://localhost:3000/api/auth/login', {
         email: email,
         password: password,
-      });
+      },
+        {
+          withCredentials: true,
+        }
+      );
       // if login good, handle response
       console.log(response.data);
 
