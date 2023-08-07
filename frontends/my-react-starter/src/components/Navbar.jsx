@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext.jsx';
 
 // NOTE: ipatch
 // ref: https://css-tricks.com/creating-a-smart-navbar-with-vanilla-javascript/
@@ -98,6 +99,8 @@ const NavbarDropdown = () => {
 };
 
 const LogoutButton = () => {
+  const { setIsLoggedIn } = useAuth();
+
   const handleLogout = () => {
 
     const jwtToken = localStorage.getItem('jwtToken');
@@ -114,6 +117,7 @@ const LogoutButton = () => {
         .then((response) => {
           console.log('logout successful');
           localStorage.removeItem('jwtToken');
+          setIsLoggedIn(false);
         })
       .catch((error) => {
         console.error('logout failed', error);
@@ -134,6 +138,10 @@ const Navbar = () => {
 
   const [showLinks, setShowLinks] = useState(true);
 
+  const { isLoggedIn } = useAuth();
+
+  // DEBUG
+  // console.log('isLoggedIn:', isLoggedIn); // Log the value of isLoggedIn
   
   const handleScroll = () => {
     // TODO: ipatch how to disable lsp diagnostic warning for deprecated browser API
@@ -181,26 +189,28 @@ const Navbar = () => {
         Open
         </button>
         <div className="navbar-left">
-        <div className="logo">
-          <Link to="/">
-            <>chrisrjones.com</>
-          </Link>
+          <div className="logo">
+            <Link to="/">
+              <>chrisrjones.com</>
+            </Link>
+          </div>
+          <div className="navbar-links" id={showLinks ? "hidden" : "" }>
+            <ul>
+              <a onClick={() => navigate('/about')}>About Me</a>
+              <a href="#">Contact Me</a>
+              <a href={dotsurl}>❤ ~/.🛠🐈</a>
+              <a href="#">youtube</a>
+              <a href="#">linkedin</a>
+              <a href="#">CV</a>
+            </ul>
+          </div>
         </div>
-        <div className="navbar-links" id={showLinks ? "hidden" : "" }>
+        <div className="navbar-right">
           <ul>
-            <a onClick={() => navigate('/about')}>About Me</a>
-            <a href="#">Contact Me</a>
-            <a href={dotsurl}>❤ ~/.🛠🐈</a>
-            <a href="#">youtube</a>
-            <a href="#">linkedin</a>
-            <a href="#">CV</a>
+            <NavbarDropdown />
+            {isLoggedIn && <LogoutButton />}
           </ul>
         </div>
-        </div>
-        <ul>
-          <NavbarDropdown />
-          <LogoutButton />
-        </ul>
       </nav>
     </>
   );

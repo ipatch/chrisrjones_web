@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Navbar } from './components/Navbar.jsx'
+import { Navbar } from './components/Navbar.jsx';
+import { useAuth } from './AuthContext.jsx';
 import './styles.css';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setIsLoggedIn } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ const LoginPage = () => {
       // store jwt token from rails api in browser local storage
       const token = response.data.auth_token;
       localStorage.setItem('jwtToken', token);
+      setIsLoggedIn(true);
 
     } catch (error) {
       // handle error

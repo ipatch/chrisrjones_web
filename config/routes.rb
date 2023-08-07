@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     post 'auth/login', to: 'authentication#authenticate'
     post 'signup', to: 'users#create'
     post 'logout', to: 'authentication#logout'
+    get 'isloggedin', to: 'authentication#check_authentication'
 
     # list our resources here
     resources :articles # WORKS

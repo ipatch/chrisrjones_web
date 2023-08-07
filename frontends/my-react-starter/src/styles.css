@@ -52,6 +52,15 @@
   align-items: center;
 }
 
+.navbar-right {
+  display:flex;
+  /* cursor: pointer; */
+}
+
+.navbar-right a {
+  cursor: pointer;
+}
+
 .logo a {
   display: flex;
   text-decoration: none;
@@ -81,6 +90,7 @@
   margin: 0;
   padding: 0;
 }
+
 .navbar-links {
   /* border: 1px solid red; */
   cursor: pointer;

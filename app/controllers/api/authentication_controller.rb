@@ -2,7 +2,7 @@
 
 class Api::AuthenticationController < ApiController
   before_action :authorize_request, except: :authenticate
-  skip_before_action :authorize_request, only: [:authenticate, :logout]
+  skip_before_action :authorize_request, only: [:authenticate, :logout, :check_authentication]
 
   # include AuthenticateUser
   include Response
@@ -20,6 +20,14 @@ class Api::AuthenticationController < ApiController
     else
       logger.error("Authentication Failed: Invalid credentials for email #{auth_params[:email]}")
       json_response({ error: 'invalid credentials' }, :unauthorized)
+    end
+  end
+
+  def check_authentication
+    if current_user
+      render json: { authenticated: true }
+    else
+      render json: { authenticated: false }
     end
   end
 

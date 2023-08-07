@@ -145,6 +145,10 @@ i came across the below neovim LSP error message today appearing as virtual text
 nvim native lsp tsserver could not find a declaration file for module 'react'.
 ```
 
+so when i use the login form component to login, it seems i'm going to need to use some form of state that can be preserved from the login component and passed to the navbar to conditionally display the logout button if indeed a user is logged in. 🤔
+
+👆️ the quickest thing i could find was to use the react context api to create a state that could shared between the login component and the navbar so i could conditionally render the logout button the user is logged in or not. i also had to add a route to my and method for my rails api to check login status. (not to bad). 👍️
+
 ## useful links
 
 <a id="useful-links"></a>
@@ -157,10 +161,10 @@ nvim native lsp tsserver could not find a declaration file for module 'react'.
 
 - [ ] #fe #react see if i can recreate the chatgpt login page, the little email animation to top of box thingy
 - [ ] #fe #react create a footer component
-- [ ] #fe #react only show logout button if a user is logged in
+- [x] #fe #react only show logout button if a user is logged in
 - [x] #fe #react need to preserve state through hot reloads, will be useful later on
 - [ ] #fe #react what's a good way to see the code of the actual components in my browser dev tools?
-    - as of right now when opening the debugger tab i'm seeing the entire app bundle ie. `app.bundle.js` 👎️
+    - as of right now, when opening the debugger tab i'm seeing the entire app bundle ie. `app.bundle.js` 👎️
 - [x] if using app as an API only how can i authenticate with the app using a frontend framework such as react
 - [x] fix the user registration process, ie. when i register an account the app throws and error as seen below
     ```
