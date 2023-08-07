@@ -169,33 +169,38 @@ const Navbar = () => {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
-          padding: '1.5rem 2rem',
-          backgroundColor: '#eaeaea',
+          // padding: '1.5rem 2rem',
           transition: 'top 0.3s ease',
-          // textDecoration: 'none',
         }}
       >
         {/* hamburger button */}
-        <button onClick={() => setShowLinks(!showLinks)}
+        <button 
+          onClick={() => setShowLinks(!showLinks)}
           className="navbar-navi-button"
         >
         Open
         </button>
+        <div className="navbar-left">
         <div className="logo">
           <Link to="/">
             <>chrisrjones.com</>
-        </Link>
+          </Link>
         </div>
         <div className="navbar-links" id={showLinks ? "hidden" : "" }>
-          <LogoutButton />
-          <a onClick={() => navigate('/about')}>About Me</a>
-          <a href="#">Contact Me</a>
-          <a href={dotsurl}>❤ ~/.🛠🐈</a>
-          <a href="#">youtube</a>
-          <a href="#">linkedin</a>
-          <a href="#">CV</a>
-          <NavbarDropdown />
+          <ul>
+            <a onClick={() => navigate('/about')}>About Me</a>
+            <a href="#">Contact Me</a>
+            <a href={dotsurl}>❤ ~/.🛠🐈</a>
+            <a href="#">youtube</a>
+            <a href="#">linkedin</a>
+            <a href="#">CV</a>
+          </ul>
         </div>
+        </div>
+        <ul>
+          <NavbarDropdown />
+          <LogoutButton />
+        </ul>
       </nav>
     </>
   );

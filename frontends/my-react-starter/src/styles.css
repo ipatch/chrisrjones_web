@@ -34,28 +34,61 @@
   margin: 2rem 6rem;
 }
 
-.logo a {
-  text-decoration: none;
-}
-
-.logo {
-  /* text-decoration: none; */
-  border: 1px solid red;
-}
-
 .Navbar {
+  /* border: 1px solid red; */
   font-family: Helvetica;
-  flex: 50%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* NOTE: ipatch, centers items horizontally within the div, ie. ----- */
+  align-items: center;
+  background-color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-left {
+  /* border: 1px solid red; */
+  display: flex;
   align-items: center;
 }
 
+.logo a {
+  display: flex;
+  text-decoration: none;
+  color: #9d9d9d;
+  font-size: 18px;
+  align-items: center;
+  padding-right: 25px;
+}
+
+.logo a:hover {
+  color: #fff
+}
+
+.logo {
+  /* border: 1px solid red; */
+  padding: 15px 0px 15px 15px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.navbar-links ul {
+  /* border: 1px solid red; */
+  list-style: none; 
+  display: flex;
+  /* gap: 20px; */
+  margin: 0;
+  padding: 0;
+}
 .navbar-links {
-  display: 'flex';
-  gap: '1rem';
-  /* max-height: 1180px; */
+  /* border: 1px solid red; */
   cursor: pointer;
+  /* justify-content: center; */
+  /* display: 'flex'; */
+  /* gap: '1rem'; */
+  /* max-height: 1180px; */
+  /* padding: 15px 15px; */
 }
 
 .navbar-links #hidden {
@@ -65,9 +98,14 @@
 .navbar-links a {
   text-decoration: none;
   gap: '1rem';
-  color: red;
-  font-size: 20px;
-  margin-left: 8px;
+  color: #9d9d9d;
+  font-size: 14px;
+  /* margin-left: 8px; */
+  margin: 7px;
+}
+
+.navbar-links a:hover {
+  color: #fff;
 }
 
 .navbar-navi-button {
