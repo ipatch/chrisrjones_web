@@ -1,5 +1,12 @@
 {
   "name": "chrisrjones.com-frontend-react",
+  "license": "MIT",
+  "author": "@ipatch",
+  "private": true,
+  "maintainers": [{
+    "name": "chris jones",
+    "email": "chris.r.jones.1983@gmail.com"
+  }],
   "version": "0.3.2",
   "description": "experimenting with react as a frontend for a simple rails API",
   "engines": {
@@ -12,6 +19,7 @@
     "dev4": "webpack-dev-server --env development --config ./config/webpack.config.js",
     "dev5": "webpack serve --config ./config/webpack5.dev.js",
     "dev:hot": "npm run dev5 -- --hot",
+    "dev:bun": "bun ./src/index.js",
     "rails-server": "concurrently \"../../bin/rails s\"",
     "rrdev": "concurrently \"npm run dev:hot\" \"npm run rails-server\"",
     "build": "webpack --env production --config ./config/webpack.config.js",
@@ -20,12 +28,9 @@
     "eslint-fix": "eslint --fix \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\""
   },
-  "author": "@ipatch",
-  "private": true,
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ipatch/chrisrjones_rails.git"
+    "url": "git+https://github.com/ipatch/chrisrjones_web.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.9",

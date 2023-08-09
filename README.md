@@ -149,6 +149,8 @@ so when i use the login form component to login, it seems i'm going to need to u
 
 👆️ the quickest thing i could find was to use the react context api to create a state that could shared between the login component and the navbar so i could conditionally render the logout button the user is logged in or not. i also had to add a route to my and method for my rails api to check login status. (not to bad). 👍️
 
+it seems schemastore.nvim is able to give me a decent list of json properties for configuring my package.json 👍️
+
 ## useful links
 
 <a id="useful-links"></a>
@@ -159,6 +161,7 @@ so when i use the login form component to login, it seems i'm going to need to u
 
 <a id="todo"></a>
 
+- [ ] setup CSS var for all my custom divs to toggle a red border outline for a _DEBUG_ mode for development 🤔
 - [ ] #fe #react see if i can recreate the chatgpt login page, the little email animation to top of box thingy
 - [ ] #fe #react create a footer component
 - [x] #fe #react only show logout button if a user is logged in
