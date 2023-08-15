@@ -2,8 +2,14 @@
   margin: 2rem 6rem;
 }
 
+
 .articles-page-container {
   margin: 2rem 6rem;
+}
+
+* {
+  /* DEBUG  */
+  /* border: 1px solid red;  */
 }
 
 .error-page-container {
