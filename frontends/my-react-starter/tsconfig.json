@@ -2,9 +2,9 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
-    /* NOTE: ipatch, editing this file directly impacts how my LSP operates in neovim /*
+    /* NOTE: ipatch, editing this file directly impacts how my LSP operates in neovim */
     "target": "es2016", /* Set the js lang version for emitted JS and include compatible library declarations. */
-    // "jsx": "react-jsx",
+    /* "jsx": "react-jsx", */
     "baseUrl": ".",
     "jsx": "react", /* got better results with this than above */
     "module": "commonjs",                                /* Specify what module code is generated. */
@@ -12,7 +12,7 @@
     /* JavaScript Support */
     "allowJs": true,  /* use js files with project. Use the 'checkJS' option to get errors from these files. */
     "checkJs": true,                                  /* Enable error reporting in type-checked JavaScript files. */
-    // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    /* "sourceMap": true, */                               /* Create source map files for emitted JavaScript files. */
    "esModuleInterop": true,                             /* Emit additional JS to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "strict": true,                                      /* Enable all strict type-checking options. */
