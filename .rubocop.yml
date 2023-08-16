@@ -1,9 +1,13 @@
 ---
-Rails:
-  Enabled: true
 
-Metrics/LineLength:
-  Max: 120
+# inherit_from: .rubocop_todo.yml
 
-Style/SymbolArray:
-  Enabled: true
+require: 
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+
+
