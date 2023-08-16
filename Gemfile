@@ -6,11 +6,8 @@ source 'https://rubygems.org'
 
 # ruby '2.7.8'
 # NOTE: ipatch, rails 5.2.x no compat with ruby v3.x
-# ruby '3.0.6' # nova
-# ruby '3.1.4'
 ruby '3.2.2'
 
-# gem 'rails', '~> 5.2.8.1'
 gem 'rails', '~> 6.0'
 # gem 'activerecord', '~> 5.2.8.15' # NOTE: ipatch, requires paid rails LTS
 
@@ -63,7 +60,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.1.2'
   gem "ruby-lsp", require: false
   # NOTE: ipatch, `ruby-lsp-rails` requires rails >= v6.0
-  # gem "ruby-lsp-rails"
+  gem "ruby-lsp-rails"
 end
 
 group :test do
