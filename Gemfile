@@ -4,11 +4,14 @@ source 'https://rubygems.org'
 
 # `~>` denotes bundler will only install minor updates
 
-ruby '2.7.8'
+# ruby '2.7.8'
 # NOTE: ipatch, rails 5.2.x no compat with ruby v3.x
 # ruby '3.0.6' # nova
+# ruby '3.1.4'
+ruby '3.2.2'
 
-gem 'rails', '~> 5.2.8.1'
+# gem 'rails', '~> 5.2.8.1'
+gem 'rails', '~> 6.0'
 # gem 'activerecord', '~> 5.2.8.15' # NOTE: ipatch, requires paid rails LTS
 
 gem 'bcrypt', '~> 3.1.12' # `has_secure_password` requires this

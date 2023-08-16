@@ -37,7 +37,7 @@ port = next_available_port
 if port
   puts "Using port #{port}..."
   ENV['PORT'] = port.to_s
-  ENV['HOST'] = '0.0.0.0'
+  ENV['BINDING'] = '0.0.0.0'
 else
   puts "No available ports found, using default 3000..."
 end
