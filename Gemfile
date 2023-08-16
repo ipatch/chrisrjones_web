@@ -58,6 +58,9 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
   gem 'pry', '~> 0.14.2' # debug
   gem 'rspec-rails', '~> 5.1.2'
+  gem "ruby-lsp", require: false
+  # NOTE: ipatch, `ruby-lsp-rails` requires rails >= v6.0
+  # gem "ruby-lsp-rails"
 end
 
 group :test do
