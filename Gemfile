@@ -60,10 +60,12 @@ group :development, :test do
   gem 'pry', '~> 0.14.2' # debug
   # gem 'rspec-rails', '~> 5.1.2'
   gem 'rspec-rails', '~> 6.0.3'
+
   # NOTE: ipatch, exp with solargraph
   # gem "ruby-lsp", require: false
   # NOTE: ipatch, `ruby-lsp-rails` requires rails >= v6.0
   # gem "ruby-lsp-rails"
+
   gem 'rubocop', require: false
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-rails', require: false
