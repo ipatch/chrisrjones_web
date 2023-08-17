@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+# TODO: add action for editing & updating comments
 # controller for mananging comments on article posts
 class CommentsController < ApplicationController
   # rails 5.x
-  before_action :authorize, only: %i[create edit update destroy]
+  before_action :authorize, only: %i[create destroy]
 
   # rails 4.2.x
   # before_filter :authorize, only: [:create, :edit, :update, :destroy]
