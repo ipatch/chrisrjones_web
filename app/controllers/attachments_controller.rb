@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller for managing attachments
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: %i[show edit update destroy]
 
@@ -53,8 +54,6 @@ class AttachmentsController < ApplicationController
     # rescue
     # render :nothing => true, :status => 404
   end
-
-  def show; end
 
   # GET /attachments/new
   def new

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# class for encoding and decoding json web tokens JWTs
 class JsonWebToken
   # secret to encode and decode token
   HMAC_SECRET = Rails.application.secrets.secret_key_base

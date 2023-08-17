@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller for mananging comments on article posts
 class CommentsController < ApplicationController
   # rails 5.x
   before_action :authorize, only: %i[create edit update destroy]

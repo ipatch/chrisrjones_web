@@ -12,7 +12,6 @@ module Api
     # EXP
     #
     skip_before_action :authorize_request, only: :index
-
     # skip_before_action :verify_authenticity_token, only: :hello
 
     include Response # `./app/controllers/concerns/`
@@ -89,7 +88,7 @@ module Api
     end
 
     def authorize
-      redirect_to login_url, alert: 'Not authorized' if current_user.nil?
+      redirect_to login_url, alert: I18n.t('unauthorized_message') if current_user.nil?
     end
 
     def current_user
