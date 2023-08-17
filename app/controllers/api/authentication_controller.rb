@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 module Api
+  # Controller for handling user authentication and authorization.
   class AuthenticationController < ApiController
     before_action :authorize_request, except: :authenticate
     skip_before_action :authorize_request, only: %i[authenticate logout check_authentication]
 
-    # include AuthenticateUser
+    # include AuthenticateUser and necessary modules
     include Response
     include ExceptionHandler
 
@@ -25,11 +26,7 @@ module Api
     end
 
     def check_authentication
-      if current_user
-        render json: { authenticated: true }
-      else
-        render json: { authenticated: false }
-      end
+      render json: { authenticated: current_user.present? }
     end
 
     def logout
@@ -37,13 +34,11 @@ module Api
       if TokenBlacklist.exists?(jwt_token: token)
         render json: { error: 'Token revoked' }, status: :unauthorized
       else
-        # Blacklist the current token
         TokenBlacklist.create(jwt_token: token, expiring_at: 1.day.from_now)
 
         # Clear the jwt_token for the current user if authenticated
-        if current_user
+        if current_user.present?
           current_user.update_column(:jwt_token, nil)
-        else
           # TODO: ipatch this is kindof a hack to fix logout issue of unauthorized 401
         end
         render json: { message: 'rails api logout successful' }, status: :ok

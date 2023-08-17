@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# app/services/authenticate_user.rb
+#
+# This class handles user authentication by validating email and password credentials.
+# If valid credentials are provided, a JSON web token (JWT) is generated for the user,
+# allowing them access to authenticated parts of the application.
 class AuthenticateUser
   # include 'message' # searches for a `module`
   # include Message # search for a `class`

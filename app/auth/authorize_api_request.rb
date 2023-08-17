@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# app/services/authorize_api_request.rb
+#
+# This class is responsible for authorizing API requests by decoding and verifying JSON Web Tokens (JWTs).
+# It extracts the user's ID from the token and retrieves the corresponding user record from the database.
+# If the token is valid and the user exists, the class returns a valid user object.
 class AuthorizeApiRequest
   def initialize(headers = {})
     @headers = headers

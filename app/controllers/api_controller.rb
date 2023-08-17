@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# BaseController for API controllers, responsible for authorization and authentication.
 class ApiController < ActionController::API
   # protect_from_forgery with: :null_session # NOT HOTDOG 🌭
   attr_reader :current_user
