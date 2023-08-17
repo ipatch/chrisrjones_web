@@ -11,9 +11,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find_by(slug: params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
+    respond_to(&:html)
   end
 
   def new
