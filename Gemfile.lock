@@ -181,6 +181,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.3)
+    prettier_print (1.2.1)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -268,6 +269,10 @@ GEM
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
+    ruby-lsp (0.8.0)
+      language_server-protocol (~> 3.17.0)
+      sorbet-runtime
+      syntax_tree (>= 6.1.1, < 7)
     ruby-progressbar (1.13.0)
     ruby-statistics (3.0.2)
     sassc (2.4.0)
@@ -280,6 +285,7 @@ GEM
       tilt
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    sorbet-runtime (0.5.10969)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -290,6 +296,8 @@ GEM
     sshkit (1.21.5)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    syntax_tree (6.1.1)
+      prettier_print (>= 1.2.0)
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
@@ -301,6 +309,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yard (0.9.34)
     zeitwerk (2.6.11)
 
 PLATFORMS
@@ -339,10 +348,12 @@ DEPENDENCIES
   rubocop-factory_bot
   rubocop-rails
   rubocop-rspec
+  ruby-lsp
   sassc-rails (~> 2.1.2)
   shoulda-matchers (~> 5.3.0)
   tzinfo (~> 2.0.6)
   uglifier (~> 4.2.0)
+  yard
 
 RUBY VERSION
    ruby 3.2.2p53
