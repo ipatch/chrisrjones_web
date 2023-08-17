@@ -17,7 +17,8 @@ set :rvm_ruby_version, '2.7.0'
 set :default_env, path: '$HOME/.rvm/bin:$HOME/.asdf/shims/:$HOME/.asdf/bin:/usr/local/bin:/usr/bin:/bin'
 set :bundle_flags, '--deployment'
 set :rvm_roles, %i[app web db]
-SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
+SSHKit.config.command_map[:rake] =
+  "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # set the default location for the app will be deployed to
 set :user, 'deploy'
@@ -156,7 +157,7 @@ namespace :deploy do
     on release_roles([:db]) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :rake, ENV['task']
+          execute :rake, ENV.fetch('task', nil)
         end
       end
     end

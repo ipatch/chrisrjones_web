@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UserMailer < ActionMailer::Base
+class UserMailer < ApplicationMailer
   default from: 'no-reply@chrisrjones.com'
   default to: 'me@chrisrjones.com'
 

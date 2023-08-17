@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
       @comment.destroy
     end
     redirect_to article_path(@article)
-    end
+  end
 
   private
 

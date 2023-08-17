@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
     # scope module: :v1, constraints: ApiConstraints.new(version: 1) do
-    match 'hello', to: 'articles#hello', via: [:get]
+    get 'hello', to: 'articles#hello'
     get 'hell0' => 'articles#hello'
     get 'empty' => 'articles#empty'
 

@@ -11,7 +11,7 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Kernel #:nodoc:
+module Kernel # :nodoc:
 end
 
 # pg 1.0 gem has migrated constants, but ActiveRecord 4.2 still reqs
@@ -36,7 +36,7 @@ module CrjCom
     # config.active_record.raise_in_transactional_callbacks = true
 
     config.before_configuration do
-      env_file = Rails.root.join('config', 'secrets.yml').to_s
+      env_file = Rails.root.join('config/secrets.yml').to_s
       if File.exist?(env_file)
         YAML.load_file(env_file)[Rails.env].map do |key, value|
           ENV[key.to_s] = value.to_s

@@ -43,6 +43,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # NOTE - rails 5 will use ":random" NOT ":sorted"
+  # NOTE: - rails 5 will use ":random" NOT ":sorted"
   config.active_support.test_order = :random
 end

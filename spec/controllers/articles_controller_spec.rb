@@ -2,17 +2,17 @@
 
 require 'rails_helper'
 
-RSpec.describe Api::ArticlesController, type: :controller do
+RSpec.describe Api::ArticlesController do
   describe '#index' do
     subject { get :index }
 
-    it 'should return success response' do
+    it 'returns success response' do
       get :index
       expect(response).to have_http_status(:ok)
     end
 
-    it 'should return proper json' do
-      create_list :article, 2
+    it 'returns proper json' do
+      create_list(:article, 2)
       subject
       #
       # DEBUG

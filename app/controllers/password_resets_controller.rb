@@ -3,15 +3,15 @@
 class PasswordResetsController < ApplicationController # :nodoc:
   def new; end
 
+  def edit
+    @user = User.find_by!(password_reset_token: params[:id])
+    # @user = User.find_by_password_reset_token!(password_params)
+  end
+
   def create
     user = User.find_by(params[:email])
     user&.send_password_reset
     redirect_to root_url, notice: 'Email sent with password reset instructions.'
-  end
-
-  def edit
-    @user = User.find_by!(password_reset_token: params[:id])
-    # @user = User.find_by_password_reset_token!(password_params)
   end
 
   def update

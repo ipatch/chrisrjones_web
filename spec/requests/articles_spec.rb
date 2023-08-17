@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Articles API', type: :request do
+RSpec.describe 'Articles API' do
   # initialize test data
   let(:user) { create(:user) }
   # TODO: setup articles to list users articles
@@ -14,7 +14,7 @@ RSpec.describe 'Articles API', type: :request do
   # Test suite for GET /articles
   describe 'GET /api/articles' do
     # make HTTP get request before each example
-    before { get '/api/articles', params: {}, headers: headers }
+    before { get '/api/articles', params: {}, headers: }
 
     it 'returns articles' do
       # Note `json` is a custom helper to parse JSON responses
@@ -23,13 +23,13 @@ RSpec.describe 'Articles API', type: :request do
     end
 
     it 'returns status code 200' do
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   # Test suite for GET /articles/:id
   describe 'GET /api/articles/:id' do
-    before { get "/api/articles/#{article_id}", params: {}, headers: headers }
+    before { get "/api/articles/#{article_id}", params: {}, headers: }
 
     context 'when the record exists' do
       it 'returns the article' do
@@ -38,7 +38,7 @@ RSpec.describe 'Articles API', type: :request do
       end
 
       it 'returns status code 200' do
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Articles API', type: :request do
       let(:article_id) { 100 }
 
       it 'returns status code 404' do
-        expect(response).to have_http_status(404)
+        expect(response).to have_http_status(:not_found)
       end
 
       it 'returns a not found message' do
@@ -63,23 +63,24 @@ RSpec.describe 'Articles API', type: :request do
     end
 
     context 'when the request is valid' do
-      before { post '/api/articles', params: valid_attributes, headers: headers }
+      before { post '/api/articles', params: valid_attributes, headers: }
 
       it 'creates a article' do
         expect(json['title']).to eq('Read a book')
       end
 
       it 'returns status code 201' do
-        expect(response).to have_http_status(201)
+        expect(response).to have_http_status(:created)
       end
     end
 
     context 'when the request is invalid' do
       let(:invalid_attributes) { { title: nil }.to_json }
-      before { post '/api/articles', params: invalid_attributes, headers: headers }
+
+      before { post '/api/articles', params: invalid_attributes, headers: }
 
       it 'returns status code 422' do
-        expect(response).to have_http_status(422)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
 
       it 'returns a validation failure message' do
@@ -95,24 +96,24 @@ RSpec.describe 'Articles API', type: :request do
     let(:valid_attributes) { { title: 'Reading More' }.to_json }
 
     context 'when the record exists' do
-      before { put "/api/articles/#{article_id}", params: valid_attributes, headers: headers }
+      before { put "/api/articles/#{article_id}", params: valid_attributes, headers: }
 
       it 'updates the record' do
         expect(response.body).to be_empty
       end
 
       it 'returns status code 204' do
-        expect(response).to have_http_status(204)
+        expect(response).to have_http_status(:no_content)
       end
     end
   end
 
   # Test suite for DELETE /api/articles/:id
   describe 'DELETE /api/articles/:id' do
-    before { delete "/api/articles/#{article_id}", params: {}, headers: headers }
+    before { delete "/api/articles/#{article_id}", params: {}, headers: }
 
     it 'returns status code 204' do
-      expect(response).to have_http_status(204)
+      expect(response).to have_http_status(:no_content)
     end
   end
 end

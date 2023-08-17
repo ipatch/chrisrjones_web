@@ -80,7 +80,7 @@ Rails.application.configure do
   # config.autoflush_log = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -99,8 +99,8 @@ Rails.application.configure do
     address: 'smtp.chrisrjones.com',
     port: 587,
     domain: 'chrisrjones.com',
-    user_name: ENV['MAIL_ADDRESS'],
-    password: ENV['MAIL_PASSWORD'],
+    user_name: ENV.fetch('MAIL_ADDRESS', nil),
+    password: ENV.fetch('MAIL_PASSWORD', nil),
     authentication: 'plain',
     enable_starttls_auto: true,
     openssl_verify_mode: 'none'

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ApiController, type: :controller do
+RSpec.describe ApiController do
   # create test user
   let!(:user) { create(:user) }
   # set headers for authorization

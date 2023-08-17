@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # NOTE: ipatch,
 # ref: https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e
 #
@@ -32,4 +33,3 @@
 #   @overload find(*args)
 #     @return [Array<self>]
 #   @return [self, Array<self>]
-

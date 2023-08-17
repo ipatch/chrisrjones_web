@@ -10,5 +10,5 @@
 
 # seed 50 records
 50.times do
-  article = Article.create(title: Faker::Lorem.word, text: Faker::Lorem.word, slug: Faker::Lorem.word)
+  Article.create(title: Faker::Lorem.word, text: Faker::Lorem.word, slug: Faker::Lorem.word)
 end

@@ -11,15 +11,16 @@ class User < ApplicationRecord # :nodoc:
   # attr_accessible :email, :password, :password_confirmation
 
   has_many :articles, dependent: :destroy
-  has_many :attachments
+  has_many :attachments, dependent: :nullify
 
   validates :email, :password_digest, presence: true
   validates :email, uniqueness: true
 
   def generate_token(column)
-    begin
+    loop do
       self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
+      break unless User.exists?(column => self[column])
+    end
   end
 
   def send_password_reset

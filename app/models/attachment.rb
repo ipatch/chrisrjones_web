@@ -7,13 +7,11 @@ class Attachment < ApplicationRecord # :nodoc:
   attr_accessor :file
 
   def uploaded_file(incoming_file)
-    if incoming_file
-      self.filename = sanitize_filename(incoming_file.original_filename)
-      self.content_type = incoming_file.content_type
-      self.file_contents = incoming_file.read
-    else
-      raise 'missing file'
-    end
+    raise 'missing file' unless incoming_file
+
+    self.filename = sanitize_filename(incoming_file.original_filename)
+    self.content_type = incoming_file.content_type
+    self.file_contents = incoming_file.read
   end
 
   def filename=(new_filename)
