@@ -35,3 +35,5 @@ en:
     thanks_for_signing_up: 'Thanks for signing up 🥳'
     user_deleted: 'sad to see you go, user has been deleted'
     user_updated: 'your user account has been updated 👍️'
+    logged_in: 'you are now logged in'
+    logged_out: 'you are now logged out, bye 👋'
