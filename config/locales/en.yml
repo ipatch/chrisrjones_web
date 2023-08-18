@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+
+  user_mailer:
+    new_message:
+      subject: "[chrisrjones.com] %{subject}"
+    password_reset:
+      subject: "Password Reset"
+    confirmation:
+      subject: "Confirm Account"
