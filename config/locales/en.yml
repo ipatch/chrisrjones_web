@@ -29,3 +29,9 @@ en:
       subject: "Password Reset"
     confirmation:
       subject: "Confirm Account"
+
+  notices:
+    cannot_edit_user: 'cannot edit this user.'
+    thanks_for_signing_up: 'Thanks for signing up 🥳'
+    user_deleted: 'sad to see you go, user has been deleted'
+    user_updated: 'your user account has been updated 👍️'

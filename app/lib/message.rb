@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Message class provides standardized messages for various scenarios in the application.
+# These messages are used for responding to user requests, indicating error states,
+# or providing informative feedback.
 class Message
   def self.not_found(record = 'record')
     "Sorry, #{record} not found."
