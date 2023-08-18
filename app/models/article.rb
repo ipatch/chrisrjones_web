@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# represents an article in the application
 class Article < ApplicationRecord # :nodoc:
   # DEPRECATED: rails >= v4.x attr_accessible :slug
   validates :title, presence: true, length: { minimum: 5 }
