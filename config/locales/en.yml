@@ -37,3 +37,7 @@ en:
     user_updated: 'your user account has been updated 👍️'
     logged_in: 'you are now logged in'
     logged_out: 'you are now logged out, bye 👋'
+    please_login: 'please login'
+
+  alerts:
+    not_authorized: 'sorry you didnt say the magic word'
