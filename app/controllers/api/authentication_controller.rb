@@ -13,16 +13,13 @@ module Api
     # return auth token once user is authenticated
     def authenticate
       # binding.pry
-      user = User.find_by(email: auth_params[:email])
+      user = find_user_by_email
+      return invalid_credentials unless user_authenticated?(user)
 
-      if user&.authenticate(auth_params[:password])
-        auth_token = JsonWebToken.encode(user_id: user.id)
-        user.update_column(:jwt_token, auth_token)
-        json_response(auth_token:)
-      else
-        logger.error("Authentication Failed: Invalid credentials for email #{auth_params[:email]}")
-        json_response({ error: 'invalid credentials' }, :unauthorized)
-      end
+      auth_token = generate_auth_token(user)
+      return authentication_failed(user.email) unless save_auth_token(user, auth_token)
+
+      json_response(auth_token:)
     end
 
     def check_authentication
@@ -31,21 +28,66 @@ module Api
 
     def logout
       token = request.headers['Authorization']
-      if TokenBlacklist.exists?(jwt_token: token)
-        render json: { error: 'Token revoked' }, status: :unauthorized
-      else
-        TokenBlacklist.create(jwt_token: token, expiring_at: 1.day.from_now)
 
-        # Clear the jwt_token for the current user if authenticated
-        if current_user.present?
-          current_user.update_column(:jwt_token, nil)
-          # TODO: ipatch this is kindof a hack to fix logout issue of unauthorized 401
-        end
-        render json: { message: 'rails api logout successful' }, status: :ok
+      if TokenBlacklist.exists?(jwt_token: token)
+        render_token_revoked_error
+      else
+        blacklist_token(token)
+        clear_jwt_token_for_user
+        render_logout_success
       end
     end
 
     private
+
+    def render_token_revoked_error
+      render json: { error: 'Token revoked' }, status: :unauthorized
+    end
+
+    def blacklist_token(token)
+      TokenBlacklist.create(jwt_token: token, expiring_at: 1.day.from_now)
+    end
+
+    def clear_jwt_token_for_user
+      return if current_user.blank?
+
+      current_user.jwt_token = nil
+      current_user.save ? nil : render_logout_failed_error
+    end
+
+    def render_logout_success
+      render json: { message: 'rails api logout successful' }, status: :ok
+    end
+
+    def render_logout_failed_error
+      render json: { error: 'Logout failed' }, status: :unprocessable_entity
+    end
+
+    def find_user_by_email
+      User.find_by(email: auth_params[:email])
+    end
+
+    def user_authenticated?(user)
+      user&.authenticate(auth_params[:password])
+    end
+
+    def generate_auth_token(user)
+      JsonWebToken.encode(user_id: user.id)
+    end
+
+    def save_auth_token(user, auth_token)
+      user.update(jwt_token: auth_token)
+    end
+
+    def invalid_credentials
+      logger.error("Authentication Failed: Invalid credentials for email #{auth_params[:email]}")
+      json_response({ error: 'invalid credentials' }, :unauthorized)
+    end
+
+    def authentication_failed(email)
+      logger.error("Authentication Failed: Invalid credentials for email #{email}")
+      json_response({ error: 'invalid credentials' }, :unauthorized)
+    end
 
     def auth_params
       # params.require(:authentication).permit(:email, :password)
