@@ -38,6 +38,10 @@ en:
     logged_in: 'you are now logged in'
     logged_out: 'you are now logged out, bye 👋'
     please_login: 'please login'
+    password_reset_instructions: 'Email sent with password reset instructions.'
+    password_been_reset: 'Your password has been reset 🕹️'
 
   alerts:
     not_authorized: 'sorry you didnt say the magic word'
+    password_reset_expired: 'sorry your password reset expired 🐢'
+
