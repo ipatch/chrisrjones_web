@@ -70,11 +70,9 @@ class AttachmentsController < ApplicationController
     upload_file
     respond_to do |format|
       if save_attachment
-        format.html { redirect_to attachments_url, notice: 'Attachment saved.' }
-        format.json { render :show, status: :created, location: @attachment }
+        handle_successful_creation(format)
       else
-        format.html { render :new }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
+        handle_failed_creation(format)
       end
     end
   end
@@ -84,7 +82,7 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @attachment, notice: 'Attachment updated.' }
+        format.html redirect_to @attachment, notice: t('notice.attatchment_updated')
         format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :edit }
@@ -98,7 +96,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment successfully removed.' }
+      format.html { redirect_to attachments_url, notice: t('notice.attachment_removed') }
       format.json { head :no_content }
     end
   end
@@ -108,6 +106,7 @@ class AttachmentsController < ApplicationController
   def upload_file
     @attachment.uploaded_file(params[:attachment][:file])
   end
+
   def save_attachment
     @attachment.save
   end

@@ -5,26 +5,41 @@ class ApiController < ActionController::API
   # protect_from_forgery with: :null_session # NOT HOTDOG 🌭
   attr_reader :current_user
 
-  private
-
   # check for valid request token and return user
   def authorize_request
-    authorization_header = request.headers['Authorization']
-    token = authorization_header.split.last if authorization_header
+    token = extract_token_from_header
 
-    if token.present?
-      decoded_token = JsonWebToken.decode(token)
-      @current_user = User.find_by(id: decoded_token[:user_id])
-    else
-      render json: { error: 'Unauthorized' }, status: :unauthorized and return
-    end
+    render_unauthorized_error and return if token.blank?
 
-    # Check if the token is blacklisted
-    if @current_user && TokenBlacklist.exists?(jwt_token: authorization_header)
-      render json: { error: 'Token revoked' }, status: :unauthorized and return
-    end
+    @current_user = find_user_from_token(token)
+
+    render_token_revoked_error and return if token_blacklisted?(token)
   rescue JWT::DecodeError
+    render_unauthorized_error
+  end
+
+  private
+
+  def extract_token_from_header
+    authorization_header = request.headers['Authorization']
+    authorization_header&.split&.last
+  end
+
+  def find_user_from_token(token)
+    decoded_token = JsonWebToken.decode(token)
+    User.find_by(id: decoded_token[:user_id])
+  end
+
+  def render_unauthorized_error
     render json: { error: 'Unauthorized' }, status: :unauthorized
+  end
+
+  def token_blacklisted?(token)
+    TokenBlacklist.exists?(jwt_token: token)
+  end
+
+  def render_token_revoked_error
+    render json: { error: 'Token revoked' }, status: :unauthorized
   end
 
   def authenticate_token

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Api
+  # userscontroller class provides user related actions
   class UsersController < ApiController
     skip_before_action :authorize_request, only: :create
 

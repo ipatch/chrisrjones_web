@@ -42,9 +42,14 @@ en:
     password_been_reset: 'Your password has been reset 🕹️'
     message_sent: 'Message sent. Thanks for contacting me.'
     confirmation_confirmed: 'Your account has been confirmed. ✅'
+    attachment_updated: 'Your attachment has been updated ✅'
+    attachment_remove: 'Your attachment has been removed 🗑️'
 
   alerts:
     not_authorized: 'sorry you didnt say the magic word'
     password_reset_expired: 'sorry your password reset expired 🐢'
     confirmation_expired: 'Confirmation has expired. 😵'
+
+  flash:
+    not_the_mama: 'sry not the owner (mama) 🦕♣️'
 

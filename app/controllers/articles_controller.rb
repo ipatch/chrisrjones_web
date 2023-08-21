@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller for managing articles
 class ArticlesController < ApplicationController
   before_action :authorize, only: %i[create edit update destroy]
 
@@ -44,7 +45,7 @@ class ArticlesController < ApplicationController
       @article.update(article_params)
       redirect_to @article
     else
-      flash[:notice] = 'Not the author of the article!'
+      flash[:notice] = t('notice.not_the_mama')
       render 'edit'
     end
   end
