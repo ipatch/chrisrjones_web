@@ -40,8 +40,11 @@ en:
     please_login: 'please login'
     password_reset_instructions: 'Email sent with password reset instructions.'
     password_been_reset: 'Your password has been reset 🕹️'
+    message_sent: 'Message sent. Thanks for contacting me.'
+    confirmation_confirmed: 'Your account has been confirmed. ✅'
 
   alerts:
     not_authorized: 'sorry you didnt say the magic word'
     password_reset_expired: 'sorry your password reset expired 🐢'
+    confirmation_expired: 'Confirmation has expired. 😵'
 

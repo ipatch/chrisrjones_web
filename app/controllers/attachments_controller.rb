@@ -67,12 +67,11 @@ class AttachmentsController < ApplicationController
   # POST /attachments.json
   def create
     @attachment = Attachment.new(attachment_params)
-    @attachment.uploaded_file(params[:attachment][:file])
-
+    upload_file
     respond_to do |format|
-      if @attachment.save
+      if save_attachment
         format.html { redirect_to attachments_url, notice: 'Attachment saved.' }
-        format.json { render :show, status: created, location: @attachment }
+        format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
@@ -105,6 +104,13 @@ class AttachmentsController < ApplicationController
   end
 
   private
+
+  def upload_file
+    @attachment.uploaded_file(params[:attachment][:file])
+  end
+  def save_attachment
+    @attachment.save
+  end
 
   def set_attachment
     @attachment = Attachment.find(params[:id])

@@ -11,10 +11,10 @@ class ConfirmationsController < ApplicationController # :nodoc:
   def update
     # @user = User.find_by_confirmation_token!(params[:id])
     if @user.confirmation_sent_at < 2.hours.ago
-      redirect_to new_confirmation_path, alert: 'Confirmation has expired.'
+      redirect_to new_confirmation_path, alert: t('alert.confirmation_expired')
       # elseif @user.update_attributes(params[:user])
     elsif @user.update(confirmed: true)
-      redirect_to root_url, notice: 'Your account has been confirmed.'
+      redirect_to root_url, notice: t('notice.confirmation_confirmed')
     else
       render :new
     end
