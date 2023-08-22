@@ -164,6 +164,9 @@ it seems schemastore.nvim is able to give me a decent list of json properties fo
 
 <a id="todo"></a>
 
+- [ ] #rails viewing and downloading attachments is broken 🤦‍♂️
+- [ ] #rails display proper error message for not being able to upload attachments if user is logged in
+- [ ] see if i can find 🕵️ the `.sql` file for my old rails database
 - [ ] setup CSS var for all my custom divs to toggle a red border outline for a _DEBUG_ mode in development 🤔
 - [ ] #fe #react see if i can recreate the chatgpt login page, the little email animation to top of box thingy
 - [ ] #fe #react create a footer component
