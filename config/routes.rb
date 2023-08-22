@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 require 'addressable/uri'
 require 'api_constraints'
+
 # priority based upon order of creation: first created -> highest priority.
-# See how all your routes lay out with "rake routes".
+# See how all your routes lay out with "rails routes".
 
 Rails.application.routes.draw do
   resources :articles do
@@ -11,11 +14,11 @@ Rails.application.routes.draw do
   end
 
   poop = 'https://linkedin.com/in/💩'
-  get 'resume', to: redirect { |_params, _req| Addressable::URI.parse(URI.escape(poop)) }
+  get 'resume', to: redirect { |_params, _req| Addressable::URI.parse(URI.encode_www_form_component(poop)) }
   # Add below route for correct "resumé" spelling
-  get 'resumé', to: redirect { |_params, _req| Addressable::URI.parse(URI.escape(poop)) }
+  get 'resumé', to: redirect { |_params, _req| Addressable::URI.parse(URI.encode_www_form_component(poop)) }
   dots = 'https://github.com/ipatch/dotfiles'
-  get 'dotfiles', to: redirect { |_params, _req| Addressable::URI.parse(URI.escape(dots)) }
+  get 'dotfiles', to: redirect { |_params, _req| Addressable::URI.parse(URI.encode_www_form_component(dots)) }
 
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
@@ -39,7 +42,11 @@ Rails.application.routes.draw do
   # GET /attachments/view/42 #legacy
   get '/attachments/view/:id', to: 'attachments#view'
   get 'about' => 'about#index'
-  get 'contact' => 'contact#contact'
+  # get 'contact' => 'contact#index'
+  # resources :contacts
+  # get 'contact' => 'contact#contact'
+  get 'contact' => 'contact#new'
+  post 'contact' => 'contact#create'
 
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
@@ -56,11 +63,13 @@ Rails.application.routes.draw do
     # list our resources here
     resources :articles # WORKS
 
-    # NOTE: to limit what resources can be reached
-    # EX
+    # NOTE: to limit reach of resources
+    # ex:
     # resources :articles, :except => [:new, :edit]
     # end
   end
   # You can have the root of your site routed with "root"
   root to: 'articles#index', defaults: { format: 'html' }
 end
+
+# rubocop:enable Metrics/BlockLength
