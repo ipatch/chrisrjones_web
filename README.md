@@ -50,11 +50,13 @@ For my particular use case, I manage many different Rubies on my system using va
 
 ```shell
 echo "rvm use [RUBY_VERSION_DEFINED_FOR_THIS APP]"
-echo "as of March 4, 2020 👇"
-rvm ues 2.7.0
+echo "as of 2023 👇"
+rvm ues 3.2.2
 ssh-agent
 ssh-add ~/.ssh/id_rsa
-cap production deploy
+
+echo "below cmd is obsolete"
+~~cap production deploy~~
 ```
 
 ## Security
@@ -137,7 +139,7 @@ to name a few.  For more info on granular updating of gems [see](https://bundler
 
 > just some thought / notes working with react experimenting building out a frontend
 
-- styling CSS pseduo class elements like hover becomes **non trivial** when using inline styles 👎️
+- styling CSS pseudo class elements ie. `hover` becomes **non trivial** when using inline styles 👎️
 
 i came across the below neovim LSP error message today appearing as virtual text, the quick solution is to install the `@types/react` npm package for my react starter project because i initialzed a `tsconfig.js` in the root of the project.
 
@@ -147,7 +149,7 @@ nvim native lsp tsserver could not find a declaration file for module 'react'.
 
 so when i use the login form component to login, it seems i'm going to need to use some form of state that can be preserved from the login component and passed to the navbar to conditionally display the logout button if indeed a user is logged in. 🤔
 
-👆️ the quickest thing i could find was to use the react context api to create a state that could shared between the login component and the navbar so i could conditionally render the logout button the user is logged in or not. i also had to add a route to my and method for my rails api to check login status. (not to bad). 👍️
+👆️ the quickest thing i could find was to use the react context api to create a state that could shared between the login component and the navbar so i could conditionally render the logout button if the user is logged in or not. i also had to add a route and method for my _rails_ api to check login status. (not to bad). 👍️
 
 it seems schemastore.nvim is able to give me a decent list of json properties for configuring my package.json 👍️
 
@@ -156,12 +158,13 @@ it seems schemastore.nvim is able to give me a decent list of json properties fo
 <a id="useful-links"></a>
 
 - https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+- https://mailtrap.io/blog/ruby-on-rails-contact-form/ **useful for **#tshoot** existing contact form 😵
 
 ## TODO
 
 <a id="todo"></a>
 
-- [ ] setup CSS var for all my custom divs to toggle a red border outline for a _DEBUG_ mode for development 🤔
+- [ ] setup CSS var for all my custom divs to toggle a red border outline for a _DEBUG_ mode in development 🤔
 - [ ] #fe #react see if i can recreate the chatgpt login page, the little email animation to top of box thingy
 - [ ] #fe #react create a footer component
 - [x] #fe #react only show logout button if a user is logged in
@@ -183,9 +186,9 @@ it seems schemastore.nvim is able to give me a decent list of json properties fo
     ```
 - [ ] work on figuring out how i can setup an intializer to experiment with the bun & deno javascript runtimes
 - [x] updating my `boot.rb` file to use next avail port broke accessing my app on my LAN, should be easy fix
-- [ ] fix contact form time permitting
-- [ ] make certain that only the **owner** of an attachment can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
+- [x] fix contact form time permitting
+- [ ] make certain that only the **owner** of an attachment or admin can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
 - [ ] figure out why _seed_ data isn't properly inserting into the test database
 - [ ] experiment with versioning API, ie. create a V1 & V2
-- [ ] update string formatting with those defined in the Rubocop style guidelines for Ruby
+- [x] update string formatting with those defined in the Rubocop style guidelines for Ruby
 - [x] ~~figure out why app isn't running in dev environment ¯\\_(ツ)_/¯~~
