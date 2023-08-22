@@ -1,0 +1,24 @@
+<div id="contact_form">
+  <h1>Contact Me :)</h1>
+  <hr>
+
+  <%= form_for([@message, Message.new]) do |f| %>
+
+    <!-- Your form fields here -->
+    <div class="form-group">
+      <!-- name -->
+      <div class="field">
+        <%= f.text_field :name, class: 'input-lg', placeholder: 'name' %>
+      </div>
+    </div>
+
+    <!-- Add more form fields here... -->
+
+    <div class="form-group">
+      <!-- submit -->
+      <div class="text-center">
+        <%= f.submit "Send Message", class: 'btn-lg' %>
+      </div>
+    </div>
+  <% end %>
+</div>
