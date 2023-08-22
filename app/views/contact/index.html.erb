@@ -7,7 +7,7 @@
 
 <!-- name -->
 <div class="field">
-	<%= f.text_field :name, :class => 'input-xlarge', placeholder: 'name' %>
+  <%= f.text_field :name, :class => 'input-xlarge', placeholder: 'name' %>
 </div>
 <!-- email -->
 <div class="field">
@@ -15,14 +15,14 @@
 </div>
 <!-- subject -->
 <div class="field">
-	<%= f.text_field :subject, :class => 'input-xlarge', placeholder: 'Subject' %>
+  <%= f.text_field :subject, :class => 'input-xlarge', placeholder: 'Subject' %>
 </div>
 <!-- message -->
 <div class="field">
-	<%= f.text_area :body, :rows => 10, :cols => 50, placeholder: 'Enter a short synopsis'%>
+  <%= f.text_area :body, :rows => 10, :cols => 50, placeholder: 'Enter a short synopsis' %>
 </div>
 <!-- submit -->
-<div class="actions"><%= f.submit "Send Message", :class => 'btn btn-xlarge btn-custom'%>
+<div class="actions"><%= f.submit "Send Message", :class => 'btn btn-xlarge btn-custom' %>
 </div>
 <% end %>
 </div>

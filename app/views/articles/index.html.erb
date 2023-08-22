@@ -1,19 +1,19 @@
 <h1>Articles</h1>
 <%= link_to 'New article', new_article_path %>
-<hr />
+<hr>
 
 <% @articles.order(created_at: :desc).each do |article| %>
 
   <h2><%= link_to article.title, article_path(article) %></h2>
   <p>published on <%= article.created_at.strftime("%d %b. %Y") %></p>
-  <%= sanitize article.text %><br />
+  <%= sanitize article.text %><br>
   <%= link_to 'Edit', edit_article_path(article) %>
   <%= link_to 'Destroy', article_path(article),
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
-  <hr />
+  <hr>
 
 <% end %>
 
-<br />
+<br>
 <%= link_to 'New article', new_article_path %>
