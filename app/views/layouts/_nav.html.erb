@@ -15,7 +15,9 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
   <li><%= link_to "About Me",about_path %></li>
-  <li><%= link_to "Contact",contact_path %></li>
+  <li><%= link_to "Contact", controller: 'contact', action: 'new' %></li>
+  <%# <li><%= link_to "Contact", new_contact_path %></li> %>
+  <li><%= link_to "Contact Me", controller: 'contact_form', action: 'new' %></li>
   <li><%= link_to "❤ ~/.🛠🐈",dotfiles_path %></li>
   <li><%= link_to 'CV',resume_path %></li>
   <!-- <li class="dropdown">

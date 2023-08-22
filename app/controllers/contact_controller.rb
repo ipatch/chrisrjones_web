@@ -11,19 +11,26 @@ class ContactController < ApplicationController # :nodoc:
     @message = Message.new
   end
 
-  def show
-    @message = Message.find_by(params[:id])
-    respond_to(&:html)
-  end
-
   def new
     # binding.pry
-    @message = Message.new
+    # @message = Message.new
     # @contact = Contact.new
+    @contact = Message.new
   end
 
+  # def create
+  #   @name = params[:contact_form][:name]
+  #   @last_name = params[:contact_form][:last_name]
+  #   @email = params[:contact_form][:email]
+  #   @message = params[:contact_form][:message]
+  #
+  #   # Perform any necessary actions with the form data
+  #   flash[:success] = "Your message has been sent successfully."
+  #   redirect_to :root
+  # end
+
   def create
-    @message = Message.new(message_params)
+    @message = Message.new
     if @message.save
       UserMailer.new_message(@message).deliver_now
       redirect_to root_url, notice: t('notices.message_sent')

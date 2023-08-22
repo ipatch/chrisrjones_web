@@ -46,11 +46,19 @@ Rails.application.routes.draw do
   # resources :contacts
   # get 'contact' => 'contact#contact'
 
+  # work!
+  resources :contact_form, only: %i[new create]
+  resources :contact, only: %i[new create]
+
   # NOWORK!
   # resources :contacts, path: 'messages'
+  #
+  # err, No route matches {:action=>"show", :controller=>"contact", :format=>:html}, missing required keys: [:id]
+  # resources :contact
 
+  # resources :contact, only: [:new, :create]
   # WORK!
-  get 'contact' => 'contact#new'
+  # get 'contact' => 'contact#new'
 
   # post 'contact' => 'contact#create'
 

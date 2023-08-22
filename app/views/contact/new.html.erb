@@ -2,23 +2,22 @@
   <h1>Contact Me :)</h1>
   <hr>
 
+<%= form_with scope: :contact, url: contact_index_path, method: :post, local: true, class: "container" do |form| %>
   <%# <%= form_for([@message, Message.new]) do |f| %> %>
-  <%= form_for @contact do |f| %>
+  <%# <%= form_for @contact do |f| %> %>
 
     <!-- Your form fields here -->
-    <div class="form-group">
-      <!-- name -->
-      <div class="field">
-        <%= f.text_field :name, class: 'input-lg', placeholder: 'name' %>
-      </div>
-    </div>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
 
     <!-- Add more form fields here... -->
 
     <div class="form-group">
       <!-- submit -->
       <div class="text-center">
-        <%= f.submit "Send Message", class: 'btn-lg' %>
+  <%= form.submit "Submit", class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
