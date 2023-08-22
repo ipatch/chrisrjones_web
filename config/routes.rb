@@ -45,8 +45,14 @@ Rails.application.routes.draw do
   # get 'contact' => 'contact#index'
   # resources :contacts
   # get 'contact' => 'contact#contact'
+
+  # NOWORK!
+  # resources :contacts, path: 'messages'
+
+  # WORK!
   get 'contact' => 'contact#new'
-  post 'contact' => 'contact#create'
+
+  # post 'contact' => 'contact#create'
 
   # Api definitions
   namespace :api, defaults: { format: 'json' } do

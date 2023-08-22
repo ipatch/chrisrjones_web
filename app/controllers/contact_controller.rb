@@ -12,10 +12,12 @@ class ContactController < ApplicationController # :nodoc:
   end
 
   def show
-    @message = Message.new
+    @message = Message.find_by(params[:id])
+    respond_to(&:html)
   end
 
   def new
+    # binding.pry
     @message = Message.new
     # @contact = Contact.new
   end

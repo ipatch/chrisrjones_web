@@ -2,7 +2,8 @@
   <h1>Contact Me :)</h1>
   <hr>
 
-  <%= form_for([@message, Message.new]) do |f| %>
+  <%# <%= form_for([@message, Message.new]) do |f| %> %>
+  <%= form_for @contact do |f| %>
 
     <!-- Your form fields here -->
     <div class="form-group">
