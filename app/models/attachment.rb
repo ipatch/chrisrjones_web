@@ -6,6 +6,10 @@ class Attachment < ApplicationRecord # :nodoc:
   # validate :sanitize_filename
   attr_accessor :file
 
+  def image_url
+    filename
+  end
+
   def uploaded_file(incoming_file)
     raise 'missing file' unless incoming_file
 

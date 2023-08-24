@@ -1,24 +1,27 @@
 <h1>Attachments</h1>
 <table>
-<thead>
-<tr>
-<th>Filename</th>
-<th>ID</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<% @attachments.each do |attachment| %>
-<tr>
-<td><%= attachment.filename %></td>
-<td><%= attachment.id %></td>
-<td><%= link_to 'View Attachment', :action => 'view', :id => attachment.id %></td>
-<td><%= button_to 'Download', download_attachment_path(attachment) %></td>
-<td><%= button_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
-<% end %>
-</tbody>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>ID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attachments.each do |attachment| %>
+      <tr>
+        <td><%= attachment.filename %></td>
+        <td><%= attachment.id %></td>
+        <%# <td><%= link_to 'View Attachment', :action => 'view', :id => attachment.id %></td> %>
+        <%# <td><%= image_tag attachment.image_url %></td> <!-- Use the correct attribute here --> %>
+        <td><%= link_to 'View Attachment', view_attachment_path(attachment) %></td>
+        <td><%= button_to 'DownloadNOWORK', download_attachment_path(attachment) %></td>
+        <td><%= button_to 'Download', download_attachment_path(attachment), method: :get, remote: true %></td>
+        <td><%= button_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <br>
 <p>To view attachments in the browser navigate to the following URL, http://chrisrjones.com/attachments/view/&lt;ID&gt; where ID = the attachment ID listed above. :)<br>

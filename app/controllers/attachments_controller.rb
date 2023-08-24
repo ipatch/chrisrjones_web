@@ -2,10 +2,11 @@
 
 # controller for managing attachments
 class AttachmentsController < ApplicationController
-  before_action :set_attachment, only: %i[show edit update destroy]
+  # before_action :set_attachment, only: %i[show edit update destroy]
+  # before_action :authorize, only: %i[new create update destroy]
+  # before_action :authorize, except: [:new]
 
   # rails 5.x
-  before_action :authorize, only: %i[new create update destroy]
   skip_before_action :verify_authenticity_token
   # rails 4.x
   # before_filter :authorize, only: [:new, :creeate, :update, :destroy]
@@ -25,39 +26,29 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/:id/view
   def view
-    a = Attachment.find(params[:id])
-    # TODO: adjust condition to check for created_at or updated_at so old attachments can eventually be updated
-    # NOTE: super hacky for my use case, not proud but keeps the ball rolling.
-    if a.id <= 66
-      send_data(Base64.decode64(a.file_contents), type: a.content_type, disposition: 'inline', filename: a.filename)
-    else
-      send_data a.file_contents,
-                type: a.content_type,
-                disposition: 'inline',
-                x_sendfile: false
-    end
-    # TODO: catch / handle errors
+    @attachment = Attachment.find(params[:id])
+    send_attachment(@attachment, 'inline')
   end
 
   # GET attachments/download/:id
   def download
     a = Attachment.find(params[:id])
+
     if a.id <= 66
-      send_data(Base64.decode64(a.file_contents), type: a.content_type, disposition: 'attachment', filename: a.filename)
+      send_data(Base64.decode64(a.file_contents),
+        type: a.content_type,
+        disposition: 'attachment; filename="' + a.filename + '"') # Set the Content-Disposition header
     else
       send_data a.file_contents,
-                type: a.content_type,
-                disposition: 'attachment',
-                filename: a.filename
+        type: a.content_type,
+        disposition: 'attachment; filename="' + a.filename + '"'
     end
-    # TODO: properly handle download errors
-    # rescue
-    # render :nothing => true, :status => 404
   end
 
   # GET /attachments/new
   def new
     @attachment = Attachment.new
+    # create_attachment
   end
 
   # GET /attachments/1/edit
@@ -94,14 +85,62 @@ class AttachmentsController < ApplicationController
   # DELETE /attachments/1
   # DELETE /attachments/1.json
   def destroy
-    @attachment.destroy
+    @attachment = Attachment.find(params[:id]) # Find the attachment by its ID
+
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: t('notice.attachment_removed') }
-      format.json { head :no_content }
+      if @attachment.destroy # Check if the destroy operation was successful
+        format.html { redirect_to attachments_url, notice: t('notice.attachment_removed') }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to attachments_url, alert: t('alert.attachment_not_removed') }
+        format.json { render json: { error: 'Attachment could not be removed' }, status: :unprocessable_entity }
+      end
     end
   end
 
   private
+
+  # Common logic for creating an attachment
+  def create_attachment
+    # You can use the same logic as in the create action here
+    @attachment = Attachment.new(attachment_params)
+    upload_file
+    respond_to do |format|
+      if save_attachment
+        handle_successful_creation(format)
+      else
+        handle_failed_creation(format)
+      end
+    end
+  end
+
+  def send_attachment(attachment, disposition)
+    data = retrieve_attachment_data(attachment)
+    send_data(
+      data,
+      type: attachment.content_type,
+      disposition: "#{disposition}; filename=\"#{attachment.filename}\"",
+      status: :ok
+    )
+  end
+
+  def retrieve_attachment_data(attachment)
+    if attachment.id <= 66
+      Base64.decode64(attachment.file_contents)
+    else
+      attachment.file_contents
+    end
+  end
+
+  def handle_successful_creation(format)
+    format.html { redirect_to @attachment, notice: t('notice.attachment_created') }
+    format.json { render :show, status: :created, location: @attachment }
+  end
+
+  def handle_failed_creation(format)
+    format.html { render :new }
+    format.json { render json: @attachment.errors, status: :unprocessable_entity }
+  end
 
   def upload_file
     @attachment.uploaded_file(params[:attachment][:file])
