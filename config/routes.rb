@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # Add below route for correct "resumé" spelling
   get 'resumé', to: redirect { |_params, _req| Addressable::URI.parse(URI.encode_www_form_component(poop)) }
   dots = 'https://github.com/ipatch/dotfiles'
-  get 'dotfiles', to: redirect { |_params, _req| Addressable::URI.parse(URI.encode_www_form_component(dots)) }
+  get 'dotfiles', to: redirect(dots)
 
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
@@ -35,16 +35,15 @@ Rails.application.routes.draw do
 
   resources :attachments do
     member do
-      get :download
+      # get :download
       get :view
     end
   end
+
   # GET /attachments/view/42 #legacy
   get '/attachments/view/:id', to: 'attachments#view'
+  get 'attachments/download/:id', to: 'attachments#download', as: 'download_attachment'
   get 'about' => 'about#index'
-  # get 'contact' => 'contact#index'
-  # resources :contacts
-  # get 'contact' => 'contact#contact'
 
   # work!
   resources :contact_form, only: %i[new create]
@@ -52,15 +51,8 @@ Rails.application.routes.draw do
 
   # NOWORK!
   # resources :contacts, path: 'messages'
-  #
-  # err, No route matches {:action=>"show", :controller=>"contact", :format=>:html}, missing required keys: [:id]
+  # ERR, No route matches {:action=>"show", :controller=>"contact", :format=>:html}, missing required keys: [:id]
   # resources :contact
-
-  # resources :contact, only: [:new, :create]
-  # WORK!
-  # get 'contact' => 'contact#new'
-
-  # post 'contact' => 'contact#create'
 
   # Api definitions
   namespace :api, defaults: { format: 'json' } do
