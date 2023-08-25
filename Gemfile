@@ -34,16 +34,18 @@ gem 'derailed_benchmarks'
 gem 'memory_profiler'
 
 # API gems
+# gem 'active_model_serializers', '~> 0.10.9'
 gem 'fast_jsonapi', '~> 1.5'
-gem 'jwt', '~> 2.7.1' # authenticate using JSON web tokens
+gem 'jwt', '~> 2.7.1' # JSON web token authentication
 gem 'rack-cors', '~> 2.0.1'
-# gem 'active_model_serializers', '~> 0.10.9' #Api Gems
+
 gem 'acts_as_list', '~> 1.1.0' # sort objects, "Simple CMS"
 gem 'binding_of_caller', '~> 1.0.0' # irb in error window
 
 gem 'addressable', '~> 2.8.5' # emojis in URLs
 gem 'nokogiri', '~> 1.15.4' # XML HTML parser
 
+# deployment gems
 gem 'capistrano', '~> 3.12'
 gem 'capistrano3-nginx', '~> 3.0.1'
 gem 'capistrano-bundler', '~> 2.1.0'
@@ -51,6 +53,7 @@ gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-rvm', '~> 0.1.2'
 # gem 'capistrano3-puma', '~> 5.2.0'
 gem 'capistrano3-puma', '~> 6.0.0.alpha.1'
+gem 'redis', '~> 5.0', '>= 5.0.7'
 
 group :development, :test do
   # gem 'debugger' # DEPRECATED
@@ -82,7 +85,5 @@ end
 
 # add puma to productoin
 group :production do
-  # gem 'puma', '~> 5.6.5'
-  # gem 'puma', '~> 6.0.2'
   gem 'puma', '~> 6.3.0'
 end
