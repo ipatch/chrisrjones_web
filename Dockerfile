@@ -3,6 +3,7 @@ FROM ruby:3.2.2-alpine
 LABEL maintainer="chris.r.jones.1983@gmail.com@gmail.com"
 
 # RUN apt-get update -yqq && apt-get install -y apt-transport-https
+RUN apk update; 
 
 # RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
@@ -13,6 +14,9 @@ LABEL maintainer="chris.r.jones.1983@gmail.com@gmail.com"
 # RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
 #     nodejs \
 #     yarn
+RUN apk add \
+      nodejs \
+      yarn
 
 COPY Gemfile* /usr/src/app/
 WORKDIR /usr/src/app
