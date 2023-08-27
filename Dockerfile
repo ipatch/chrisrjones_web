@@ -16,7 +16,9 @@ RUN apk update;
 #     yarn
 RUN apk add \
       nodejs \
-      yarn
+      yarn \
+      build-base \
+      postgresql-dev
 
 COPY Gemfile* /usr/src/app/
 WORKDIR /usr/src/app
