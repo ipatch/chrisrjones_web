@@ -81,6 +81,7 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.1.0'
   gem 'faker', '~> 3.1.1'
   gem 'shoulda-matchers', '~> 5.3.0'
+  gem 'timecop'
 end
 
 # add puma to productoin
