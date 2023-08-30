@@ -32,7 +32,8 @@ public/*
 *.rbc
 capybara-*.html
 .rspec
-/coverage
+# ignore all test coverage reports for git tracking
+coverage/
 /spec/tmp
 /**.orig
 rerun.txt
