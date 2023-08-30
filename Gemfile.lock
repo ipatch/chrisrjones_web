@@ -109,7 +109,10 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
-    database_cleaner (1.7.0)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.3)
     dead_end (4.0.0)
     debug_inspector (1.1.0)
@@ -340,7 +343,7 @@ DEPENDENCIES
   capistrano-rvm (~> 0.1.2)
   capistrano3-nginx (~> 3.0.1)
   capistrano3-puma (~> 6.0.0.alpha.1)
-  database_cleaner (~> 1.7.0)
+  database_cleaner-active_record (~> 2.1.0)
   derailed_benchmarks
   erb_lint
   factory_bot_rails (~> 6.2.0)
