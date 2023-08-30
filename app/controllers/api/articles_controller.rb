@@ -6,12 +6,8 @@ module Api
     # disable CSRF on a controller basis
     # before_action :authorize, only: [:create, :edit, :update, :destroy]
     before_action :set_article, only: %i[show update destroy]
-    skip_before_action :authorize_request, only: %i[hello empty]
-
-    #
-    # EXP
-    #
-    skip_before_action :authorize_request, only: :index
+    # skip_before_action :authorize_request, only: %i[hello empty index]
+    # skip_before_action :authorize_request, only: %i[authenticate logout check_authentication]
     # skip_before_action :verify_authenticity_token, only: :hello
 
     include Response # `./app/controllers/concerns/`

@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
+  # GET /articles
+  # GET /articles.json
   def index
     @articles = Article.all
   end
