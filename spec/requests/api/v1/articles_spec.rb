@@ -2,13 +2,18 @@
 
 require 'rails_helper'
 
-describe 'articles API', type: :request do
-  it 'sends an individual response' do
-    get '/api/hello', nil, \
-      { 'HTTP_ACCEPT' => 'application/vnd.contacts.v1' }
-    expect(response).to have_http_status(:ok)
-    json = JSON.response.parsed_body
-    expect(json['repsonse']).to eq 'hello from ./app/controllers/api/articles_controller#hello'
-    # Etc.
+# NOTE: ipatch, can remove `, type: :request` rspec will infer correct type cuz dir structure, and loc of spec file.
+RSpec.describe 'articles API'
+# test hello api endpoint
+describe 'GET /hello' do
+  it 'returns hello message' do
+    get '/api/hello'
+    result = JSON(response.body)
+    expect(result['message']).to eq('hello from ./app/controllers/api/articles_controller#hello')
+  end
+
+  it 'returns status code 200' do
+    get '/api/hello'
+    expect(response).to have_http_status(:success)
   end
 end
