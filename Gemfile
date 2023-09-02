@@ -63,6 +63,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0' # 5.0.1 4.11.1
   gem 'pry', '~> 0.14.2' # debug
   # gem 'rspec-rails', '~> 5.1.2'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.3'
 
   # NOTE: ipatch, exp with solargraph
