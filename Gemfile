@@ -27,6 +27,7 @@ gem 'tzinfo', '~> 2.0.6' # not rails 5.x compat
 #--
 # Add JS runtime, ie. Node.js V8
 # SEE: `./config/boot.rb` for JS runtime settings
+gem 'execjs', git: 'https://github.com/rails/execjs.git', ref: '4e31ac13a2a662d55b34da3a32'
 
 #--
 # Profiling
