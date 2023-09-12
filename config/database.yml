@@ -1,21 +1,21 @@
 # crj.com - rails app uses PostgreSQL along with the pg gem
 defaults: &default
   adapter: postgresql
-  host: localhost
+  # host: database # defaults to `localhost`
+  host:     <%= ENV.fetch('DATABASE_HOST') %>
   encoding: utf8
-  database: crj_cms_dev
-  pool: 5
-  username: <%= ENV["PG_USER"] %>
-  password: <%= ENV["PG_PASS"] %>
+  # username: <%= ENV["PG_USER"] %>
+  username: <%= ENV.fetch('POSTGRES_USER') %>
+  # password: <%= ENV["PG_PASS"] %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') %>
+  database: <%= ENV.fetch('POSTGRES_DB') %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  variables:
+    statement_timeout: 5000
 
 development:
-  adapter: postgresql
-  host: localhost
-  encoding: utf8
-  database: crj_cms_dev
-  pool: 5
-  username: <%= ENV["PG_USER"] %>
-  password: <%= ENV["PG_PASS"] %>
+  <<: *default
+  # database: crj_cms_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

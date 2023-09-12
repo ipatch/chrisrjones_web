@@ -16,6 +16,10 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
+    depends_on:
+      - database
+    networks:
+      - default
 
   redis:
     image: redis
@@ -28,3 +32,8 @@ services:
     #   POSTGRES_DB: CHANGE_ME
     env_file:
       - .env/development/database
+  #   volumes:
+  #   - db_data:/var/lib/postgresql/data
+  #
+  # volumes:
+  #   db_data:
