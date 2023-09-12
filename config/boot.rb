@@ -11,6 +11,9 @@ require 'bundler/setup' # Set up gems listed in the Gemfile.
 # Find the next available port starting from 3001
 require 'socket'
 
+# NOTE: ipatch, useful when running app with docker-compose
+$stdout.sync = true
+
 def next_available_port
   port = 3000
   # Get the local IP address dynamically
