@@ -23,6 +23,7 @@ gem 'sassc-rails', '~> 2.1.2'
 
 # gem 'tzinfo', '~> 1.2.11'
 gem 'tzinfo', '~> 2.0.6' # not rails 5.x compat
+gem 'tzinfo-data' # required for docker
 
 #--
 # Add JS runtime, ie. Node.js V8
