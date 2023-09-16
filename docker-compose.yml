@@ -9,8 +9,9 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-      - .env/development/database
-      - .env/development/web
+      - .env
+      # - .env/development/database
+      # - .env/development/web
     depends_on:
       - database
     networks:
@@ -22,7 +23,8 @@ services:
   database:
     image: postgres
     env_file:
-      - .env/development/database
+      - .env
+      # - .env/development/database
   #   volumes:
   #   - db_data:/var/lib/postgresql/data
   #
