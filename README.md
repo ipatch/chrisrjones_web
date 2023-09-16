@@ -77,6 +77,16 @@ bundle update loofah
 
 <a id="maintenance"></a>
 
+### maintenance / september 2023
+
+recently i have started to migrate the rails api and the full stack rails app itself to work with docker and docker-compose. below are some useful commands for working with the app when using docker & friends.
+
+```
+docker-compose up -d web
+docker-compose up -d --force-recreate web
+docker-compose exec web bin/rails db:migrate
+```
+
 ### maintenance / march 2023
 
 > it appears a rails 5.x app will not work with ruby 3.x so use ruby 2.7.x to work with rails 5.x
@@ -159,6 +169,7 @@ it seems schemastore.nvim is able to give me a decent list of json properties fo
 
 - https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
 - https://mailtrap.io/blog/ruby-on-rails-contact-form/ **useful for **#tshoot** existing contact form 😵
+- https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one
 
 ## TODO
 
@@ -187,7 +198,8 @@ it seems schemastore.nvim is able to give me a decent list of json properties fo
     app/models/user.rb:36:in `send_confirmation'
     app/controllers/users_controller.rb:28:in `create'
     ```
-- [ ] work on figuring out how i can setup an intializer to experiment with the bun & deno javascript runtimes
+- [x] work on figuring out how i can setup an intializer to experiment with the bun & deno javascript runtimes
+    - execjs has been updated to work with bun out of the box 👍️
 - [x] updating my `boot.rb` file to use next avail port broke accessing my app on my LAN, should be easy fix
 - [x] fix contact form time permitting
 - [ ] make certain that only the **owner** of an attachment or admin can delete an attachment, ie. don't allow other peeps to delete other peeps attachments.
