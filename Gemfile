@@ -61,6 +61,7 @@ gem 'redis', '~> 5.0', '>= 5.0.7'
 group :development, :test do
   # gem 'debugger' # DEPRECATED
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'erb_lint', require: false
   # gem 'factory_bot_rails', '~> 4.0' # 5.0.1 4.11.1
   gem 'factory_bot_rails', '~> 6.2.0' # 5.0.1 4.11.1

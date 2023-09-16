@@ -44,7 +44,9 @@ doc/app
 
 # Comment out these rules if your OK with secrets being uploaded
 config/secrets.yml
-.env/**
+.env
+.env/*
+!./env/.gitkeep
 
 # Cap requires the Gemfile.lock be checked into version control unless supportinng rvm < 1.11.0 doing something fancy, ignore this: .rvmrc
 
