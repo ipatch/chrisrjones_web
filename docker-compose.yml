@@ -10,8 +10,7 @@ services:
       - .:/usr/src/app
     env_file:
       - .env
-      # - .env/development/database
-      # - .env/development/web
+      - .env.docker
     depends_on:
       - database
     networks:
@@ -24,7 +23,7 @@ services:
     image: postgres
     env_file:
       - .env
-      # - .env/development/database
+      - .env.docker
   #   volumes:
   #   - db_data:/var/lib/postgresql/data
   #

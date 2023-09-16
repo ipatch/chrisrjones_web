@@ -82,6 +82,7 @@ bundle update loofah
 recently i have started to migrate the rails api and the full stack rails app itself to work with docker and docker-compose. below are some useful commands for working with the app when using docker & friends.
 
 ```
+docker-compose build
 docker-compose up -d web
 docker-compose up -d --force-recreate web
 docker-compose exec web bin/rails db:migrate
