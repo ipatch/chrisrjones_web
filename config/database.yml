@@ -1,8 +1,7 @@
 # crj.com - rails app uses PostgreSQL along with the pg gem
 defaults: &default
   adapter: postgresql
-  # host: localhost # defaults to `localhost`
-  host:     <%= ENV.fetch('DATABASE_HOST') %>
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   encoding: utf8
   username: <%= ENV.fetch('POSTGRES_USER') %>
   password: <%= ENV.fetch('POSTGRES_PASSWORD') %>
