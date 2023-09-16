@@ -8,11 +8,6 @@ services:
       - "3000:3000"
     volumes:
       - .:/usr/src/app
-    # environment:
-    #   DATABASE_HOST: database
-    #   POSTGRES_USER: postgres
-    #   POSTGRES_PASSWORD: 
-    #   POSTGRES_DB: crj_cms_dev
     env_file:
       - .env/development/database
       - .env/development/web
@@ -26,10 +21,6 @@ services:
 
   database:
     image: postgres
-    # environment:
-    #   POSTGRES_USER: postgres
-    #   POSTGRES_PASSWORD: CHANGE_ME
-    #   POSTGRES_DB: CHANGE_ME
     env_file:
       - .env/development/database
   #   volumes:
