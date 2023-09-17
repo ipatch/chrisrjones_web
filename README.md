@@ -79,6 +79,8 @@ bundle update loofah
 
 ### maintenance / september 2023
 
+this app should be able to work within a docker environment and a legacy rvm environment. 👍️
+
 recently i have started to migrate the rails api and the full stack rails app itself to work with docker and docker-compose. below are some useful commands for working with the app when using docker & friends.
 
 ```
@@ -176,6 +178,8 @@ it seems schemastore.nvim is able to give me a decent list of json properties fo
 
 <a id="todo"></a>
 
+- [ ] #rails it seems when the app tries to send an email when creating a user using the full stack rails app it FAILS
+    - also getting the same mailer error message when attempting to create a user using the react fe with the APP 🤔
 - [ ] #rails viewing and downloading attachments is broken 🤦‍♂️
 - [ ] #rails display proper error message for not being able to upload attachments if user is logged in
 - [ ] see if i can find 🕵️ the `.sql` file for my old rails database
