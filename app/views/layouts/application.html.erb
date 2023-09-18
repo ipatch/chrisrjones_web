@@ -29,6 +29,13 @@
     <div id="footer">
       <div class="container">
         <p class="muted credit"><id="copyright">&copy; 2019 chrisrjones.com / Chris Jones</p>
+        <% if ENV['DOCKER_ENV'] == 'true' %>
+          <p>
+          <% redis = Redis.new(host: "redis", port: 6379) %>
+          <% redis.incr "page hits" %>
+          <% @page_hits = redis.get "page hits" %>
+          </p>
+        <% end %>
       </div>
     </div> <!-- footer -->
     </div> <!-- wrap div -->
